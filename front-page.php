@@ -32,28 +32,30 @@ get_header();
 
 	</section>
 
-	<section id="who-we-are" class="section services columns small-12">
+	<section id="who-we-are" class="section services blue columns small-12">
 
-		<h1 class="section-title">
-			<a href="#who-we-are" class="force-color no-effect">
+		<div class="section-content">
+			<h1 class="section-title">
+				<a href="#who-we-are" class="force-color no-effect">
 				<span class="text">
 					<span class="icon-flag"></span>
 					Who we are
 				</span>
+				</a>
+			</h1>
+
+			<div class="section-summary">
+				We're a marketing firm with an emphasis on top-notch website creation.
+			</div>
+
+			<a href="#" class="button">
+				See what we can do for you!
 			</a>
-		</h1>
 
-		<div class="section-summary">
-			We're a marketing firm with an emphasis on top-notch website creation.
+			<p>
+				More copy that perhaps should be here but <a href="#">link</a> perhaps shot lunot
+			</p>
 		</div>
-
-		<a href="#" class="button dark">
-			See what we can do for you!
-		</a>
-
-		<p>
-			More copy that perhaps should be here but <a href="#">link</a> perhaps shot lunot
-		</p>
 
 	</section>
 

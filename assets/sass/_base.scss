@@ -85,45 +85,42 @@ h1, h2, h3, h4, h5, h6 {
 
 // Buttons
 button, .button {
-  color: $button-font-color;
+  color: #fff !important;
   border-radius: 1000px;
   text-transform: uppercase;
   text-shadow: 1px 1px 0 #000;
   position: relative;
-//  box-shadow: 1px 1px 0 #000, 1px 1px 0 #000 inset;
   overflow: hidden;
 
   // Chrome overflow hidden issue
   -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
 
-  &.dark {
-    text-shadow: 1px 1px 0 #fff;
-    color: $body-font-color;
-  }
-
   &:hover {
-    color: $secondary-color;
+    color: $secondary-color !important;
   }
-
   &:active {
     color: darken($secondary-color, 10%) !important;
   }
 
-  &:focus {
-    color: $button-font-color;
+  // Secondary style
+  &.secondary {
+    border-color: #fff;
+
+    &:hover {
+      color: $primary-color !important;
+    }
+    &:active {
+      color: darken($primary-color, 10%) !important;
+    }
   }
 
   &.effect {
     transition: border-color 300ms;
-
-    &.dark {
-      &:hover {
-        color: $body-font-color;
-      }
-    }
+    background: transparent !important;
 
     .button-text {
       position: relative;
+      color: #fff;
       z-index: 1;
     }
 
@@ -135,6 +132,7 @@ button, .button {
         right: 0;
       }
     }
+
 
     &:active {
       color: $button-font-color !important;
@@ -157,6 +155,23 @@ button, .button {
       background: $secondary-color;
       transition: right 300ms;
       z-index: 0;
+    }
+
+    // Secondary style
+    &.secondary {
+      &:hover {
+        border-color: $primary-color;
+      }
+
+      &:active {
+        &:before {
+          background: darken($primary-color, 10%);
+        }
+      }
+
+      &:before {
+        background: $primary-color;
+      }
     }
   }
 }

@@ -5,7 +5,8 @@ Styles front-page.php (the home page).
 */
 @import "../settings";
 
-$section-gutter: 50px;
+$section-gutter: 100px;
+$section-transition: 1.5s;
 
 body.home {
 
@@ -73,16 +74,44 @@ body.home {
   // Sections
   .section {
     text-align: center;
-    margin-top: $section-gutter;
-    margin-bottom: $section-gutter;
     position: relative;
+    overflow: hidden;
+    padding: 0;
+    transition: background $section-transition;
+    background: #222;
+    color: #fff;
+    text-shadow: 1px 1px 0 #222;
+
+    &.active {
+
+      &.blue {
+        background: darken($primary-color, 16%);
+      }
+
+      &.green {
+        background: darken($secondary-color, 22%);
+      }
+
+      .background-container {
+        .line {
+          width: 100%;
+        }
+      }
+    }
+
+    .section-content {
+      position: relative;
+      padding-top: $section-gutter;
+      padding-bottom: $section-gutter;
+      z-index: 5;
+    }
 
     .section-title {
       background: $dark-color;
       color: #fff;
       text-transform: uppercase;
       position: absolute;
-      top: -$section-gutter;
+      top: 0;
       left: 0;
       right: 0;
       margin: 0;
@@ -105,12 +134,59 @@ body.home {
 
     .section-summary {
       @extend h2;
+      margin-top: $section-gutter / 2;
+      margin-bottom: $section-gutter / 2;
       font-family: $font-family-special;
+      color: inherit;
+      transition: color $section-transition;
     }
 
     .button {
       margin-top: $section-gutter / 2;
       margin-bottom: $section-gutter / 2;
+    }
+
+    &.blue {
+      .background-container {
+        .line {
+          background: darken($primary-color, 15%);
+        }
+      }
+    }
+
+    &.green {
+      .background-container {
+        .line {
+          background: darken($secondary-color, 20%);
+        }
+      }
+
+      .button {
+        @extend .secondary;
+      }
+    }
+
+    .background-container {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 1;
+
+      .line {
+        background: $primary-color;
+        width: 0;
+        transition: width $section-transition * 1.5;
+
+        &.left {
+          float: left;
+        }
+
+        &.right {
+          float: right;
+        }
+      }
     }
   }
 }

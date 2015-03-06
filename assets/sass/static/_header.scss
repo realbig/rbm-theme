@@ -12,6 +12,20 @@ $menu-item-color: #ddd;
 $gutter: 20px;
 $title-height: 130px;
 
+// Admin bar compensation
+body.admin-bar {
+  #wrapper {
+    &.reveal {
+      #site-header {
+        top: 32px;
+      }
+    }
+    #site-header {
+      top: -$title-height + 32;
+    }
+  }
+}
+
 // Reveal
 #wrapper.reveal {
 
@@ -343,13 +357,6 @@ $title-height: 130px;
   left: 0;
   z-index: 5;
   transition: opacity 500ms, visibility 500ms;
-}
-
-// Admin bar compensation
-body.admin-bar {
-  #site-header {
-    top: 32px;
-  }
 }
 
 // Animations
