@@ -1,0 +1,98 @@
+/*
+Base element settings (no classes or id's).
+
+@since 0.1.0
+*/
+
+@import "settings";
+
+a {
+  transition: color 300ms;
+
+  &.color-invert {
+    color: inherit;
+
+    &:hover {
+      color: $anchor-font-color-hover;
+    }
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: $header-letter-spacing;
+}
+
+.row.expand {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: initial;
+}
+
+.font-special {
+  font-family: $font-family-special;
+}
+
+button, .button {
+  color: $button-font-color;
+  border-radius: 1000px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 0 #000;
+  position: relative;
+  box-shadow: 1px 1px 0 #000, 1px 1px 0 #000 inset;
+  overflow: hidden;
+
+  &:hover {
+    color: $secondary-color;
+  }
+
+  &:active {
+    color: darken($secondary-color, 10%) !important;
+  }
+
+  &:focus {
+    color: $button-font-color;
+  }
+
+  &.effect {
+    transition: border-color 300ms;
+
+    .button-text {
+      position: relative;
+      z-index: 1;
+    }
+
+    &:hover {
+      color: $button-font-color;
+      border-color: $secondary-color;
+      box-shadow: 1px 1px 0 #000;
+
+      &:before {
+        right: 0;
+      }
+    }
+
+    &:active {
+      color: $button-font-color !important;
+      border-color: darken($secondary-color, 10%);
+      transition: none;
+
+      &:before {
+        background: darken($secondary-color, 10%);
+      }
+    }
+
+    // Hover effect
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 100%;
+      bottom: 0;
+      left: 0;
+      background: $secondary-color;
+      transition: right 300ms;
+      z-index: 0;
+    }
+  }
+}
