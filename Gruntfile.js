@@ -77,7 +77,6 @@ module.exports = function (grunt) {
                         'assets/vendor/js/fastclick.js',
                         'assets/vendor/js/placeholder.js',
                         'assets/vendor/js/jquery.cookie.js',
-                        'assets/vendor/js/jquery.easing.js',
                         'assets/vendor/js/foundation.js',
 
                         // Included dynamically in header.php

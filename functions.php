@@ -37,6 +37,7 @@ define( 'THEME_ID', 'my_theme' );
 $theme_fonts = array(
 	'oswald' => 'http://fonts.googleapis.com/css?family=Oswald:700',
 	'leckerli one' => 'http://fonts.googleapis.com/css?family=Leckerli+One',
+	'open sans' => 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700',
 );
 
 /**
@@ -119,8 +120,10 @@ add_action( 'wp_enqueue_scripts', function () {
  * @since 0.1.0
  */
 add_action( 'after_setup_theme', function () {
+
 	register_nav_menu( 'primary-right', 'Primary Right' );
 	register_nav_menu( 'primary-left', 'Primary Left' );
+	register_nav_menu( 'primary-center', 'Primary Circular' );
 } );
 
 /**

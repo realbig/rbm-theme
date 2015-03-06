@@ -7,7 +7,8 @@
 (function ($) {
     'use strict';
 
-    var $home_cta = $('.home-cta');
+    var $home_cta = $('.home-cta'),
+        $scroll = $home_cta.find('.scroll-down');
 
     // Bail if not there
     if ($home_cta.length === 0) {
@@ -33,5 +34,15 @@
         $home_cta.height(window_height);
         $home_message.css('margin-top', $home_message.height() / 2 * -1);
     }
+
+    // Scroll down
+    $scroll.click(function () {
+
+        $('body, html').animate({
+            scrollTop: $('.section').first().offset().top
+        }, 500);
+
+        return false;
+    });
 
 })(jQuery);

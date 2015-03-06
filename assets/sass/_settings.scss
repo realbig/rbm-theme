@@ -14,12 +14,13 @@ $alert-color: #f04124;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
 $info-color: #a0d3e8;
+$dark-color: #222;
 
 // We use these to define default font stacks
-$font-family-sans-serif: "Helvetica", sans-serif;
+$font-family-sans-serif: "Open Sans", sans-serif;
 $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
-$body-font-color: #222;
+$body-font-color: $dark-color;
 $font-family-special: 'Leckerli One', cursive;
 
 // Sizes
@@ -36,8 +37,8 @@ $header-letter-spacing: 1px;
 // We use these to style anchors
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
-$anchor-font-color: $primary-color;
-$anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
+$anchor-font-color: $secondary-color;
+$anchor-font-color-hover: $secondary-color;
 
 // Buttons
 $button-bg-color: false;

@@ -14,4 +14,11 @@
         }
     });
 
+    window['rbm_clear_cookies'] = function () {
+        $.removeCookie('rbm-header-preview');
+        return 'success!';
+    };
+
+    //$('html').addClass('no-csstransforms').removeClass('csstransforms');
+
 })(jQuery);

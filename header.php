@@ -32,11 +32,16 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 <div id="wrapper">
 
-	<header id="site-header" class="reveal">
+	<div id="back-cover"></div>
+
+	<header id="site-header">
 
 		<h1 class="site-title">
-			<a href="<?php bloginfo( 'url' ); ?>">
-				<?php bloginfo( 'name' ); ?>
+			<a href="<?php bloginfo( 'url' ); ?>" class="no-effect">
+				<span class="color-secondary">Real</span>
+				<span class="color-primary" style="font-size: 1.5em;">Big</span>
+				<br/>
+				<span class="color-secondary">Marketing</span>
 			</a>
 		</h1>
 
@@ -52,6 +57,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="site-logo">
 				<?php include __DIR__ . '/assets/images/rbm-logo.php'; ?>
 		</div>
+
+		<nav class="site-nav-circular">
+			<?php
+			wp_nav_menu( array(
+				'theme_location' => 'primary-center',
+				'container' => false,
+				'link_before' => '<span>',
+				'link_after' => '</span>',
+			));
+			?>
+		</nav>
 
 		<nav class="site-nav-right">
 			<?php
