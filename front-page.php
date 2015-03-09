@@ -36,7 +36,7 @@ get_header();
 
 		<div class="section-content">
 
-			<?php kidniche_section_title( 'Who We Are' ); ?>
+			<?php kidniche_section_title( 'Who We Are', 'who-we-are' ); ?>
 
 			<div class="section-summary">
 				We're a marketing firm with an emphasis on top-notch website creation.
@@ -62,18 +62,18 @@ $portfolio = get_posts( array(
 ) );
 ?>
 
-	<section id="who-we-are" class="section portfolio green columns small-12">
+	<section id="what-weve-done" class="section portfolio green columns small-12">
 
 		<div class="section-content">
 
-			<?php kidniche_section_title( 'What We\'ve Done' ); ?>
+			<?php kidniche_section_title( 'What We\'ve Done', 'what-weve-done' ); ?>
 
 			<div class="section-summary">
 				We've built some pretty cool stuff. Take a look!
 			</div>
 
 			<?php if ( ! empty( $portfolio ) ) : ?>
-				<ul class="portfolio">
+				<ul class="portfolio-list">
 					<?php
 					foreach ( $portfolio as $post ) :
 						setup_postdata( $post );
@@ -82,14 +82,14 @@ $portfolio = get_posts( array(
 
 							<h2 class="portfolio-title"><?php the_title(); ?></h2>
 
-							<div class="portfolio-preview row">
+							<div class="portfolio-preview">
 								<?php
 								$image_full   = get_post_meta( $post->ID, '_portfolio_image_full', true );
 								$image_mobile = get_post_meta( $post->ID, '_portfolio_image_mobile', true );
 
 								if ( $image_full ) :
 									?>
-									<div class="portfolio-monitor columns small-12 medium-8">
+									<div class="portfolio-monitor">
 										<?php
 										echo wp_get_attachment_image( $image_full, 'full' );
 										include __DIR__ . '/assets/images/monitor.php';
@@ -100,7 +100,7 @@ $portfolio = get_posts( array(
 
 								if ( $image_mobile ) :
 									?>
-									<div class="portfolio-phone columns small-12 medium-4">
+									<div class="portfolio-phone">
 										<?php
 										echo wp_get_attachment_image( $image_mobile, 'full' );
 										include __DIR__ . '/assets/images/phone.php';
@@ -122,15 +122,53 @@ $portfolio = get_posts( array(
 	</section>
 
 <?php
+$testimonials = get_posts( array(
+	'post_type'   => 'testimonial',
+	'numberposts' => 8,
+) );
+?>
+
+	<section id="what-people-say" class="section testimonials blue columns small-12">
+
+		<div class="section-content">
+
+			<?php kidniche_section_title( 'What People Say', 'what-people-say' ); ?>
+
+			<div class="section-summary">
+				People seem to really like us. Here's why.
+			</div>
+
+			<?php if ( ! empty( $testimonials ) ) : ?>
+				<ul class="testimonials-list small-block-grid-2 medium-block-grid-4">
+					<?php
+					foreach ( $testimonials as $post ) :
+						setup_postdata( $post );
+						?>
+						<li class="testimonial-item">
+							<?php the_post_thumbnail( 'full' ); ?>
+						</li>
+					<?php
+					endforeach;
+					wp_reset_postdata();
+					?>
+				</ul>
+			<?php endif; ?>
+		</div>
+
+		<a href="#" class="scroll-down no-effect"><span class="icon-circle-down"></span></a>
+
+	</section>
+
+<?php
 get_footer();
 
-function kidniche_section_title( $title = '' ) {
+function kidniche_section_title( $title = '', $anchor = '' ) {
 
 	static $direction;
 	$direction = $direction == 'left' ? 'right' : 'left';
 	?>
 	<h1 class="section-title <?php echo $direction; ?>">
-		<a href="#<?php echo strtolower( str_replace( ' ', '-', str_replace( '\'', '', $title ) ) ); ?>" class="force-color no-effect">
+		<a href="#<?php echo $anchor; ?>" class="force-color no-effect">
 			<span class="text">
 				<span class="icon">
 					<span class="icon-flag"></span>

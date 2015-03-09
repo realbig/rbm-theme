@@ -12,7 +12,9 @@
      * -------------- */
 
      var $home_cta = $('.home-cta'),
-        $scroll = $('.scroll-down');
+         $scroll = $('.scroll-down'),
+         $wpadminbar = $('#wpadminbar'),
+         header_height = $('#site-header').find('.site-nav-left').height();
 
     // Bail if not there
     if ($home_cta.length === 0) {
@@ -27,8 +29,7 @@
 
     function resize() {
 
-        var $wpadminbar = $('#wpadminbar'),
-            window_height = $(window).height();
+        var window_height = $(window).height();
 
         // Subtract wpadminbar height if it exists
         if ($wpadminbar.length !== 0) {
@@ -91,9 +92,15 @@
         });
     });
 
-    // Backgrounds
+    // Backgrounds and height
     $('.section').each(function () {
 
+        // Height
+        var section_height = $(window).height() - header_height - ($wpadminbar.length ? $wpadminbar.height() : 0);
+
+        $(this).css('minHeight', section_height);
+
+        // Backgrounds
         var $container = $('<div class="background-container" />'),
             height = $(this).outerHeight(),
             total = 0,

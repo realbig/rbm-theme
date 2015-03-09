@@ -71,7 +71,7 @@ body.admin-bar {
   height: $header-height + $title-height;
   line-height: $header-height;
   background: $background;
-  z-index: 100;
+  z-index: 500;
   transition: top 500ms;
 
   // Title
@@ -355,7 +355,7 @@ body.admin-bar {
   right: 0;
   bottom: 0;
   left: 0;
-  z-index: 5;
+  z-index: 499;
   transition: opacity 500ms, visibility 500ms;
 }
 

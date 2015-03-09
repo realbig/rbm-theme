@@ -13,6 +13,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 // Require files
 require_once __DIR__ . '/post-types/portfolio.php';
+require_once __DIR__ . '/post-types/testimonial.php';
 
 /**
  * Adds admin files.
@@ -20,7 +21,6 @@ require_once __DIR__ . '/post-types/portfolio.php';
  * @since 1.0.0
  */
 add_action( 'admin_enqueue_scripts', function () {
-
 	wp_enqueue_script( THEME_ID . '-admin' );
 });
 

@@ -7,4 +7,53 @@ The static site footer.
 @import "../settings";
 
 #site-footer {
+  background: $dark-color;
+  color: #555;
+  padding: 0;
+  text-align: center;
+
+  h1, h2, h3, h4, h5, h6 {
+    color: #777;
+  }
+
+  hr {
+    border-top: 5px dotted #2a2a2a;
+    margin: 10px 0 ;
+  }
+
+  .columns {
+    margin: $gutter 0;
+    padding: 0 $gutter;
+  }
+
+  .footer-social {
+    .footer-social-list {
+      margin: $gutter 0 0 0;
+    }
+
+    .footer-social-icon {
+      font-size: 3em;
+      line-height: 1;
+      margin: 0 20px;
+    }
+  }
+
+  .footer-menu {
+    .menu {
+      list-style: none;
+      margin: 0;
+
+      .menu-item {
+        display: inline-block;
+        margin: 0 10px;
+
+        a {
+          @extend .force-color;
+        }
+      }
+    }
+  }
+
+  .footer-copyright {
+  }
 }

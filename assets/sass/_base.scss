@@ -13,11 +13,11 @@ a {
   &:not(.no-effect):not(.button) {
     &:before, &:after {
       content: '';
-      height: 2px;
       position: absolute;
+      border-top: 2px solid;
+      height: 0;
       left: 0;
       right: 0;
-      background: $secondary-color;
       opacity: 0;
       transition: opacity 300ms, top 300ms, bottom 300ms;
     }
@@ -44,7 +44,7 @@ a {
 
     &.force-color {
       &:before, &:after {
-        background: $body-font-color;
+        color: inherit;
       }
     }
   }
@@ -61,6 +61,7 @@ a {
 // Headings
 h1, h2, h3, h4, h5, h6 {
   letter-spacing: $header-letter-spacing;
+  color: inherit;
 }
 
 // Classes

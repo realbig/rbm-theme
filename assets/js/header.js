@@ -20,6 +20,11 @@
         }
     });
 
+    // Hide when clicking on the back cover
+    $('#back-cover').click(function () {
+        $wrapper.removeClass('reveal');
+    });
+
     // Only preview the header once per session
     if ($.cookie('rbm-header-preview') === '1') {
         return;
