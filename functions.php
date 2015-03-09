@@ -80,6 +80,15 @@ add_action( 'init', function () {
 		true
 	);
 
+	// Admin script
+	wp_register_script(
+		THEME_ID . '-admin',
+		get_template_directory_uri() . '/admin.js',
+		array( 'jquery' ),
+		defined( 'WP_DEBUG' ) && WP_DEBUG ? time() : THEME_VERSION,
+		true
+	);
+
 	// Theme fonts
 	if ( ! empty( $theme_fonts ) ) {
 		foreach ( $theme_fonts as $ID => $link ) {
@@ -163,3 +172,4 @@ add_action( 'widgets_init', function () {
 
 // Include other static files
 require_once __DIR__ . '/shortcodes.php';
+require_once __DIR__ . '/admin/admin.php';

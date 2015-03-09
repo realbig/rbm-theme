@@ -164,6 +164,8 @@ button, .button {
       }
 
       &:active {
+        border-color: darken($primary-color, 10%);
+
         &:before {
           background: darken($primary-color, 10%);
         }

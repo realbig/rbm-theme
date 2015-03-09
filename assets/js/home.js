@@ -12,7 +12,7 @@
      * -------------- */
 
      var $home_cta = $('.home-cta'),
-        $scroll = $home_cta.find('.scroll-down');
+        $scroll = $('.scroll-down');
 
     // Bail if not there
     if ($home_cta.length === 0) {
@@ -43,7 +43,7 @@
     $scroll.click(function () {
 
         $('body, html').animate({
-            scrollTop: $('.section').first().offset().top
+            scrollTop: $(this).closest('section').next('section').offset().top - $('#site-header').find('.site-nav-left').height()
         }, 500);
 
         return false;
@@ -57,17 +57,41 @@
 
         $('.section').each(function () {
 
+            // Background
             var current_scroll = $(window).scrollTop(),
-                offset = $(this).offset().top - ($(window).height() / 2);
+                offset_top = $(this).offset().top - ($(window).height() / 2),
+                offset_bottom = ($(this).offset().top + $(this).height()) - ($(window).height() / 3);
 
-            if (current_scroll > offset) {
+            if (current_scroll > offset_top && current_scroll < offset_bottom) {
                 $(this).addClass('active');
             } else {
                 $(this).removeClass('active');
             }
+
+            // Title
+            var $title = $(this).find('.section-title .text'),
+                $logo = $('#site-header').find('.site-logo'),
+                logo_height = $logo.outerHeight(),
+                left = $title.closest('h1').hasClass('left') ? -1 : 1;
+
+            if (current_scroll > $(this).offset().top - logo_height) {
+
+                if (!$title.hasClass('shift')) {
+                    $title.animate({
+                        left: (($logo.outerWidth() / 2) + ($title.outerWidth() / 2)) * left
+                    }).addClass('shift');
+                }
+            } else {
+                if ($title.hasClass('shift')) {
+                    $title.animate({
+                        left: 0
+                    }).removeClass('shift');
+                }
+            }
         });
     });
 
+    // Backgrounds
     $('.section').each(function () {
 
         var $container = $('<div class="background-container" />'),
@@ -86,5 +110,10 @@
         }
 
         $(this).prepend($container);
+
+        // Buttons
+        if ($(this).hasClass('green')) {
+            $(this).find('.button').addClass('secondary');
+        }
     });
 })(jQuery);

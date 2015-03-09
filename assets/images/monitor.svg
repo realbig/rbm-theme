@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="2048px" height="1515px" viewBox="0 0 2048 1515" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>monitor</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Artboard-1" sketch:type="MSArtboardGroup" transform="translate(-280.000000, -106.000000)" fill="#000000">
+            <path d="M280,146.008754 C280,123.912529 297.899451,106 319.991283,106 L2288.00872,106 C2310.09529,106 2328,123.903234 2328,146.008754 L2328,1351.99125 C2328,1374.08747 2310.10055,1392 2288.00872,1392 L319.991283,1392 C297.904707,1392 280,1374.09677 280,1351.99125 L280,146.008754 Z M345,168 L2265,168 L2265,1248 L345,1248 L345,168 Z M1304,1366 C1329.4051,1366 1350,1345.4051 1350,1320 C1350,1294.5949 1329.4051,1274 1304,1274 C1278.5949,1274 1258,1294.5949 1258,1320 C1258,1345.4051 1278.5949,1366 1304,1366 Z M960,1567.5 C960,1537.95277 983.957435,1514 1013.503,1514 L1594.497,1514 C1624.04589,1514 1648,1537.94627 1648,1567.5 L1648,1621 L960,1621 L960,1567.5 Z M1192,1392 L1416,1392 L1416,1514 L1192,1514 L1192,1392 Z" id="monitor" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>

@@ -33,7 +33,7 @@ body.admin-bar {
     top: 0;
 
     .site-logo {
-      .rbm-logo-svg {
+      .svg-rbm-logo {
         .light-bulb {
           fill: lighten($primary-color, 10%);
           transition: fill 1s, transform 500ms;
@@ -111,7 +111,7 @@ body.admin-bar {
       }
     }
 
-    .rbm-logo-svg {
+    .svg-rbm-logo {
       width: 100%;
       height: 100%;
       overflow: visible;
