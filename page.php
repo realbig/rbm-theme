@@ -2,7 +2,7 @@
 /**
  * The theme's page file use for displaying pages.
  *
- * @since 0.1.0
+ * @since   0.1.0
  * @package RBMTheme
  */
 
@@ -16,7 +16,19 @@ get_header();
 the_post();
 ?>
 
-<!-- Page HTML -->
+	<div class="row">
+
+		<article id="page-<?php the_ID(); ?>" <?php post_class( array( 'page-content', 'columns', 'small-12' ) ); ?>>
+
+			<h1 class="page-title">
+				<?php the_title(); ?>
+			</h1>
+
+			<?php the_content(); ?>
+
+		</article>
+
+	</div>
 
 <?php
 get_footer();

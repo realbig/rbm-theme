@@ -51,10 +51,11 @@ $button-font-med: rem-calc(22);
 $button-font-lrg: rem-calc(27);
 
 // Grid
-$row-width: rem-calc(1000);
+$row-width: rem-calc(800);
 
 // Other things
 $small-font-size: 80%;
+$input-focus-border-color: $secondary-color;
 
 // Media query ranges
 $small-range: (0em, 40em);

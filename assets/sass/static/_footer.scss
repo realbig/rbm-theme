@@ -38,6 +38,57 @@ The static site footer.
     }
   }
 
+  .footer-phone {
+    margin: $gutter 0 0 0;
+
+    .phone-number {
+      font-size: 1.5em;
+    }
+  }
+
+  .footer-search {
+    .button {
+      border-color: #555;
+
+      .button-text {
+        color: #555;
+      }
+
+      &:hover {
+        border-color: $secondary-color;
+
+        .button-text {
+          color: #fff;
+        }
+      }
+    }
+
+   .search-field{
+     color: inherit;
+
+      &:focus {
+        color: #ddd;
+      }
+    }
+
+    // Placeholder for search field
+    ::-webkit-input-placeholder {
+      color: inherit;
+    }
+
+    :-moz-placeholder {
+      color: inherit;
+    }
+
+    ::-moz-placeholder {
+      color: inherit;
+    }
+
+    :-ms-input-placeholder {
+      color: inherit;
+    }
+  }
+
   .footer-menu {
     .menu {
       list-style: none;

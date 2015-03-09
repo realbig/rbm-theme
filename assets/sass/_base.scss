@@ -7,7 +7,7 @@ Base element settings (no classes or id's).
 @import "settings";
 
 // Anchors
-a {
+#wrapper a {
   position: relative;
 
   &:not(.no-effect):not(.button) {

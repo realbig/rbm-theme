@@ -25,6 +25,9 @@ Version: 0.1.0
 // Setup
 @import "base";
 
+// Partials
+@import "partials/search-form";
+
 // Static
 @import "static/header";
 @import "static/nav";

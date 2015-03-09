@@ -12,55 +12,9 @@ $menu-item-color: #ddd;
 $gutter: 20px;
 $title-height: 130px;
 
-// Admin bar compensation
-body.admin-bar {
-  #wrapper {
-    &.reveal {
-      #site-header {
-        top: 32px;
-      }
-    }
-    #site-header {
-      top: -$title-height + 32;
-    }
-  }
-}
-
-// Reveal
-#wrapper.reveal {
-
-  #site-header {
-    top: 0;
-
-    .site-logo {
-      .svg-rbm-logo {
-        .light-bulb {
-          fill: lighten($primary-color, 10%);
-          transition: fill 1s, transform 500ms;
-        }
-
-        .light-bulb-blur {
-          opacity: 1;
-          transition: fill 1s, transform 500ms;
-        }
-
-        .gear {
-          fill: $secondary-color;
-          transform: rotate(360deg);
-        }
-      }
-    }
-
-    .site-nav-circular {
-      transform: scale(1);
-      display: block;
-    }
-  }
-
-  #back-cover {
-    visibility: visible;
-    opacity: 0.5;
-  }
+// Push content down
+#wrapper {
+  margin-top: $header-height;
 }
 
 #site-header {
@@ -357,6 +311,57 @@ body.admin-bar {
   left: 0;
   z-index: 499;
   transition: opacity 500ms, visibility 500ms;
+}
+
+// Admin bar compensation
+body.admin-bar {
+  #wrapper {
+    &.reveal {
+      #site-header {
+        top: 32px;
+      }
+    }
+    #site-header {
+      top: -$title-height + 32;
+    }
+  }
+}
+
+// Reveal
+#wrapper.reveal {
+
+  #site-header {
+    top: 0;
+
+    .site-logo {
+      .svg-rbm-logo {
+        .light-bulb {
+          fill: lighten($primary-color, 10%);
+          transition: fill 1s, transform 500ms;
+        }
+
+        .light-bulb-blur {
+          opacity: 1;
+          transition: fill 1s, transform 500ms;
+        }
+
+        .gear {
+          fill: $secondary-color;
+          transform: rotate(360deg);
+        }
+      }
+    }
+
+    .site-nav-circular {
+      transform: scale(1);
+      display: block;
+    }
+  }
+
+  #back-cover {
+    visibility: visible;
+    opacity: 0.5;
+  }
 }
 
 // Animations

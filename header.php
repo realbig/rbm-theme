@@ -80,4 +80,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	</header>
 
-	<div id="site-content" class="row expand">
+	<div id="site-content">

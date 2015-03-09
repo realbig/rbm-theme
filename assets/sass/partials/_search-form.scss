@@ -1,0 +1,48 @@
+/*
+The search form.
+
+@since 0.1.0
+*/
+@import "../settings";
+
+.search-form {
+  .screen-reader-text {
+    display: none;
+  }
+
+  .fields {
+    min-width: 40%;
+    width: 300px;
+    max-width: 100%;
+    margin: $gutter auto;
+    vertical-align: middle;
+    height: 50px;
+  }
+
+  .search-field-label {
+    float: left;
+    width: 80%;
+    height: 50px;
+  }
+
+  .search-field {
+    float: left;
+    margin: 0;
+    line-height: 50px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid;
+
+    &:focus {
+      background: transparent;
+    }
+  }
+
+  .button {
+    float: right;
+    line-height: 50px;
+    height: 50px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

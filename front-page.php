@@ -14,6 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
+<div class="row expand">
+
 	<section class="home-cta columns small-12">
 
 		<div class="home-cta-cover"></div>
@@ -154,11 +156,10 @@ $testimonials = get_posts( array(
 				</ul>
 			<?php endif; ?>
 		</div>
-
-		<a href="#" class="scroll-down no-effect"><span class="icon-circle-down"></span></a>
-
+		
 	</section>
 
+</div>
 <?php
 get_footer();
 

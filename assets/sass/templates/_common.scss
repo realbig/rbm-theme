@@ -5,3 +5,7 @@ Styles shared among all templates.
 */
 
 @import "../settings";
+
+.page-content {
+  margin: $gutter 0;
+}

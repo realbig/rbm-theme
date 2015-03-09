@@ -36,7 +36,7 @@
             window_height = window_height - $wpadminbar.height();
         }
 
-        $home_cta.height(window_height);
+        $home_cta.height(window_height - header_height);
         $home_message.css('margin-top', $home_message.height() / 2 * -1);
     }
 

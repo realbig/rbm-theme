@@ -29,6 +29,24 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<a href="#" class="footer-social-icon force-color"><span class="icon-linkedin"></span></a>
 			<a href="#" class="footer-social-icon force-color"><span class="icon-google"></span></a>
 		</ul>
+
+		<p class="footer-phone">
+			Call Us:
+			<br/>
+			<span class="phone-number">
+				<?php if ( wp_is_mobile() ) : ?>
+					<a href="tel:555-555-5555" class="button">
+						555-555-5555
+					</a>
+				<?php else: ?>
+					555-555-5555
+				<?php endif; ?>
+			</span>
+		</p>
+	</div>
+
+	<div class="footer-search columns small-12">
+		<?php get_search_form(); ?>
 	</div>
 
 	<div class="footer-menu columns small-12">
