@@ -5,6 +5,7 @@ Base element settings (no classes or id's).
 */
 
 @import "settings";
+@import "../vendor/sass/foundation/components/type";
 
 // Anchors
 #wrapper a {
@@ -64,6 +65,29 @@ h1, h2, h3, h4, h5, h6 {
   color: inherit;
 }
 
+$font-reduction: 0.7;
+
+@media #{$small-only} {
+  h1 {
+    font-size: $h1-font-size * $font-reduction;
+  }
+  h2 {
+    font-size: $h2-font-size * $font-reduction;
+  }
+  h3 {
+    font-size: $h3-font-size * $font-reduction;
+  }
+  h4 {
+    font-size: $h4-font-size * $font-reduction;
+  }
+  h5 {
+    font-size: $h5-font-size * $font-reduction;
+  }
+  h6 {
+    font-size: $h6-font-size * $font-reduction;
+  }
+}
+
 // Classes
 .row.expand {
   width: 100%;
@@ -93,8 +117,17 @@ button, .button {
   position: relative;
   overflow: hidden;
 
+  @media #{$small-only} {
+    font-size: $button-font-med * 0.8;
+  }
+
   // Chrome overflow hidden issue
   -webkit-mask-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAA5JREFUeNpiYGBgAAgwAAAEAAGbA+oJAAAAAElFTkSuQmCC);
+
+  &.dark {
+    color: $dark-color !important;
+    text-shadow: 1px 1px 0 #fff;
+  }
 
   &:hover {
     color: $secondary-color !important;
@@ -118,6 +151,12 @@ button, .button {
   &.effect {
     transition: border-color 300ms;
     background: transparent !important;
+
+    &.dark {
+      .button-text {
+        color: $dark-color;
+      }
+    }
 
     .button-text {
       position: relative;

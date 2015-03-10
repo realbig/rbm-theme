@@ -311,6 +311,7 @@ body.home #wrapper {
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;
+        z-index: 10;
 
         &:hover {
           opacity: 1;
@@ -334,15 +335,32 @@ body.home #wrapper {
 
     .portfolio-item {
       opacity: 0;
-      animation: portfolio-out 500ms;
       position: absolute;
       width: 100%;
       top: 0;
-      left: 0;
+
+      &.right {
+        left: 100%;
+        animation: portfolio-out-right 500ms;
+
+        &.active {
+          left: 0;
+          animation: portfolio-in-right 500ms;
+        }
+      }
+
+      &.left {
+        right: 100%;
+        animation: portfolio-out-left 500ms;
+
+        &.active {
+          right: 0;
+          animation: portfolio-in-left 500ms;
+        }
+      }
 
       &.active {
         opacity: 1;
-        animation: portfolio-in 500ms;
       }
 
       &.no-js {
@@ -496,11 +514,11 @@ body.home #wrapper {
   }
 }
 
-@keyframes portfolio-in {
+@keyframes portfolio-in-right {
   0% {
     left: 100%;
     opacity: 0;
-    transform: perspective(100px) rotateY(5deg);
+    transform: perspective(100px) rotateY(-5deg);
   }
   100% {
     left: 0;
@@ -509,7 +527,7 @@ body.home #wrapper {
   }
 }
 
-@keyframes portfolio-out {
+@keyframes portfolio-out-right {
   0% {
     left: 0;
     opacity: 1;
@@ -517,6 +535,32 @@ body.home #wrapper {
   }
   100% {
     left: -100%;
+    opacity: 0;
+    transform: perspective(100px) rotateY(5deg);
+  }
+}
+
+@keyframes portfolio-in-left {
+  0% {
+    right: 100%;
+    opacity: 0;
+    transform: perspective(100px) rotateY(5deg);
+  }
+  100% {
+    right: 0;
+    opacity: 1;
+    transform: perspective(100px) rotateY(0deg);
+  }
+}
+
+@keyframes portfolio-out-left {
+  0% {
+    right: 0;
+    opacity: 1;
+    transform: perspective(100px) rotateY(0deg);
+  }
+  100% {
+    right: -100%;
     opacity: 0;
     transform: perspective(100px) rotateY(-5deg);
   }

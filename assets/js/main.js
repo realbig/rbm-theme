@@ -39,7 +39,6 @@
         });
     });
 
-
     // Square elements
     $(square);
     $(window).resize(square);

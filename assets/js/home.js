@@ -170,21 +170,23 @@
          * Portfolios *
          * ---------- */
 
-            var $portfolio_containe = $('.portfolio'),
-                $portfolios = $portfolio_containe.find('.portfolio-item');
+            var $portfolio_container = $('.portfolio'),
+                $portfolios = $portfolio_container.find('.portfolio-item');
 
             // Establish defaults on load
-            $portfolio_containe.find('.portfolios-left, .portfolios-right').show();
+            $portfolio_container.find('.portfolios-left, .portfolios-right').show();
             $portfolios.removeClass('no-js').not(':eq(0)').removeClass('active');
-            $portfolio_containe.find('.portfolio-list').height($portfolios.first().outerHeight());
+            $portfolio_container.find('.portfolio-list').height($portfolios.first().outerHeight());
 
             // Next
-            $portfolio_containe.find('.portfolios-right').click(function () {
+            $portfolio_container.find('.portfolios-right').click(function () {
 
                 var $current = $portfolios.filter('.active'),
                     $next = $current.next();
 
                 $current.removeClass('active');
+
+                $portfolios.addClass('right').removeClass('left');
 
                 if ($current.is(':last-child')) {
                     $next = $portfolios.filter(':first-child');
@@ -194,12 +196,14 @@
             });
 
             // Previous
-            $portfolio_containe.find('.portfolios-left').click(function () {
+            $portfolio_container.find('.portfolios-left').click(function () {
 
                 var $current = $portfolios.filter('.active'),
                     $prev = $current.prev();
 
                 $current.removeClass('active');
+
+                $portfolios.addClass('left').removeClass('right');
 
                 if ($current.is(':first-child')) {
                     $prev = $portfolios.filter(':last-child');
