@@ -29,7 +29,7 @@ define( 'THEME_VERSION', '0.1.0' );
 /**
  * The theme's ID (used in handlers).
  */
-define( 'THEME_ID', 'my_theme' );
+define( 'THEME_ID', 'rbm_theme' );
 
 /**
  * Fonts for the theme. Must be hosted font (Google fonts for example).

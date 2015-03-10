@@ -5,10 +5,10 @@ Styles front-page.php (the home page).
 */
 @import "../settings";
 
-$section-gutter: 100px;
+$section-gutter: 50px;
 $section-transition: 1.5s;
 
-body.home  #wrapper {
+body.home #wrapper {
 
   // Home cta
   .home-cta {
@@ -88,16 +88,28 @@ body.home  #wrapper {
     &.active {
 
       &.blue {
-        background: darken($primary-color, 16%);
+        background: lighten($primary-color, 5%);
+
+        .section-line {
+          background: darken($primary-color, 0%);
+        }
       }
 
       &.green {
-        background: darken($secondary-color, 22%);
+        background: darken($secondary-color, 10%);
+
+        .section-line {
+          background: darken($secondary-color, 15%);
+        }
       }
 
-      .background-container {
-        .line {
-          width: 100%;
+      .section-line {
+        &.left {
+          right: 0;
+        }
+
+        &.right {
+          left: 0;
         }
       }
     }
@@ -181,146 +193,264 @@ body.home  #wrapper {
       transition: color $section-transition;
     }
 
-    .button {
+    .section-cta {
       margin-top: $section-gutter / 2;
       margin-bottom: $section-gutter / 2;
     }
 
-    &.blue {
-      .background-container {
-        .line {
-          background: darken($primary-color, 18%);
-        }
-      }
-    }
-
-    &.green {
-      .background-container {
-        .line {
-          background: darken($secondary-color, 20%);
-        }
-      }
-    }
-
-    .background-container {
+    .section-line {
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
       left: 0;
-      z-index: 1;
+      right: 100%;
+      background: #222;
+      transition: right $section-transition * 1.5, left $section-transition * 1.5, background $section-transition;
 
-      .line {
-        background: $primary-color;
-        width: 0;
-        transition: width $section-transition * 1.5;
+      &.left {
+        right: 100%;
+      }
 
-        &.left {
-          float: left;
+      &.right {
+        left: 100%;
+      }
+    }
+  }
+
+  // Services
+  .section.active.services {
+    .services-list {
+      .service-item {
+        top: 0;
+        opacity: 1;
+
+        // Animation delay
+        @for $i from 0 through 2 {
+          &[data-index="#{$i}"] {
+            transition-delay: #{$i * 500}ms;
+          }
+        }
+      }
+    }
+
+    .service-icons {
+      .service-icon {
+        opacity: 0.5;
+
+        &.dark {
+          opacity: 1;
         }
 
-        &.right {
-          float: right;
+        // Animation delay
+        @for $i from 0 through 120 {
+          &[data-index="#{$i}"] {
+            transition-delay: #{$i * 25}ms;
+          }
         }
       }
     }
   }
 
-  .section.active {
-    .portfolio-list .portfolio-preview {
-      [class*="svg-"] {
-        path {
-          fill: $dark-color;
+  .services {
+
+    h2 {
+      @extend h3;
+    }
+
+    .services-list {
+      margin-top: $section-gutter / 2;
+
+      .service-item {
+        position: relative;
+        top: -50px;
+        opacity: 0;
+        transition: opacity 500ms, top 500ms;
+        padding-left: $gutter;
+        padding-right: $gutter * 2;
+      }
+    }
+
+    .service-icons {
+      text-align: left;
+
+      .service-icon {
+        font-size: 30px;
+        opacity: 0;
+        transition: opacity 500ms;
+
+        &.visible {
         }
       }
     }
   }
 
   // Portfolio
+  .section.active {
+    .portfolio-preview {
+      opacity: 1;
+    }
+  }
+
+  .portfolio {
+    .section-content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .portfolios {
+      position: relative;
+
+      .portfolios-left, .portfolios-right {
+        position: absolute;
+        top: 50%;
+        font-size: 40px;
+        cursor: pointer;
+        opacity: 0.7;
+        transition: opacity 300ms;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+
+        &:hover {
+          opacity: 1;
+        }
+      }
+
+      .portfolios-left {
+        left: 10px;
+      }
+
+      .portfolios-right {
+        right: 10px;
+      }
+    }
+  }
+
   .portfolio-list {
     list-style: none;
     margin: 0;
+    position: relative;
+
+    .portfolio-item {
+      opacity: 0;
+      animation: portfolio-out 500ms;
+      position: absolute;
+      width: 100%;
+      top: 0;
+      left: 0;
+
+      &.active {
+        opacity: 1;
+        animation: portfolio-in 500ms;
+      }
+
+      &.no-js {
+        position: relative;
+        top: auto;
+        left: auto;
+      }
+    }
 
     .portfolio-title {
       color: inherit;
     }
 
     .portfolio-preview {
-      [class*="svg-"] {
-        path {
-          fill: #333;
-          transition: fill $section-transition;
-        }
-      }
-
-      .portfolio-monitor {
-        position: relative;
-        width: 60%;
-        float: left;
-        z-index: 1;
-
-        img {
-          position: absolute;
-
-          // These fit it in the svg monitor
-          top: 3.9%;
-          left: 3.2%;
-          width: 93.7%;
-          height: 71%;
-
-          z-index: 1;
-        }
-
-        .svg-monitor {
-          position: relative;
-          fill: $dark-color;
-          z-index: 5;
-
-          .monitor-cover {
-            fill: #444;
-          }
-        }
-      }
-
-      .portfolio-phone {
-        position: relative;
-        width: 15%;
-        float: left;
-        left: -10%;
-        margin-top: 15%;
-        z-index: 5;
-
-        img {
-          position: absolute;
-
-          // These fit it in the svg monitor
-          top: 10.5%;
-          left: 12.3%;
-          width: 75.3%;
-          height: 78.1%;
-
-          z-index: 1;
-        }
-
-        .svg-phone {
-          position: relative;
-          fill: $dark-color;
-          z-index: 5;
-
-          .phone-cover {
-            fill: #444;
-          }
-        }
-      }
+      @include clearfix;
+      text-align: center;
+      opacity: 0;
+      transition: opacity $section-transition;
     }
   }
 
   // Testimonials
+  .testimonials {
+    .section-content {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .testimonial-content {
+      display: inline-block;
+      margin: 0 auto;
+      height: 100px;
+      line-height: 100px;
+
+      p {
+        position: relative;;
+        font-size: 1.3em;
+        visibility: hidden;
+        opacity: 0;
+        left: -50px;
+        transition: visibility 300ms, left 300ms, opacity 300ms, transform 300ms;
+        height: 0;
+        margin: 0;
+        transform: perspective(100px) rotateY(5deg);
+
+        &.active {
+          left: 0;
+          visibility: visible;
+          opacity: 1;
+          transform: perspective(100px) rotateY(0deg);
+        }
+      }
+
+      .testimonial-quote-icon {
+        margin-right: 10px;
+        font-size: 2em;
+      }
+    }
+  }
+
   .testimonials-list {
     list-style: none;
     margin: 0;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 
     .testimonial-item {
+      padding: 0;
+      position: relative;
+      overflow: hidden;
+
+      &.active {
+        .testimonial-image:after {
+          opacity: 0;
+        }
+      }
+
+      .testimonial-image {
+        display: block;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          background: #000;
+          opacity: 0.5;
+          transition: opacity 300ms;
+          z-index: 10;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          transition: transform 300ms;
+        }
+
+        &:hover {
+          &:after {
+            opacity: 0;
+          }
+
+          img {
+            transform: scale(1.05);
+          }
+        }
+      }
     }
   }
 }
@@ -363,5 +493,77 @@ body.home  #wrapper {
   }
   100% {
     transform: rotate(1080deg);
+  }
+}
+
+@keyframes portfolio-in {
+  0% {
+    left: 100%;
+    opacity: 0;
+    transform: perspective(100px) rotateY(5deg);
+  }
+  100% {
+    left: 0;
+    opacity: 1;
+    transform: perspective(100px) rotateY(0deg);
+  }
+}
+
+@keyframes portfolio-out {
+  0% {
+    left: 0;
+    opacity: 1;
+    transform: perspective(100px) rotateY(0deg);
+  }
+  100% {
+    left: -100%;
+    opacity: 0;
+    transform: perspective(100px) rotateY(-5deg);
+  }
+}
+
+@keyframes service-icon-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  20% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+}
+
+@keyframes service-icon-in-dark {
+  0% {
+    opacity: 0;
+    transform: scale(0.1);
+  }
+  20% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.1);
+  }
+  80% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
   }
 }

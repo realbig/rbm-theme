@@ -19,15 +19,15 @@ add_action( 'init', function () {
 	) );
 } );
 
-add_action( 'add_meta_boxes', function () {
-
-	add_meta_box(
-		'images',
-		'Images',
-		'_rbm_portfolio_images',
-		'portfolio'
-	);
-} );
+//add_action( 'add_meta_boxes', function () {
+//
+//	add_meta_box(
+//		'images',
+//		'Images',
+//		'_rbm_portfolio_images',
+//		'portfolio'
+//	);
+//} );
 
 /**
  * The form callback for the portfolio images.

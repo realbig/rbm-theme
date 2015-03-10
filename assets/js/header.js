@@ -25,6 +25,11 @@
         $wrapper.removeClass('reveal');
     });
 
+    // Hide when scrolling
+    $(window).scroll(function () {
+        $wrapper.removeClass('reveal');
+    });
+
     // Only preview the header once per session
     if ($.cookie('rbm-header-preview') === '1') {
         return;
