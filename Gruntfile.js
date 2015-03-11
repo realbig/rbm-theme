@@ -78,6 +78,10 @@ module.exports = function (grunt) {
                         'assets/vendor/js/placeholder.js',
                         'assets/vendor/js/jquery.cookie.js',
                         'assets/vendor/js/foundation.js',
+                        'assets/vendor/js/foundation.abide.js',
+                        'assets/vendor/js/foundation.clearing.js',
+                        'assets/vendor/js/foundation.equalizer.js',
+                        'assets/vendor/js/foundation.tooltip.js',
 
                         // Included dynamically in header.php
                         '!assets/vendor/js/html5.js',

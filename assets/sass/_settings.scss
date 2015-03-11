@@ -22,9 +22,9 @@ $font-family-serif: Georgia, Cambria, "Times New Roman", Times, serif;
 $font-family-monospace: Consolas, "Liberation Mono", Courier, monospace;
 $body-font-color: $dark-color;
 $font-family-special: 'Leckerli One', cursive;
+$paragraph-line-height: 2;
 
 // Sizes
-$header-height: 50px;
 $gutter: 30px;
 
 // We use these to control header font styles
@@ -37,8 +37,8 @@ $header-letter-spacing: 1px;
 // We use these to style anchors
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
-$anchor-font-color: $secondary-color;
-$anchor-font-color-hover: $secondary-color;
+$anchor-font-color: darken($secondary-color, 10%);
+$anchor-font-color-hover: $anchor-font-color;
 
 // Buttons
 $button-bg-color: false;

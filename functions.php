@@ -148,3 +148,28 @@ add_action( 'widgets_init', function () {
 require_once __DIR__ . '/includes/shortcodes.php';
 require_once __DIR__ . '/includes/class-rbmtheme-walker-circularnav.php';
 require_once __DIR__ . '/admin/admin.php';
+
+function rbm_section_title( $title = '', $anchor = '' ) {
+	echo rbm_get_section_title( $title, $anchor );
+}
+
+function rbm_get_section_title( $title = '', $anchor = '' ) {
+
+	static $direction;
+	$direction = $direction == 'left' ? 'right' : 'left';
+
+	$output = '';
+	$output .= "<h1 class=\"section-title $direction\">";
+	$output .= "<a href=\"#$anchor\" class=\"force-color no-effect\">";
+	$output .= '<span class="text">';
+	$output .= '<span class="icon">';
+	$output .= '<span class="icon-flag"></span>';
+	$output .= '<span class="icon-link"></span>';
+	$output .= '</span>';
+	$output .= $title;
+	$output .= '</span>';
+	$output .= '</a>';
+	$output .= '</h1>';
+
+	return $output;
+}

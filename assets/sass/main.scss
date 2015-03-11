@@ -21,12 +21,15 @@ Version: 0.1.0
 @import "../vendor/sass/foundation/components/block-grid";
 @import "../vendor/sass/foundation/components/type";
 @import "../vendor/sass/foundation/components/forms";
+@import "../vendor/sass/foundation/components/tooltips";
 
 // Setup
 @import "base";
 
 // Partials
 @import "partials/search-form";
+@import "partials/sections";
+@import "partials/staff-list";
 
 // Static
 @import "static/header";
@@ -35,9 +38,11 @@ Version: 0.1.0
 
 // Templates
 @import "templates/common";
-@import "templates/single-post";
-@import "templates/page";
 @import "templates/home";
+@import "templates/page";
+@import "templates/single-post";
+@import "templates/blog";
+@import "templates/template-sectionalized";
 
 // Overrides
 @import "wp";

@@ -83,9 +83,10 @@ class RBMTheme_Walker_CircularNav extends Walker_Nav_Menu {
 		}
 
 		$item_output = '';
-		$item_output .= '<a' . $attributes . '>';
+		$item_output .= '<a' . $attributes . ' title="' . $item->title . '" >';
 		/** This filter is documented in wp-includes/post-template.php */
-		$item_output .= '<span class="' . $icon_class . '"></span>';
+		$item_output .= '<span class="nav-icon ' . $icon_class . '"></span>';
+//		$item_output .= '<span class="nav-tooltip">' . $item->title . '</span>';
 		$item_output .= '</a>';
 
 		/** This filter is documented in wp-includes/nav-menu-template.php */

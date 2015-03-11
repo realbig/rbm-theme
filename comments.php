@@ -2,7 +2,7 @@
 /**
  * The theme's comment template file.
  *
- * @since 0.1.0
+ * @since   0.1.0
  * @package RBMTheme
  */
 
@@ -70,7 +70,7 @@ if ( post_password_required() ) { ?>
 			</p>
 		<?php else : ?>
 
-			<form action="<?php echo site_url(); ?>/wp-comments-post.php" method="post" id="commentform" data-abide>
+			<form action="<?php echo site_url(); ?>/wp-comments-post.php" method="post" id="commentform" data-abide novalidate>
 
 				<?php if ( is_user_logged_in() ) : ?>
 
@@ -115,8 +115,10 @@ if ( post_password_required() ) { ?>
 					<?php printf( __( '<strong>XHTML:</strong> You can use these tags: <code>%s</code>' ), allowed_tags() ); ?>
 				</p>
 
-				<p><input name="submit" type="submit" id="submit" tabindex="5"
-				          value="<?php esc_attr_e( 'Submit Comment' ); ?>"/>
+				<p>
+					<button name="submit" type="submit" id="submit" tabindex="5" class="button dark">
+						Submit Content
+					</button>
 					<?php comment_id_fields(); ?>
 				</p>
 				<?php

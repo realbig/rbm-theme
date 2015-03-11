@@ -5,14 +5,36 @@ Styles shared among all templates.
 */
 
 @import "../settings";
+@import "../static/header-vars";
 
 .page-content {
-  padding-top: $gutter;
+  padding-top: $header-logo-size - $header-height + $gutter;
   padding-bottom: $gutter;
+
+  @media #{$small-only} {
+    padding-top: $header-logo-size-mobile - $header-height + $gutter;
+  }
+
+  ul {
+    margin-left: $gutter * 2;
+  }
 }
 
 .page-title, .post-title {
   a {
     display: block;
   }
+}
+
+.screen-reader-text {
+  position: absolute;
+  top: auto;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.pagination {
+  text-align: center;
 }

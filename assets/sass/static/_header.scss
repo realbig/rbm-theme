@@ -13,19 +13,19 @@ The static site header.
 
 #site-header {
   position: fixed;
-  top: -$title-height;
+  top: -$header-title-height;
   left: 0;
   right: 0;
-  height: $header-height + $title-height;
+  height: $header-height + $header-title-height;
   line-height: $header-height;
-  background: $background;
+  background: $header-background;
   z-index: 500;
   transition: top 500ms;
 
   // Title
   .site-title {
     line-height: 45px;
-    height: $title-height;
+    height: $header-title-height;
     padding-top: 15px;
     color: #fff;
     text-align: center;
@@ -42,21 +42,21 @@ The static site header.
 
   // Logo
   .site-logo {
-    width: $logo-size;
-    height: $logo-size;
-    padding: $logo-size / 10;
+    width: $header-logo-size;
+    height: $header-logo-size;
+    padding: $header-logo-size / 10;
     border-radius: 50%;
-    background: $background;
+    background: $header-background;
     cursor: pointer;
     position: absolute;
     left: 50%;
-    margin-left: $logo-size / 2 * -1;
+    margin-left: $header-logo-size / 2 * -1;
     z-index: 10;
 
     &:hover {
       .svg-rbm-logo {
         .light-bulb, .light-bulb-blur {
-          transform: scale(1.1, 1.1);
+//          transform: scale(1.1, 1.1);
           fill: lighten($primary-color, 20%);
           transition: fill 500ms, opacity 500ms, transform 500ms;
           opacity: 1;
@@ -70,22 +70,22 @@ The static site header.
       overflow: visible;
 
       .light-bulb {
-        fill: $menu-item-color;
+        fill: $header-menu-item-color;
         transition: fill 4s, transform 500ms;
-        transform-origin: 50% 50%;
+//        transform-origin: 50% 50%;
       }
 
       .light-bulb-blur {
         fill: lighten($primary-color, 20%);
         opacity: 0;
         transition: opacity 4s, transform 500ms;
-        transform-origin: 50% 50%;
+//        transform-origin: 50% 50%;
       }
 
       .gear {
-        fill: $menu-item-color;
+        fill: $header-menu-item-color;
         transition: fill 1s, transform 500ms;
-        transform-origin: 50% 55%;
+//        transform-origin: 50% 55%;
       }
     }
   }
@@ -112,7 +112,7 @@ The static site header.
 
         .gear {
           fill: $secondary-color;
-          transform: rotate(360deg);
+//          transform: rotate(360deg);
         }
       }
     }
@@ -152,43 +152,46 @@ body.admin-bar {
       }
     }
     #site-header {
-      top: -$title-height + 32;
+      top: -$header-title-height + 32;
     }
   }
 }
 
 // Mobile
 @media #{$small-only} {
+
+  // Push content down
+  #wrapper {
+    margin-top: $header-height-mobile;
+  }
+
   #site-header {
+    top: -$header-title-height-mobile;
+    height: $header-height-mobile + $header-title-height-mobile;
+    line-height: $header-height-mobile;
+
+    // Title
+    .site-title {
+      font-size: 1.5em;
+      line-height: 1;
+      height: $header-title-height-mobile;
+    }
 
     // Logo
     .site-logo {
-      width: $logo-size-mobile;
-      height: $logo-size-mobile;
-      padding: $logo-size-mobile / 10;
-      margin-left: $logo-size-mobile / 2 * -1;
-      margin-top: $logo-size-mobile / 4;
+      width: $header-logo-size-mobile;
+      height: $header-logo-size-mobile;
+      padding: $header-logo-size-mobile / 10;
+      margin-left: $header-logo-size-mobile / 2 * -1;
     }
+  }
 
-    // Navigation Menus
-    .site-nav-left, .site-nav-right {
-      .menu-item {
-        padding: 0 3px;
+  // Admin bar compensation
+  body.admin-bar {
+    #wrapper {
+      #site-header {
+        top: -$header-title-height-mobile + 32;
       }
-
-      a {
-        font-size: 0.7em;
-      }
-    }
-
-    .site-nav-left {
-      padding-left: 5px;
-      text-align: left;
-    }
-
-    .site-nav-right {
-      padding-right: 5px;
-      text-align: right;
     }
   }
 }
@@ -196,66 +199,66 @@ body.admin-bar {
 // Animations
 @keyframes light-bulb-flicker {
   0% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
 
   5% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
   7% {
     fill: $primary-color;
   }
   9% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
 
   15% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
   17% {
     fill: $primary-color;
   }
   19% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
 
   23% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
   25% {
     fill: $primary-color;
   }
   27% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
 
   45% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
   47% {
     fill: $primary-color;
   }
   49% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
 
   66% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
   68% {
     fill: $primary-color;
   }
   70% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
 
   74% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
   76% {
     fill: $primary-color;
   }
   78% {
-    fill: lighten($background, 20%);
+    fill: lighten($header-background, 20%);
   }
 }

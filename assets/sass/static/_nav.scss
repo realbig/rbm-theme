@@ -22,14 +22,14 @@ The static site nav menu (at the top).
 
   .menu-item {
     display: inline-block;
-    color: $menu-item-color;
+    color: $header-menu-item-color;
     line-height: $header-height;
     padding: 0 $gutter;
 
     a {
       @extend .force-color;
       &:before, &:after {
-        background: $menu-item-color !important;
+        background: $header-menu-item-color !important;
       }
     }
   }
@@ -49,7 +49,7 @@ The static site nav menu (at the top).
 .site-nav-circular {
   position: absolute;
   left: 50%;
-  top: $title-height - $logo-size;
+  top: $header-title-height - $header-logo-size;
   overflow: hidden;
   transform: scale(0.1);
   z-index: 5;
@@ -81,6 +81,9 @@ The static site nav menu (at the top).
           display: block;
           text-align: center;
           position: absolute;
+        }
+
+        .nav-icon {
           color: transparent;
           font-size: 2em;
 
@@ -105,12 +108,12 @@ The static site nav menu (at the top).
 
 // Circular nav with everything
 .csstransforms .site-nav-circular {
-  width: $circular-nav-size;
-  height: $circular-nav-size;
+  width: $header-circular-nav-size;
+  height: $header-circular-nav-size;
   position: absolute;
   left: 50%;
-  margin-left: -$circular-nav-size / 2;
-  top: $title-height - $logo-size;
+  margin-left: -$header-circular-nav-size / 2;
+  top: ($header-circular-nav-size / 2 * -1) + $header-height + $header-title-height;
   border-radius: 50%;
   overflow: hidden;
   transition: transform 500ms;
@@ -119,8 +122,8 @@ The static site nav menu (at the top).
   .menu {
     .menu-item {
       position: absolute;
-      width: $circular-nav-size / 2;
-      height: $circular-nav-size / 2;
+      width: $header-circular-nav-size / 2;
+      height: $header-circular-nav-size / 2;
       transform-origin: 100% 100%;
 
       a {
@@ -167,17 +170,17 @@ The static site nav menu (at the top).
 
 // Non-circular nav support
 .no-csstransforms .site-nav-circular {
-  height: $circular-nav-size / 4;
-  width: ($circular-nav-size / 4) * 5;
-  margin-left: ($circular-nav-size / 4) * 2.5 * -1;
-  top: $logo-size + $title-height;
+  height: $header-circular-nav-size / 4;
+  width: ($header-circular-nav-size / 4) * 5;
+  margin-left: ($header-circular-nav-size / 4) * 2.5 * -1;
+  top: $header-logo-size + $header-title-height;
   display: none;
 
   .menu {
     .menu-item {
       float: left;
-      width: $circular-nav-size / 4;
-      height: $circular-nav-size / 4;
+      width: $header-circular-nav-size / 4;
+      height: $header-circular-nav-size / 4;
 
       a {
         span {
@@ -185,6 +188,56 @@ The static site nav menu (at the top).
           right: 15px;
           top: 19px;
         }
+      }
+    }
+  }
+}
+
+// Mobile support
+@media #{$small-only} {
+
+  // Left / Right nav
+  .site-nav-left, .site-nav-right {
+    width: 40%;
+
+    .menu-item {
+      line-height: $header-height-mobile;
+      font-size: 0.7em;
+      padding: 0 5px;
+    }
+  }
+
+  // Circular nav base
+  .site-nav-circular {
+    top: $header-title-height-mobile - $header-logo-size-mobile;
+  }
+
+  // Circular nav with everything
+  .csstransforms .site-nav-circular {
+    width: $header-circular-nav-size-mobile;
+    height: $header-circular-nav-size-mobile;
+    margin-left: -$header-circular-nav-size-mobile / 2;
+    top: ($header-circular-nav-size-mobile / 2 * -1) + $header-height-mobile + $header-title-height-mobile;
+
+    .menu {
+      .menu-item {
+        width: $header-circular-nav-size-mobile / 2;
+        height: $header-circular-nav-size-mobile / 2;
+      }
+    }
+  }
+
+  // Non-circular nav support
+  .no-csstransforms .site-nav-circular {
+    height: $header-circular-nav-size-mobile / 4;
+    width: ($header-circular-nav-size-mobile / 4) * 5;
+    margin-left: ($header-circular-nav-size-mobile / 4) * 2.5 * -1;
+    top: $header-logo-size-mobile + $header-title-height-mobile;
+
+    .menu {
+      .menu-item {
+        width: $header-circular-nav-size-mobile / 4;
+        height: $header-circular-nav-size-mobile / 4;
       }
     }
   }

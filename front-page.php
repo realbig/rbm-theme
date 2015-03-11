@@ -22,11 +22,11 @@ get_header();
 
 			<div class="home-cta-message">
 				<h1 class="font-special">
-					Something cool should be said here.
+					Ready for your website to pull its weight?
 				</h1>
 
-				<a href="#" class="button">
-					Learn More
+				<a href="/contact/" class="button">
+					Contact Us
 				</a>
 			</div>
 
@@ -38,7 +38,7 @@ get_header();
 
 			<div class="section-content">
 
-				<?php kidniche_section_title( 'Who We Are', 'who-we-are' ); ?>
+				<?php rbm_section_title( 'Who We Are', 'who-we-are' ); ?>
 
 				<div class="section-summary">
 					We're a marketing firm with an emphasis on top-notch website creation.
@@ -50,13 +50,13 @@ get_header();
 
 				<div class="services-list row">
 
-					<div class="service-item visible columns small-12 large-4" data-index="0">
+					<div class="service-item visible columns small-12 medium-4" data-index="0">
 						<h2>
 							60% Of Content Managed Sites Use WordPress
 						</h2>
 
 						<div class="service-icons">
-							<ul class="small-block-grid-12 large-block-grid-8">
+							<ul class="small-block-grid-12 medium-block-grid-8">
 							<?php for ( $i = 0; $i < 40; $i ++ ) : ?>
 								<li class="service-icon visible icon-earth <?php echo $i < 24 ? 'dark' : ''; ?>"
 								    data-index="<?php echo $i; ?>"></li>
@@ -69,13 +69,13 @@ get_header();
 						</p>
 					</div>
 
-					<div class="service-item visible columns small-12 large-4" data-index="1">
+					<div class="service-item visible columns small-12 medium-4" data-index="1">
 						<h2>
 							80% of Internet Users Own a Smartphone
 						</h2>
 
 						<div class="service-icons">
-							<ul class="small-block-grid-12 large-block-grid-8">
+							<ul class="small-block-grid-12 medium-block-grid-8">
 							<?php for ( $i = 0; $i < 40; $i ++ ) : ?>
 								<li class="service-icon visible icon-mobile <?php echo $i < 32 ? 'dark' : ''; ?>"
 								    data-index="<?php echo $i + 40; ?>"></li>
@@ -88,13 +88,13 @@ get_header();
 						</p>
 					</div>
 
-					<div class="service-item visible columns small-12 large-4" data-index="2">
+					<div class="service-item visible columns small-12 medium-4" data-index="2">
 						<h2>
 							40% of Internet Users Have Purchased Via eCommerce
 						</h2>
 
 						<div class="service-icons">
-							<ul class="small-block-grid-12 large-block-grid-8">
+							<ul class="small-block-grid-12 medium-block-grid-8">
 							<?php for ( $i = 0; $i < 40; $i ++ ) : ?>
 								<li class="service-icon visible icon-cart <?php echo $i < 16 ? 'dark' : ''; ?>"
 								    data-index="<?php echo $i + 80; ?>"></li>
@@ -128,7 +128,7 @@ get_header();
 
 				<div class="section-content">
 
-					<?php kidniche_section_title( 'What We\'ve Done', 'what-weve-done' ); ?>
+					<?php rbm_section_title( 'What We\'ve Done', 'what-weve-done' ); ?>
 
 					<div class="section-summary">
 						We've built some pretty cool stuff. Take a look!
@@ -185,7 +185,7 @@ get_header();
 
 				<div class="section-content">
 
-					<?php kidniche_section_title( 'What People Say', 'what-people-say' ); ?>
+					<?php rbm_section_title( 'What People Say', 'what-people-say' ); ?>
 
 					<div class="section-summary">
 						People seem to really like us, but don't take our word for it!
@@ -236,22 +236,3 @@ get_header();
 	</div>
 <?php
 get_footer();
-
-function kidniche_section_title( $title = '', $anchor = '' ) {
-
-	static $direction;
-	$direction = $direction == 'left' ? 'right' : 'left';
-	?>
-	<h1 class="section-title <?php echo $direction; ?>">
-		<a href="#<?php echo $anchor; ?>" class="force-color no-effect">
-			<span class="text">
-				<span class="icon">
-					<span class="icon-flag"></span>
-					<span class="icon-link"></span>
-				</span>
-				<?php echo $title; ?>
-			</span>
-		</a>
-	</h1>
-<?php
-}

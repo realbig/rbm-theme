@@ -19,6 +19,7 @@
             $wpadminbar = $('#wpadminbar'),
             header_height = $('#site-header').find('.site-nav-left').height(),
             $home_message = $home_cta.find('.home-cta-message');
+
         /* -------------- *
          * Call To Action *
          * -------------- */
@@ -50,76 +51,6 @@
             }, 500);
 
             return false;
-        });
-
-        /* -------- *
-         * Sections *
-         * -------- */
-
-        $(window).scroll(function () {
-
-            $('.section').each(function () {
-
-                // Background
-                var current_scroll = $(window).scrollTop(),
-                    offset_top = $(this).offset().top - ($(window).height() / 2),
-                    offset_bottom = ($(this).offset().top + $(this).height()) - ($(window).height() / 2);
-
-                if (current_scroll > offset_top && current_scroll < offset_bottom) {
-                    $(this).addClass('active');
-                } else {
-                    $(this).removeClass('active');
-                }
-
-                // Title
-                var $title = $(this).find('.section-title .text'),
-                    $logo = $('#site-header').find('.site-logo'),
-                    logo_height = $logo.outerHeight(),
-                    left = $title.closest('h1').hasClass('left') ? -1 : 1;
-
-                if (current_scroll > $(this).offset().top - logo_height) {
-
-                    if (!$title.hasClass('shift')) {
-                        $title.animate({
-                            left: (($logo.outerWidth() / 2) + ($title.outerWidth() / 2)) * left
-                        }).addClass('shift');
-                    }
-                } else {
-                    if ($title.hasClass('shift')) {
-                        $title.animate({
-                            left: 0
-                        }).removeClass('shift');
-                    }
-                }
-            });
-        });
-
-        // Action line and height
-        $(window).load(function () {
-            $('.section').each(function () {
-
-                // Height
-                var section_height = $(window).height() - header_height - ($wpadminbar.length ? $wpadminbar.height() : 0);
-
-                $(this).css('minHeight', section_height);
-
-                // Action line
-                var $button = $(this).find('.section-cta'),
-                    line_height = $button.outerHeight() + 20,
-                    offset = $button.offset().top - $(this).offset().top - 10,
-                    direction = 'left';
-
-                $(this).prepend('<div class="section-line ' + direction + '" style="height: ' + line_height + 'px; top: ' + offset + 'px;"" />');
-            });
-        });
-
-        $(window).resize(function () {
-
-            $('.section').each(function () {
-
-                var offset = $(this).find('.section-cta').offset().top - $(this).offset().top - 10;
-                $(this).find('.section-line').css('top', offset);
-            });
         });
 
         /* -------- *

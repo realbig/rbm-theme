@@ -10,3 +10,112 @@
 if ( ! defined( 'ABSPATH' ) ) {
 	die;
 }
+
+add_shortcode( 'section', '_rbm_sc_section' );
+add_shortcode( 'section_page_content', '_rbm_sc_section_page_content' );
+add_shortcode( 'staff', '_rbm_sc_staff' );
+
+function _rbm_sc_section( $atts = array(), $content = '' ) {
+
+	$atts = shortcode_atts( array(
+		'color'   => 'blue',
+		'classes' => '',
+		'id'      => 'section',
+		'title'   => 'Section',
+		'summary' => false,
+		'button'  => false,
+	), $atts );
+
+	$classes   = array();
+	$classes[] = $atts['color'];
+	$classes[] = $atts['classes'];
+	$classes   = array_filter( $classes );
+
+	$output = '';
+	$output .= '<section id="' . $atts['id'] . '" class="section ' . implode( $classes ) . ' columns small-12">';
+
+	$output .= '<div class="section-content">';
+
+	$output .= rbm_get_section_title( $atts['title'], $atts['id'] );
+
+	if ( $atts['summary'] !== false ) {
+		$output .= '<div class="section-summary">';
+		$output .= $atts['summary'];
+		$output .= '</div>';
+	}
+
+	if ( $atts['button'] !== false ) {
+		$output .= '<a href="#" class="button section-cta">';
+		$output .= $atts['button_text'];
+		$output .= '</a>';
+	}
+
+	$output .= do_shortcode( $content );
+
+	$output .= '</div>';
+
+	//	$output .= '<a href="#" class="scroll-down no-effect"><span class="icon-circle-down"></span></a>';
+
+	$output .= '</section>';
+
+	return $output;
+}
+
+function _rbm_sc_section_page_content( $atts, $content = '' ) {
+
+	global $rbm_sectionalized_content;
+	$rbm_sectionalized_content = $content;
+
+	return '';
+}
+
+function _rbm_sc_staff( $atts, $content ) {
+
+	$staff = get_posts( array(
+		'post_type'   => 'staff',
+		'numberposts' => - 1,
+	) );
+
+	$output = '';
+
+	if ( ! empty( $staff ) ) {
+
+		global $post;
+
+		$output .= '<ul class="staff-list small-block-grid-' . count( $staff ) . '">';
+
+		foreach ( $staff as $post ) {
+			setup_postdata( $post );
+
+			$output .= '<li class="staff-item">';
+
+			$output .= '<div class="staff-image">';
+			$output .= get_avatar( get_the_author_meta( 'ID' ), 800 );
+			$output .= '</div>';
+
+			$output .= '<div class="staff-overlay">';
+
+			$output .= '<div class="staff-meta">';
+
+			$output .= '<p class="staff-title">';
+			$output .= get_the_title();
+			$output .= '</p>';
+
+			$output .= '<p class="staff-role">';
+			$output .= get_field( 'staff_title' );
+			$output .= '</p>';
+
+			$output .= '</div>';
+
+			$output .= '</div>';
+
+			$output .= '</li>';
+		}
+
+		$output .= '</ul>';
+
+		wp_reset_postdata();
+	}
+
+	return $output;
+}

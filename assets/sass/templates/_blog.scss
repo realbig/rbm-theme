@@ -1,0 +1,21 @@
+/*
+Styles index.php.
+
+@since 0.1.0
+*/
+@import "../settings";
+
+body.blog {
+  article.post {
+    margin-top: $gutter;
+    margin-bottom: $gutter;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}

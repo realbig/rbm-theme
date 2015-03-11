@@ -1,0 +1,58 @@
+/*
+Staff list.
+
+@since 0.1.0
+*/
+@import "../settings";
+
+.staff-list {
+  list-style: none;
+  margin: 0 !important;
+
+  .staff-item {
+    padding: 0;
+    position: relative;
+
+    &:hover {
+      .staff-image {
+        img {
+          transform: scale(1.05);
+        }
+      }
+
+      .staff-overlay {
+        opacity: 1;
+      }
+    }
+
+    .staff-image {
+      overflow: hidden;
+
+      img {
+        transition: transform 300ms;
+      }
+    }
+
+    .staff-overlay {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba($primary-color, 0.7);
+      opacity: 0;
+      transition: opacity 300ms;
+
+      .staff-meta {
+        position: absolute;
+        top: 50%;
+        width: 100%;
+        text-align: center;
+
+        .staff-title {
+          @extend h2;
+        }
+      }
+    }
+  }
+}
