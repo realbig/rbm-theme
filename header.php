@@ -63,8 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 			wp_nav_menu( array(
 				'theme_location' => 'primary-center',
 				'container' => false,
-				'link_before' => '<span>',
-				'link_after' => '</span>',
+				'walker' => new RBMTheme_Walker_CircularNav(),
 			));
 			?>
 		</nav>

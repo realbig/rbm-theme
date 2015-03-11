@@ -1,0 +1,14 @@
+/*
+Shared header vars.
+
+@since 0.1.0
+*/
+@import "../settings";
+
+$background: $dark-color;
+$logo-size: 100px;
+$logo-size-mobile: 60px;
+$circular-nav-size: $logo-size * 3;
+$menu-item-color: #ddd;
+$gutter: 20px;
+$title-height: 130px;

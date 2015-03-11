@@ -23,11 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			Connect with us.
 		</h2>
 
-		<ul class="footer-social-list">
-			<a href="#" class="footer-social-icon force-color"><span class="icon-facebook"></span></a>
-			<a href="#" class="footer-social-icon force-color"><span class="icon-twitter"></span></a>
-			<a href="#" class="footer-social-icon force-color"><span class="icon-linkedin"></span></a>
-			<a href="#" class="footer-social-icon force-color"><span class="icon-google"></span></a>
+		<ul class="footer-social-list small-block-grid-2 medium-block-grid-4">
+			<li><a href="#" class="footer-social-icon force-color"><span class="icon-facebook"></span></a></li>
+			<li><a href="#" class="footer-social-icon force-color"><span class="icon-twitter"></span></a></li>
+			<li><a href="#" class="footer-social-icon force-color"><span class="icon-linkedin"></span></a></li>
+			<li><a href="#" class="footer-social-icon force-color"><span class="icon-google"></span></a></li>
 		</ul>
 
 		<p class="footer-phone">

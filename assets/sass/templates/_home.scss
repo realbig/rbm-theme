@@ -223,6 +223,7 @@ body.home #wrapper {
         opacity: 1;
 
         // Animation delay
+        // All three columns with 500ms delay between animations
         @for $i from 0 through 2 {
           &[data-index="#{$i}"] {
             transition-delay: #{$i * 500}ms;
@@ -233,16 +234,17 @@ body.home #wrapper {
 
     .service-icons {
       .service-icon {
-        opacity: 0.5;
+        opacity: 0.3;
 
         &.dark {
           opacity: 1;
         }
 
         // Animation delay
+        // 40 icons in 3 columns, 25ms delay between animations, initial delay of 500ms (1st column delay)
         @for $i from 0 through 120 {
           &[data-index="#{$i}"] {
-            transition-delay: #{$i * 25}ms;
+            transition-delay: #{($i * 25) + 500}ms;
           }
         }
       }
@@ -275,6 +277,10 @@ body.home #wrapper {
         font-size: 30px;
         opacity: 0;
         transition: opacity 500ms;
+
+        @media #{$small-only} {
+          font-size: 18px;
+        }
 
         &.visible {
         }
@@ -405,6 +411,10 @@ body.home #wrapper {
         height: 0;
         margin: 0;
         transform: perspective(100px) rotateY(5deg);
+
+        @media #{$small-only} {
+          font-size: 1em;
+        }
 
         &.active {
           left: 0;

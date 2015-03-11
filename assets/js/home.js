@@ -95,20 +95,22 @@
         });
 
         // Action line and height
-        $('.section').each(function () {
+        $(window).load(function () {
+            $('.section').each(function () {
 
-            // Height
-            var section_height = $(window).height() - header_height - ($wpadminbar.length ? $wpadminbar.height() : 0);
+                // Height
+                var section_height = $(window).height() - header_height - ($wpadminbar.length ? $wpadminbar.height() : 0);
 
-            $(this).css('minHeight', section_height);
+                $(this).css('minHeight', section_height);
 
-            // Action line
-            var $button = $(this).find('.section-cta'),
-                line_height = $button.outerHeight() + 20,
-                offset = $button.offset().top - $(this).offset().top - 10,
-                direction = 'left';
+                // Action line
+                var $button = $(this).find('.section-cta'),
+                    line_height = $button.outerHeight() + 20,
+                    offset = $button.offset().top - $(this).offset().top - 10,
+                    direction = 'left';
 
-            $(this).prepend('<div class="section-line ' + direction + '" style="height: ' + line_height + 'px; top: ' + offset + 'px;"" />');
+                $(this).prepend('<div class="section-line ' + direction + '" style="height: ' + line_height + 'px; top: ' + offset + 'px;"" />');
+            });
         });
 
         $(window).resize(function () {
@@ -126,17 +128,8 @@
 
         var $services_list = $('.service-item');
 
-        $(window).scroll(function () {
-
-            //$services_list.first().each(function () {
-            //    reveal_service($(this));
-            //});
-
-        });
-
-            //$('.services-list').css('opacity', 0);
-            $services_list.removeClass('visible');
-            $services_list.find('.service-icon').removeClass('visible');
+        $services_list.removeClass('visible');
+        $services_list.find('.service-icon').removeClass('visible');
 
         function reveal_service($e) {
 
@@ -170,68 +163,68 @@
          * Portfolios *
          * ---------- */
 
-            var $portfolio_container = $('.portfolio'),
-                $portfolios = $portfolio_container.find('.portfolio-item');
+        var $portfolio_container = $('.portfolio'),
+            $portfolios = $portfolio_container.find('.portfolio-item');
 
-            // Establish defaults on load
-            $portfolio_container.find('.portfolios-left, .portfolios-right').show();
-            $portfolios.removeClass('no-js').not(':eq(0)').removeClass('active');
-            $portfolio_container.find('.portfolio-list').height($portfolios.first().outerHeight());
+        // Establish defaults on load
+        $portfolio_container.find('.portfolios-left, .portfolios-right').show();
+        $portfolios.removeClass('no-js').not(':eq(0)').removeClass('active');
+        $portfolio_container.find('.portfolio-list').height($portfolios.first().outerHeight());
 
-            // Next
-            $portfolio_container.find('.portfolios-right').click(function () {
+        // Next
+        $portfolio_container.find('.portfolios-right').click(function () {
 
-                var $current = $portfolios.filter('.active'),
-                    $next = $current.next();
+            var $current = $portfolios.filter('.active'),
+                $next = $current.next();
 
-                $current.removeClass('active');
+            $current.removeClass('active');
 
-                $portfolios.addClass('right').removeClass('left');
+            $portfolios.addClass('right').removeClass('left');
 
-                if ($current.is(':last-child')) {
-                    $next = $portfolios.filter(':first-child');
-                }
+            if ($current.is(':last-child')) {
+                $next = $portfolios.filter(':first-child');
+            }
 
-                $next.addClass('active');
-            });
+            $next.addClass('active');
+        });
 
-            // Previous
-            $portfolio_container.find('.portfolios-left').click(function () {
+        // Previous
+        $portfolio_container.find('.portfolios-left').click(function () {
 
-                var $current = $portfolios.filter('.active'),
-                    $prev = $current.prev();
+            var $current = $portfolios.filter('.active'),
+                $prev = $current.prev();
 
-                $current.removeClass('active');
+            $current.removeClass('active');
 
-                $portfolios.addClass('left').removeClass('right');
+            $portfolios.addClass('left').removeClass('right');
 
-                if ($current.is(':first-child')) {
-                    $prev = $portfolios.filter(':last-child');
-                }
+            if ($current.is(':first-child')) {
+                $prev = $portfolios.filter(':last-child');
+            }
 
-                $prev.addClass('active');
-            });
+            $prev.addClass('active');
+        });
 
         /* ------------ *
          * Testimonials *
          * ------------ */
 
-            var $testimonials = $('.testimonials'),
-                $paragraphs = $testimonials.find('.testimonial-content').find('p');
+        var $testimonials = $('.testimonials'),
+            $paragraphs = $testimonials.find('.testimonial-content').find('p');
 
-            $paragraphs.not(':eq(0)').removeClass('active');
-            $testimonials.find('.testimonial-item').not(':eq(0)').removeClass('active');
+        $paragraphs.not(':eq(0)').removeClass('active');
+        $testimonials.find('.testimonial-item').not(':eq(0)').removeClass('active');
 
-            $testimonials.find('.testimonial-item a').click(function () {
+        $testimonials.find('.testimonial-item a').click(function () {
 
-                var $parent = $(this).closest('.testimonial-item'),
-                    index = $parent.index();
+            var $parent = $(this).closest('.testimonial-item'),
+                index = $parent.index();
 
-                $parent.addClass('active').siblings('.testimonial-item').removeClass('active');
-                $paragraphs.removeClass('active').eq(index).addClass('active');
+            $parent.addClass('active').siblings('.testimonial-item').removeClass('active');
+            $paragraphs.removeClass('active').eq(index).addClass('active');
 
-                return false;
-            });
+            return false;
+        });
     })
 
 })(jQuery);

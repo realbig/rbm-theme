@@ -3,5 +3,189 @@ The static site nav menu (at the top).
 
 @since 0.1.0
 */
-
 @import "../settings";
+@import "header-vars";
+
+// Left / Right nav
+.site-nav-left, .site-nav-right {
+  font-family: $header-font-family;
+  letter-spacing: $header-letter-spacing;
+  text-transform: uppercase;
+  position: absolute;
+  width: 45%;
+  z-index: 10;
+
+  .menu {
+    list-style: none;
+    margin: 0;
+  }
+
+  .menu-item {
+    display: inline-block;
+    color: $menu-item-color;
+    line-height: $header-height;
+    padding: 0 $gutter;
+
+    a {
+      @extend .force-color;
+      &:before, &:after {
+        background: $menu-item-color !important;
+      }
+    }
+  }
+}
+
+.site-nav-left {
+  text-align: right;
+  left: 0;
+}
+
+.site-nav-right {
+  text-align: left;
+  right: 0;
+}
+
+// Circular nav base
+.site-nav-circular {
+  position: absolute;
+  left: 50%;
+  top: $title-height - $logo-size;
+  overflow: hidden;
+  transform: scale(0.1);
+  z-index: 5;
+
+  .menu {
+    list-style: none;
+    margin: 0;
+
+    .menu-item {
+
+      a {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: $primary-color;
+        position: relative;
+        color: #fff;
+
+        // Override link effects
+        &:before, &:after {
+          display: none;
+        }
+
+        &:hover {
+          background: lighten($primary-color, 10%) !important;
+        }
+
+        span {
+          display: block;
+          text-align: center;
+          position: absolute;
+          color: transparent;
+          font-size: 2em;
+
+          &:before {
+            position: absolute;
+            left: 50%;
+            margin-left: -7px;
+            color: #fff;
+          }
+        }
+      }
+
+      // Color every other menu item
+      &:nth-child(odd) {
+        a {
+          background: lighten($primary-color, 5%);
+        }
+      }
+    }
+  }
+}
+
+// Circular nav with everything
+.csstransforms .site-nav-circular {
+  width: $circular-nav-size;
+  height: $circular-nav-size;
+  position: absolute;
+  left: 50%;
+  margin-left: -$circular-nav-size / 2;
+  top: $title-height - $logo-size;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: transform 500ms;
+  z-index: 5;
+
+  .menu {
+    .menu-item {
+      position: absolute;
+      width: $circular-nav-size / 2;
+      height: $circular-nav-size / 2;
+      transform-origin: 100% 100%;
+
+      a {
+        span {
+          transform: skew(-54deg) rotate(-72deg) scale(-1);
+          width: 100%;
+          height: 100%;
+          margin-top: 10%;
+          padding-left: 11%;
+
+          // Overrides
+          &:before {
+            position: relative;
+            left: auto;
+            margin-left: 0;
+            font-size: 25px;
+          }
+        }
+      }
+
+      // Position menu items
+      &:first-child {
+        transform: rotate(180deg) skew(54deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate(216deg) skew(54deg);
+      }
+
+      &:nth-child(3) {
+        transform: rotate(252deg) skew(54deg)
+      }
+
+      &:nth-child(4) {
+        transform: rotate(288deg) skew(54deg);
+      }
+
+      &:nth-child(5) {
+        transform: rotate(324deg) skew(54deg);
+      }
+    }
+  }
+}
+
+// Non-circular nav support
+.no-csstransforms .site-nav-circular {
+  height: $circular-nav-size / 4;
+  width: ($circular-nav-size / 4) * 5;
+  margin-left: ($circular-nav-size / 4) * 2.5 * -1;
+  top: $logo-size + $title-height;
+  display: none;
+
+  .menu {
+    .menu-item {
+      float: left;
+      width: $circular-nav-size / 4;
+      height: $circular-nav-size / 4;
+
+      a {
+        span {
+          left: 0;
+          right: 15px;
+          top: 19px;
+        }
+      }
+    }
+  }
+}

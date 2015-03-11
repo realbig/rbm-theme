@@ -14,20 +14,20 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-	<div class="row">
+	<div class="row page-content">
 
 		<?php if ( have_posts() ) : ?>
 			<?php
 			while ( have_posts() ) :
 				the_post();
 				?>
-				<article id="page-<?php the_ID(); ?>" <?php post_class( array(
+				<article id="post-<?php the_ID(); ?>" <?php post_class( array(
 					'page-content',
 					'columns',
 					'small-12'
 				) ); ?>>
 
-					<h1 class="page-title">
+					<h1 class="post-title">
 						<a href="<?php the_permalink(); ?>" class="force-color">
 							<?php the_title(); ?>
 						</a>

@@ -14,6 +14,7 @@ The static site footer.
 
   h1, h2, h3, h4, h5, h6 {
     color: #777;
+    margin: 0;
   }
 
   hr {
@@ -24,29 +25,47 @@ The static site footer.
   .columns {
     margin: $gutter 0;
     padding: 0 $gutter;
+
+    @media #{$small-only} {
+      margin: ($gutter / 2) 0;
+    }
   }
 
+  // Social area
   .footer-social {
     .footer-social-list {
-      margin: $gutter 0 0 0;
+      margin: ($gutter / 2) auto;
+      max-width: 300px;
+      text-align: center;
     }
 
     .footer-social-icon {
       font-size: 3em;
       line-height: 1;
-      margin: 0 20px;
     }
   }
 
   .footer-phone {
-    margin: $gutter 0 0 0;
+    margin: 0;
 
     .phone-number {
       font-size: 1.5em;
     }
   }
 
+  // Search area
   .footer-search {
+
+    .columns {
+      margin: 0;
+    }
+
+    .search-field-label {
+      @media #{$small-only} {
+        margin-bottom: $gutter / 2;
+      }
+    }
+
     .button {
       border-color: #555;
 
@@ -89,6 +108,7 @@ The static site footer.
     }
   }
 
+  // Menu area
   .footer-menu {
     .menu {
       list-style: none;
@@ -105,6 +125,7 @@ The static site footer.
     }
   }
 
+  // Copyright area
   .footer-copyright {
   }
 }

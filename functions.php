@@ -145,5 +145,6 @@ add_action( 'widgets_init', function () {
 } );
 
 // Include other static files
-require_once __DIR__ . '/shortcodes.php';
+require_once __DIR__ . '/includes/shortcodes.php';
+require_once __DIR__ . '/includes/class-rbmtheme-walker-circularnav.php';
 require_once __DIR__ . '/admin/admin.php';
