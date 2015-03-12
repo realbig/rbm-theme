@@ -48,7 +48,7 @@ get_header();
 				<?php rbm_section_title( 'Who We Are', 'who-we-are' ); ?>
 
 				<div class="section-summary">
-					We're a marketing firm with an emphasis on top-notch website creation.
+					We're a marketing firm with an emphasis on <span class="font-special">top-notch</span> website creation.
 				</div>
 
 				<a href="<?php echo get_permalink( 24 ); ?>" class="button section-cta">
@@ -127,6 +127,8 @@ get_header();
 			'post_type'   => 'portfolio',
 			'numberposts' => 3,
 		) );
+
+		// TODO Loader icon and AJAX load images (they're big)
 		?>
 
 		<?php if ( ! empty( $portfolio ) ) : ?>
@@ -138,7 +140,7 @@ get_header();
 					<?php rbm_section_title( 'What We\'ve Done', 'what-weve-done' ); ?>
 
 					<div class="section-summary">
-						We've built some pretty cool stuff. Take a look!
+						We've built some pretty <span class="font-special">cool</span> stuff. Take a look!
 					</div>
 
 					<a href="<?php echo get_permalink( 464 ); ?>" class="button secondary section-cta">
@@ -147,7 +149,9 @@ get_header();
 
 					<div class="portfolios">
 
-						<div class="portfolios-left icon-circle-left" style="display: none;"></div>
+						<?php if ( count( $portfolio ) > 1 ) : ?>
+							<div class="portfolios-left icon-circle-left" style="display: none;"></div>
+						<?php endif; ?>
 
 						<ul class="portfolio-list">
 							<?php
@@ -168,7 +172,9 @@ get_header();
 							?>
 						</ul>
 
-						<div class="portfolios-right icon-circle-right" style="display: none;"></div>
+						<?php if ( count( $portfolio ) > 1 ) : ?>
+							<div class="portfolios-right icon-circle-right" style="display: none;"></div>
+						<?php endif; ?>
 
 					</div>
 				</div>
@@ -198,7 +204,7 @@ get_header();
 					<?php rbm_section_title( 'What People Say', 'what-people-say' ); ?>
 
 					<div class="section-summary">
-						People seem to really like us, but don't take our word for it!
+						People seem to <span class="font-special">really like</span> us, but don't take our word for it!
 					</div>
 
 					<a href="#" class="button section-cta">
