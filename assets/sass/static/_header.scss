@@ -56,7 +56,6 @@ The static site header.
     &:hover {
       .svg-rbm-logo {
         .light-bulb, .light-bulb-blur {
-//          transform: scale(1.1, 1.1);
           fill: lighten($primary-color, 20%);
           transition: fill 500ms, opacity 500ms, transform 500ms;
           opacity: 1;
@@ -72,20 +71,17 @@ The static site header.
       .light-bulb {
         fill: $header-menu-item-color;
         transition: fill 4s, transform 500ms;
-//        transform-origin: 50% 50%;
       }
 
       .light-bulb-blur {
         fill: lighten($primary-color, 20%);
         opacity: 0;
         transition: opacity 4s, transform 500ms;
-//        transform-origin: 50% 50%;
       }
 
       .gear {
         fill: $header-menu-item-color;
         transition: fill 1s, transform 500ms;
-//        transform-origin: 50% 55%;
       }
     }
   }
@@ -112,7 +108,6 @@ The static site header.
 
         .gear {
           fill: $secondary-color;
-//          transform: rotate(360deg);
         }
       }
     }

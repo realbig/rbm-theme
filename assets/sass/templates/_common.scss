@@ -7,10 +7,32 @@ Styles shared among all templates.
 @import "../settings";
 @import "../static/header-vars";
 
+// Expand Row
+.row {
+  &.blue {
+    background: lighten($primary-color, 5%);
+    color: #fff;
+  }
+
+  &.green {
+    background: lighten($secondary-color, 10%);
+    color: #fff;
+  }
+}
+
 .page-content {
   padding-top: $header-logo-size - $header-height + $gutter;
   padding-bottom: $gutter;
   word-wrap: break-word;
+  overflow: hidden;
+
+  &.top-flush {
+    padding-top: 0;
+  }
+
+  &.bottom-flush {
+    padding-bottom: 0;
+  }
 
   @media #{$small-only} {
     padding-top: $header-logo-size-mobile - $header-height + $gutter;

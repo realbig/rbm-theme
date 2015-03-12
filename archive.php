@@ -14,10 +14,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-	<div class="row page-content">
+	<div class="page-content row">
+
+		<h1 class="page-title columns small-12">
+			<?php post_type_archive_title( '' ); ?>
+		</h1>
 
 		<?php
-		the_archive_title( '<h1 class="page-title columns small-12">', '</h1>' );
 		the_archive_description( '<div class="taxonomy-description columns small-12">', '</div>' );
 		?>
 

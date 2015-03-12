@@ -29,7 +29,8 @@ Version: 0.1.0
 // Partials
 @import "partials/search-form";
 @import "partials/sections";
-@import "partials/staff-list";
+@import "partials/overlay-grid";
+@import "partials/grid-load-effect";
 
 // Static
 @import "static/header";
@@ -44,6 +45,7 @@ Version: 0.1.0
 @import "templates/single-post";
 @import "templates/blog";
 @import "templates/template-sectionalized";
+@import "templates/template-chamber";
 @import "templates/template-full-width-sidebar";
 
 // Widgets

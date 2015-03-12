@@ -7,11 +7,11 @@
 (function ($) {
     'use strict';
 
-    $('.staff-item').each(function () {
+    $('.overlay-grid-item').each(function () {
 
         var $container_height = $(this).height();
 
-        $('.staff-meta').each(function () {
+        $('.overlay-grid-meta').each(function () {
             $(this).css('margin-top', $(this).outerHeight() / 2 * -1);
         });
     });

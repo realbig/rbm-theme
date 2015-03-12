@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-	<div class="row page-content">
+	<div class="page-content row">
 
 		<?php if ( have_posts() ) : ?>
 			<?php

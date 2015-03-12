@@ -12,7 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 
-<div class="row page-content">
+<div class="page-content row">
 
 	<article id="page-404" class="text-center columns small-12">
 

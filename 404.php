@@ -16,7 +16,7 @@ get_header();
 the_post();
 ?>
 
-	<div class="row page-content">
+	<div class="page-content row">
 
 		<article id="page-404" class="columns small-12">
 

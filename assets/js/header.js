@@ -35,14 +35,17 @@
         return;
     }
 
-    $(function () {
-
-        $wrapper.addClass('reveal');
+    $(window).load(function () {
 
         setTimeout(function () {
-            $wrapper.removeClass('reveal');
-            $.cookie('rbm-header-preview', '1');
-        }, 2000);
+
+            $wrapper.addClass('reveal');
+
+            setTimeout(function () {
+                $wrapper.removeClass('reveal');
+                $.cookie('rbm-header-preview', '1');
+            }, 2000);
+        }, 500 );
     });
 
 })(jQuery);

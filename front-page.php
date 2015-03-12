@@ -179,7 +179,7 @@ get_header();
 					</div>
 				</div>
 
-				<a href="#" class="scroll-down no-effect"><span class="icon-circle-down"></span></a>
+<!--				<a href="#" class="scroll-down no-effect"><span class="icon-circle-down"></span></a>-->
 
 			</section>
 

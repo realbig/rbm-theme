@@ -89,36 +89,18 @@ function _rbm_sc_staff( $atts, $content ) {
 
 		global $post;
 
-		$output .= '<ul class="staff-list small-block-grid-' . count( $staff ) . '">';
+		$output .= '<ul class="overlay-grid small-block-grid-' . count( $staff ) . '">';
 
 		foreach ( $staff as $post ) {
 			setup_postdata( $post );
 
-			$output .= '<li class="staff-item">';
-			$output .= '<a href="' . get_permalink( $post->ID ) . '" class="no-effect">';
+			$image = get_avatar( get_the_author_meta( 'ID' ), 800 );
 
-			$output .= '<div class="staff-image">';
-			$output .= get_avatar( get_the_author_meta( 'ID' ), 800 );
-			$output .= '</div>';
+			$extra = '<p class="staff-role">';
+			$extra .= get_field( 'staff_title' );
+			$extra .= '</p>';
 
-			$output .= '<div class="staff-overlay">';
-
-			$output .= '<div class="staff-meta">';
-
-			$output .= '<p class="staff-title">';
-			$output .= get_the_title();
-			$output .= '</p>';
-
-			$output .= '<p class="staff-role">';
-			$output .= get_field( 'staff_title' );
-			$output .= '</p>';
-
-			$output .= '</div>';
-
-			$output .= '</div>';
-
-			$output .= '</a>';
-			$output .= '</li>';
+			$output .= rbm_get_overlay_grid_item( false, $image, $extra );
 		}
 
 		$output .= '</ul>';
