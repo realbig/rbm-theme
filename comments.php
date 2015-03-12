@@ -116,9 +116,7 @@ if ( post_password_required() ) { ?>
 				</p>
 
 				<p>
-					<button name="submit" type="submit" id="submit" tabindex="5" class="button dark">
-						Submit Content
-					</button>
+					<input type="submit" name="submit" id="submit" tabindex="5" value="Submit Comment" class="button" />
 					<?php comment_id_fields(); ?>
 				</p>
 				<?php

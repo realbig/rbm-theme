@@ -24,7 +24,9 @@ the_post();
 				<?php the_title(); ?>
 			</h1>
 
-			<?php echo get_avatar(get_the_author_meta('ID'), 200); ?>
+			<span class="alignleft">
+				<?php echo get_avatar( get_the_author_meta( 'ID' ), 200 ); ?>
+			</span>
 
 			<?php the_content(); ?>
 

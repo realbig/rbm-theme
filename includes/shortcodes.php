@@ -94,8 +94,8 @@ function _rbm_sc_staff( $atts, $content ) {
 		foreach ( $staff as $post ) {
 			setup_postdata( $post );
 
-			$output .= '<a href="' . get_permalink( $post->ID ) . '">';
 			$output .= '<li class="staff-item">';
+			$output .= '<a href="' . get_permalink( $post->ID ) . '" class="no-effect">';
 
 			$output .= '<div class="staff-image">';
 			$output .= get_avatar( get_the_author_meta( 'ID' ), 800 );
@@ -117,8 +117,8 @@ function _rbm_sc_staff( $atts, $content ) {
 
 			$output .= '</div>';
 
-			$output .= '</li>';
 			$output .= '</a>';
+			$output .= '</li>';
 		}
 
 		$output .= '</ul>';

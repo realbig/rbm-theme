@@ -40,11 +40,6 @@ Styles shared among all templates.
   text-align: center;
 }
 
-.row.unexpand {
-  max-width: $row-width * 0.6666;
-  margin: 0 auto;
-}
-
 .alignleft {
   float: left;
   margin-right: 10px;
@@ -59,7 +54,12 @@ Styles shared among all templates.
   margin: 0 auto;
 }
 
-// Fix
+// Fixes
+.row.unexpand {
+  max-width: $row-width;
+  margin: 0 auto;
+}
+
 .gform_footer {
   br {
     display: none;

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 	<hr/>
 
-	<div class="footer-social columns small-12 medium-6">
+	<div class="footer-social columns small-12">
 		<h2 class="font-special">
 			Connect with us.
 		</h2>
@@ -45,10 +45,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</p>
 	</div>
 
-	<div class="footer-accreditations columns small-12 medium-6">
-		<img src="<?php echo get_template_directory_uri(); ?>/assets/images/chamber.jpg" />
-		<img src="http://advertise.bingads.microsoft.com/en-us/WWImages/search/en-us/BingAds_Accredited_Badge.png" />
-	</div>
+<!--	<div class="footer-accreditations columns small-12 medium-6">-->
+<!--		<img src="--><?php //echo get_template_directory_uri(); ?><!--/assets/images/chamber.jpg" />-->
+<!--		<img src="http://advertise.bingads.microsoft.com/en-us/WWImages/search/en-us/BingAds_Accredited_Badge.png" />-->
+<!--	</div>-->
 
 	<div class="footer-search columns small-12">
 		<?php get_search_form(); ?>

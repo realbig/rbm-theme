@@ -18,7 +18,12 @@ get_header();
 
 		<section class="home-cta columns small-12">
 
-			<div class="home-cta-cover"></div>
+			<?php if ( ! wp_is_mobile() ) : ?>
+				<video autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/home-cta.jpg"
+				       class="home-cta-video">
+					<source src="<?php echo get_template_directory_uri(); ?>/assets/videos/home-back.mp4" type="video/mp4"/>
+				</video>
+			<?php endif; ?>
 
 			<div class="home-cta-message">
 				<h1 class="font-special">
@@ -29,6 +34,8 @@ get_header();
 					Contact Us
 				</a>
 			</div>
+
+			<div class="home-cta-cover"></div>
 
 			<a href="#" class="scroll-down no-effect"><span class="icon-circle-down"></span></a>
 

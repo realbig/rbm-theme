@@ -4921,7 +4921,13 @@ button, .button {
 
 input[type="submit"] {
   background: #76D100;
-  border-width: 0; }
+  border-width: 0;
+  transition: background 300ms;
+  color: #fff;
+  border-radius: 1000px; }
+  input[type="submit"]:hover {
+    color: #fff !important;
+    background: #599e00; }
 
 ::-moz-selection {
   background: #12538F;
@@ -5139,6 +5145,9 @@ throughout this theme's SASS files.
   .staff-list .staff-item {
     padding: 0;
     position: relative; }
+    .staff-list .staff-item a {
+      display: block;
+      color: #fff; }
     .staff-list .staff-item:hover .staff-image img {
       -webkit-transform: scale(1.05);
           -ms-transform: scale(1.05);
@@ -5770,10 +5779,6 @@ throughout this theme's SASS files.
 .pagination {
   text-align: center; }
 
-.row.unexpand {
-  max-width: 33.33rem;
-  margin: 0 auto; }
-
 .alignleft {
   float: left;
   margin-right: 10px; }
@@ -5783,6 +5788,10 @@ throughout this theme's SASS files.
   margin-right: 10px; }
 
 .aligncenter {
+  margin: 0 auto; }
+
+.row.unexpand {
+  max-width: 50rem;
   margin: 0 auto; }
 
 .gform_footer br {

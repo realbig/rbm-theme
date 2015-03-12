@@ -13,6 +13,11 @@ Staff list.
     padding: 0;
     position: relative;
 
+    a {
+      display: block;
+      color: #fff;
+    }
+
     &:hover {
       .staff-image {
         img {

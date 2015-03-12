@@ -224,9 +224,13 @@ button, .button {
 input[type="submit"] {
   background: $secondary-color;
   border-width: 0;
+  transition: background 300ms;
+  color: #fff;
+  border-radius: 1000px;
 
   &:hover {
-
+    color: #fff !important;
+    background: darken($secondary-color, 10%);
   }
 }
 
