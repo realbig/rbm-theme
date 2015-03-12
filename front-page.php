@@ -18,24 +18,17 @@ get_header();
 
 		<section class="home-cta columns small-12">
 
-			<?php if ( ! wp_is_mobile() ) : ?>
-				<video autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/home-cta.jpg"
-				       class="home-cta-video">
-					<source src="<?php echo get_template_directory_uri(); ?>/assets/videos/home-back.mp4" type="video/mp4"/>
-				</video>
-			<?php endif; ?>
+			<div class="home-cta-cover"></div>
 
 			<div class="home-cta-message">
 				<h1 class="font-special">
 					Ready for your website to pull its weight?
 				</h1>
 
-				<a href="/contact/" class="button">
+				<a href="<?php echo get_permalink( 47 ); ?>" class="button">
 					Contact Us
 				</a>
 			</div>
-
-			<div class="home-cta-cover"></div>
 
 			<a href="#" class="scroll-down no-effect"><span class="icon-circle-down"></span></a>
 
@@ -48,11 +41,11 @@ get_header();
 				<?php rbm_section_title( 'Who We Are', 'who-we-are' ); ?>
 
 				<div class="section-summary">
-					We're a marketing firm with an emphasis on <span class="font-special">top-notch</span> website creation.
+					We're a marketing firm with an emphasis on top-notch website creation.
 				</div>
 
-				<a href="#" class="button section-cta">
-					See what we can do for you
+				<a href="<?php echo get_permalink( 24 ); ?>" class="button section-cta">
+					Learn more about our company
 				</a>
 
 				<div class="services-list row">
@@ -91,7 +84,7 @@ get_header();
 						</div>
 
 						<p class="service-blurb">
-							That's why build mobile-friendly websites.
+							That's why focus on making mobile-friendly websites.
 						</p>
 					</div>
 
@@ -138,10 +131,10 @@ get_header();
 					<?php rbm_section_title( 'What We\'ve Done', 'what-weve-done' ); ?>
 
 					<div class="section-summary">
-						We've built some pretty <span class="font-special">cool</span> stuff. Take a look!
+						We've built some pretty cool stuff. Take a look!
 					</div>
 
-					<a href="#" class="button secondary section-cta">
+					<a href="<?php echo get_permalink( 464 ); ?>" class="button secondary section-cta">
 						We can build you a site like these
 					</a>
 
@@ -195,7 +188,7 @@ get_header();
 					<?php rbm_section_title( 'What People Say', 'what-people-say' ); ?>
 
 					<div class="section-summary">
-						People seem to <span class="font-special">really</span> like us, but don't take our word for it!
+						People seem to really like us, but don't take our word for it!
 					</div>
 
 					<a href="#" class="button section-cta">
