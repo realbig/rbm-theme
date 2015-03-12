@@ -24,10 +24,10 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</h2>
 
 		<ul class="footer-social-list small-block-grid-2 medium-block-grid-4">
-			<li><a href="#" class="footer-social-icon force-color"><span class="icon-facebook"></span></a></li>
-			<li><a href="#" class="footer-social-icon force-color"><span class="icon-twitter"></span></a></li>
-			<li><a href="#" class="footer-social-icon force-color"><span class="icon-linkedin"></span></a></li>
-			<li><a href="#" class="footer-social-icon force-color"><span class="icon-google"></span></a></li>
+			<li><a href="http://www.facebook.com/realbigmarketing" class="footer-social-icon force-color"><span class="icon-facebook"></span></a></li>
+			<li><a href="http://twitter.com/gorealbig" class="footer-social-icon force-color"><span class="icon-twitter"></span></a></li>
+			<li><a href="http://www.linkedin.com/company/real-big-marketing" class="footer-social-icon force-color"><span class="icon-linkedin"></span></a></li>
+			<li><a href="https://plus.google.com/+Realbigmarketing/" class="footer-social-icon force-color"><span class="icon-google"></span></a></li>
 		</ul>
 
 		<p class="footer-phone">
@@ -35,11 +35,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			<br/>
 			<span class="phone-number">
 				<?php if ( wp_is_mobile() ) : ?>
-					<a href="tel:555-555-5555" class="button">
-						555-555-5555
+					<a href="tel:269-588-0556" class="button">
+						(269) 588-0556
 					</a>
 				<?php else: ?>
-					555-555-5555
+					(269) 588-0556
 				<?php endif; ?>
 			</span>
 		</p>
