@@ -3,7 +3,7 @@ Theme Name: Real Big Marketing
 Description: A kick-butt theme for Real Big Marketing.
 Author: Joel Worsham
 Author URI: http://joelworsham.com
-Version: 0.1.0
+Version: 0.1.2
 */
 
 // Vendor
@@ -44,12 +44,15 @@ Version: 0.1.0
 @import "templates/page";
 @import "templates/single-post";
 @import "templates/blog";
-@import "templates/template-sectionalized";
+@import "templates/template-full-width";
 @import "templates/template-chamber";
 @import "templates/template-full-width-sidebar";
 
 // Widgets
 @import "widgets/testimonials";
+
+// Shortcodes
+@import "shortcodes/content-width";
 
 // Overrides
 @import "wp";

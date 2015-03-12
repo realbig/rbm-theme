@@ -23,6 +23,10 @@ $section-transition: 1.5s;
     &.blue {
       background: lighten($primary-color, 5%);
 
+      a {
+        color: lighten($secondary-color, 10%);
+      }
+
       .section-line {
         background: darken($primary-color, 0%);
       }
@@ -30,6 +34,10 @@ $section-transition: 1.5s;
 
     &.green {
       background: darken($secondary-color, 10%);
+
+      a {
+        color: lighten($primary-color, 5%);
+      }
 
       .section-line {
         background: darken($secondary-color, 15%);
@@ -51,6 +59,11 @@ $section-transition: 1.5s;
     position: relative;
     padding: $section-gutter 10px;
     z-index: 5;
+
+    &.expand {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   .section-title {
@@ -173,14 +186,14 @@ $section-transition: 1.5s;
   left: 0;
   right: 0;
   text-align: center;
-  color: #fff;
+  color: #fff !important;
   font-size: 30px;
   height: 40px;
   z-index: 50;
   text-shadow: none;
 
   &:hover {
-    color: $secondary-color;
+    color: $secondary-color !important;
   }
 
   [class*="icon-"] {
@@ -189,5 +202,46 @@ $section-transition: 1.5s;
     left: 50%;
     margin-left: -15px;
     animation: scroll-bounce 7s infinite;
+  }
+}
+
+@keyframes scroll-bounce {
+  0% {
+    bottom: 0;
+    transform: rotate(0deg);
+  }
+  10% {
+    bottom: 10px;
+  }
+  20% {
+    bottom: 0;
+  }
+  30% {
+    bottom: 10px;
+  }
+  40% {
+    bottom: 0;
+  }
+  50% {
+    bottom: 10px;
+  }
+  60% {
+    bottom: 0;
+  }
+  70% {
+    bottom: 10px;
+  }
+  80% {
+    bottom: 0;
+    transform: rotate(0deg);
+  }
+  85% {
+    transform: rotate(-90deg);
+  }
+  90% {
+    bottom: 10px;
+  }
+  100% {
+    transform: rotate(1080deg);
   }
 }

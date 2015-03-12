@@ -17,11 +17,6 @@ get_header();
 
 	<div class="page-content top-flush bottom-flush blue row expand">
 
-
-<!--		<h1 class="page-title text-center columns small-12">-->
-<!--			Our Clients-->
-<!--		</h1>-->
-
 		<?php
 		the_archive_description( '<div class="taxonomy-description columns small-12">', '</div>' );
 		?>

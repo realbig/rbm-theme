@@ -1,0 +1,20 @@
+/*
+Sectionalized page template.
+
+@since 0.1.0
+*/
+
+@import "../settings";
+@import "../static/header-vars";
+
+body.page.page-template-full-width {
+
+  .page-title {
+    margin-top: $header-logo-size - $header-height + $gutter;
+  }
+
+  .page-content {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+}

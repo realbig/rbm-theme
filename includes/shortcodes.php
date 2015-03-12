@@ -12,10 +12,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 add_shortcode( 'section', '_rbm_sc_section' );
-add_shortcode( 'section_page_content', '_rbm_sc_section_page_content' );
-add_shortcode( 'section_content', '_rbm_sc_content' );
-add_shortcode( 'staff', '_rbm_sc_staff' );
+add_shortcode( 'section_button', '_rbm_sc_section_button' );
+add_shortcode( 'section_summary', '_rbm_sc_section_summary' );
+add_shortcode( 'content_width', '_rbm_sc_column_width' );
+add_shortcode( 'staff_list', '_rbm_sc_staff_list' );
 add_shortcode( 'button', '_rbm_sc_button' );
+add_shortcode( 'page_title', '_rbm_sc_page_title' );
 
 function _rbm_sc_section( $atts = array(), $content = '' ) {
 
@@ -25,7 +27,8 @@ function _rbm_sc_section( $atts = array(), $content = '' ) {
 		'id'      => 'section',
 		'title'   => 'Section',
 		'summary' => false,
-		'button'  => false,
+		'show_scroll_nag' => 'no',
+		'full_width' => 'no',
 	), $atts );
 
 	$classes   = array();
@@ -36,47 +39,61 @@ function _rbm_sc_section( $atts = array(), $content = '' ) {
 	$output = '';
 	$output .= '<section id="' . $atts['id'] . '" class="section ' . implode( $classes ) . ' columns small-12">';
 
-	$output .= '<div class="section-content">';
+	$output .= '<div class="section-content expand">';
 
 	$output .= rbm_get_section_title( $atts['title'], $atts['id'] );
 
-	if ( $atts['summary'] !== false ) {
-		$output .= '<div class="section-summary">';
-		$output .= $atts['summary'];
-		$output .= '</div>';
-	}
-
-	if ( $atts['button'] !== false ) {
-		$output .= '<a href="#" class="button section-cta">';
-		$output .= $atts['button_text'];
-		$output .= '</a>';
+	if ( $atts['full_width'] == 'no' ) {
+		$output .= '<div class="row unexpand text-left">';
+		$output .= '<div class="columns small-12">';
 	}
 
 	$output .= do_shortcode( $content );
 
-	$output .= '</div>';
+	if ( $atts['full_width'] == 'no' ) {
+		$output .= '</div>';
+		$output .= '</div>';
+	}
 
-	//	$output .= '<a href="#" class="scroll-down no-effect"><span class="icon-circle-down"></span></a>';
+	if ( $atts['show_scroll_nag'] == 'yes' ) {
+		$output .= '<a href="#" class="scroll-down no-effect"><span class="icon-circle-down"></span></a>';
+	}
 
 	$output .= '</section>';
 
 	return $output;
 }
 
-function _rbm_sc_section_page_content( $atts, $content = '' ) {
+function _rbm_sc_section_button( $atts = array(), $content = '' ) {
 
-	global $rbm_sectionalized_content;
-	$rbm_sectionalized_content = $content;
+	$atts = shortcode_atts( array(
+		'link' => '#'
+	), $atts);
 
-	return '';
+	$output = '<p class="text-center">';
+	$output .= "<a href=\"$atts[link]\" class=\"button section-cta\">";
+	$output .= $content;
+	$output .= '</a>';
+	$output .= '</p>';
+
+	return $output;
 }
 
-function _rbm_sc_content( $atts, $content ) {
+function _rbm_sc_section_summary( $atts = array(), $content = '' ) {
 
+	$output = '<div class="section-summary text-center">';
+	$output .= do_shortcode( $content );
+	$output .= '</div>';
+
+	return $output;
+
+}
+
+function _rbm_sc_column_width( $atts, $content = '' ) {
 	return '<div class="row unexpand text-left"><div class="columns small-12">' . do_shortcode( $content ) . '</div></div>';
 }
 
-function _rbm_sc_staff( $atts, $content ) {
+function _rbm_sc_staff_list( $atts, $content ) {
 
 	$staff = get_posts( array(
 		'post_type'   => 'staff',
@@ -89,7 +106,7 @@ function _rbm_sc_staff( $atts, $content ) {
 
 		global $post;
 
-		$output .= '<ul class="overlay-grid small-block-grid-' . count( $staff ) . '">';
+		$output .= '<ul class="overlay-grid small-block-grid-1 medium-block-grid-' . count( $staff ) . '">';
 
 		foreach ( $staff as $post ) {
 			setup_postdata( $post );
@@ -100,7 +117,10 @@ function _rbm_sc_staff( $atts, $content ) {
 			$extra .= get_field( 'staff_title' );
 			$extra .= '</p>';
 
-			$output .= rbm_get_overlay_grid_item( false, $image, $extra );
+			$output .= rbm_get_overlay_grid_item( array(
+				'image' => $image,
+				'extra' => $extra,
+			) );
 		}
 
 		$output .= '</ul>';
@@ -130,4 +150,11 @@ function _rbm_sc_button( $atts = array(), $content = '' ) {
 	$output .= '</a>';
 
 	return $output;
+}
+
+function _rbm_sc_page_title( $atts = array(), $content = '' ) {
+
+	global $post;
+
+	return '<h1 class="page-title">' . get_the_title( $post->ID ) . '</h1>';
 }

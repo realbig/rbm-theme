@@ -3,7 +3,7 @@ Theme Name: Real Big Marketing
 Description: A kick-butt theme for Real Big Marketing.
 Author: Joel Worsham
 Author URI: http://joelworsham.com
-Version: 0.1.0
+Version: 0.1.2
 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
@@ -5010,10 +5010,14 @@ throughout this theme's SASS files.
   text-shadow: 1px 1px 0 #222; }
   .section.active.blue {
     background: #1560a6; }
+    .section.active.blue a {
+      color: #92ff05; }
     .section.active.blue .section-line {
       background: #12538f; }
   .section.active.green {
     background: #599e00; }
+    .section.active.green a {
+      color: #1560a6; }
     .section.active.green .section-line {
       background: #4b8400; }
   .section.active .section-line.left {
@@ -5024,6 +5028,9 @@ throughout this theme's SASS files.
     position: relative;
     padding: 50px 10px;
     z-index: 5; }
+    .section .section-content.expand, .section .search-form .section-content.button, .search-form .section .section-content.button {
+      padding-left: 0;
+      padding-right: 0; }
   .section .section-title {
     background: #fff;
     color: #222;
@@ -5110,13 +5117,13 @@ throughout this theme's SASS files.
   left: 0;
   right: 0;
   text-align: center;
-  color: #fff;
+  color: #fff !important;
   font-size: 30px;
   height: 40px;
   z-index: 50;
   text-shadow: none; }
   .scroll-down:hover {
-    color: #76D100; }
+    color: #76D100 !important; }
   .scroll-down [class*="icon-"] {
     position: absolute;
     bottom: 0;
@@ -5124,6 +5131,92 @@ throughout this theme's SASS files.
     margin-left: -15px;
     -webkit-animation: scroll-bounce 7s infinite;
             animation: scroll-bounce 7s infinite; }
+
+@-webkit-keyframes scroll-bounce {
+  0% {
+    bottom: 0;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+
+  10% {
+    bottom: 10px; }
+
+  20% {
+    bottom: 0; }
+
+  30% {
+    bottom: 10px; }
+
+  40% {
+    bottom: 0; }
+
+  50% {
+    bottom: 10px; }
+
+  60% {
+    bottom: 0; }
+
+  70% {
+    bottom: 10px; }
+
+  80% {
+    bottom: 0;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+
+  85% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg); }
+
+  90% {
+    bottom: 10px; }
+
+  100% {
+    -webkit-transform: rotate(1080deg);
+            transform: rotate(1080deg); } }
+
+@keyframes scroll-bounce {
+  0% {
+    bottom: 0;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+
+  10% {
+    bottom: 10px; }
+
+  20% {
+    bottom: 0; }
+
+  30% {
+    bottom: 10px; }
+
+  40% {
+    bottom: 0; }
+
+  50% {
+    bottom: 10px; }
+
+  60% {
+    bottom: 0; }
+
+  70% {
+    bottom: 10px; }
+
+  80% {
+    bottom: 0;
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+
+  85% {
+    -webkit-transform: rotate(-90deg);
+            transform: rotate(-90deg); }
+
+  90% {
+    bottom: 10px; }
+
+  100% {
+    -webkit-transform: rotate(1080deg);
+            transform: rotate(1080deg); } }
 
 /*
 Block list overlay.
@@ -5852,14 +5945,49 @@ throughout this theme's SASS files.
 .aligncenter {
   margin: 0 auto; }
 
-.row.unexpand {
-  max-width: 50rem;
-  margin: 0 auto; }
+.wp-caption {
+  position: relative;
+  overflow: hidden; }
+  .wp-caption:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #12538F;
+    opacity: 0;
+    z-index: 1;
+    transition: opacity 300ms; }
+  .wp-caption:hover .wp-caption-text {
+    opacity: 1;
+    visibility: visible; }
+  .wp-caption:hover:before {
+    opacity: 0.7; }
+  .wp-caption a {
+    display: block; }
+  .wp-caption img {
+    width: 100%; }
+  .wp-caption .wp-caption-text {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    margin: 0;
+    line-height: 1.5;
+    font-size: 0.8em;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 300ms, visibility 300ms;
+    z-index: 5; }
 
 .gform_footer br {
   display: none; }
 .gform_footer p {
   display: none; }
+
+label {
+  color: inherit; }
 
 .render-columns-wrapper:after {
   content: ' ';
@@ -6338,92 +6466,6 @@ body.home #wrapper .testimonials-list {
             -ms-transform: scale(1.05);
                 transform: scale(1.05); }
 
-@-webkit-keyframes scroll-bounce {
-  0% {
-    bottom: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
-
-  10% {
-    bottom: 10px; }
-
-  20% {
-    bottom: 0; }
-
-  30% {
-    bottom: 10px; }
-
-  40% {
-    bottom: 0; }
-
-  50% {
-    bottom: 10px; }
-
-  60% {
-    bottom: 0; }
-
-  70% {
-    bottom: 10px; }
-
-  80% {
-    bottom: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
-
-  85% {
-    -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg); }
-
-  90% {
-    bottom: 10px; }
-
-  100% {
-    -webkit-transform: rotate(1080deg);
-            transform: rotate(1080deg); } }
-
-@keyframes scroll-bounce {
-  0% {
-    bottom: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
-
-  10% {
-    bottom: 10px; }
-
-  20% {
-    bottom: 0; }
-
-  30% {
-    bottom: 10px; }
-
-  40% {
-    bottom: 0; }
-
-  50% {
-    bottom: 10px; }
-
-  60% {
-    bottom: 0; }
-
-  70% {
-    bottom: 10px; }
-
-  80% {
-    bottom: 0;
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg); }
-
-  85% {
-    -webkit-transform: rotate(-90deg);
-            transform: rotate(-90deg); }
-
-  90% {
-    bottom: 10px; }
-
-  100% {
-    -webkit-transform: rotate(1080deg);
-            transform: rotate(1080deg); } }
-
 @-webkit-keyframes portfolio-in-right {
   0% {
     left: 100%;
@@ -6700,7 +6742,23 @@ throughout this theme's SASS files.
 /*
  * Mixins
  */
-body.page.page-template-sectionalized .page-content {
+/*
+Shared header vars.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+/*
+ * Mixins
+ */
+body.page.page-template-full-width .page-title {
+  margin-top: 80px; }
+body.page.page-template-full-width .page-content {
   padding-top: 0;
   padding-bottom: 0; }
 
@@ -7129,6 +7187,25 @@ throughout this theme's SASS files.
     .testimonials-container .testimonial .testimonial-content .icon-quote {
       font-size: 35px;
       color: #ddd; }
+
+/*
+Staff list.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+/*
+ * Mixins
+ */
+.row.unexpand {
+  max-width: 50rem;
+  margin-left: auto !important;
+  margin-right: auto !important; }
 
 /*
 This provides overrides for some WP stuff (not much at all).

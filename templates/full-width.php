@@ -18,13 +18,9 @@ get_header();
 the_post();
 ?>
 
-	<div class="page-content row expand">
+	<div class="page-content row expand collapse">
 
 		<article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
-
-			<h1 class="page-title">
-				<?php the_title(); ?>
-			</h1>
 
 			<?php the_content(); ?>
 

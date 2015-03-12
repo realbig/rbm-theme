@@ -345,47 +345,6 @@ body.home #wrapper {
   }
 }
 
-@keyframes scroll-bounce {
-  0% {
-    bottom: 0;
-    transform: rotate(0deg);
-  }
-  10% {
-    bottom: 10px;
-  }
-  20% {
-    bottom: 0;
-  }
-  30% {
-    bottom: 10px;
-  }
-  40% {
-    bottom: 0;
-  }
-  50% {
-    bottom: 10px;
-  }
-  60% {
-    bottom: 0;
-  }
-  70% {
-    bottom: 10px;
-  }
-  80% {
-    bottom: 0;
-    transform: rotate(0deg);
-  }
-  85% {
-    transform: rotate(-90deg);
-  }
-  90% {
-    bottom: 10px;
-  }
-  100% {
-    transform: rotate(1080deg);
-  }
-}
-
 @keyframes portfolio-in-right {
   0% {
     left: 100%;

@@ -15,8 +15,7 @@
         }
 
         // Define Elements
-        var $scroll = $('.scroll-down'),
-            $wpadminbar = $('#wpadminbar'),
+        var $wpadminbar = $('#wpadminbar'),
             header_height = $('#site-header').find('.site-nav-left').height(),
             $home_message = $home_cta.find('.home-cta-message');
 
@@ -40,18 +39,6 @@
             $home_cta.height(window_height - header_height);
             $home_message.css('margin-top', $home_message.height() / 2 * -1);
         }
-
-        // Scroll down
-        $scroll.click(function () {
-
-            $('body, html').animate({
-                scrollTop: $(this).closest('section').next('section').offset().top -
-                $('#site-header').find('.site-nav-left').height() -
-                ($wpadminbar.length ? $wpadminbar.height() : 0)
-            }, 500);
-
-            return false;
-        });
 
         /* -------- *
          * Services *

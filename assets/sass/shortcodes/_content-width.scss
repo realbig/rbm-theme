@@ -1,0 +1,12 @@
+/*
+Staff list.
+
+@since 0.1.0
+*/
+@import "../settings";
+
+.row.unexpand {
+  max-width: $row-width;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
