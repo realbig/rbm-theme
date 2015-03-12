@@ -18,7 +18,7 @@ the_post();
 
 	<div class="row page-content">
 
-		<article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12', 'medium-8' ) ); ?>>
+		<article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
 
 			<h1 class="page-title">
 				<?php the_title(); ?>
@@ -27,8 +27,6 @@ the_post();
 			<?php the_content(); ?>
 
 		</article>
-
-		<?php get_sidebar(); ?>
 
 	</div>
 

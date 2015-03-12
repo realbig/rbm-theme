@@ -39,3 +39,37 @@ Styles shared among all templates.
 .pagination {
   text-align: center;
 }
+
+.row.unexpand {
+  max-width: $row-width * 0.6666;
+  margin: 0 auto;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 10px;
+}
+
+.alignright {
+  float: right;
+  margin-right: 10px;
+}
+
+.aligncenter {
+  margin: 0 auto;
+}
+
+// Fix
+.gform_footer {
+  br {
+    display: none;
+  }
+
+  p {
+    display: none;
+  }
+}
+
+.render-columns-wrapper {
+  @include clearfix;
+}

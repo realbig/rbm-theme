@@ -100,7 +100,13 @@
         // Establish defaults on load
         $portfolio_container.find('.portfolios-left, .portfolios-right').show();
         $portfolios.removeClass('no-js').not(':eq(0)').removeClass('active');
-        $portfolio_container.find('.portfolio-list').height($portfolios.first().outerHeight());
+
+        $(window).load(resize_portfolio_container);
+        $(window).resize(resize_portfolio_container);
+
+        function resize_portfolio_container() {
+            $('.portfolio').find('.portfolio-list').height($portfolios.first().outerHeight());
+        }
 
         // Next
         $portfolio_container.find('.portfolios-right').click(function () {

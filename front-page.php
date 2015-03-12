@@ -177,6 +177,9 @@ get_header();
 			'post_type'   => 'testimonial',
 			'numberposts' => 8,
 		) );
+
+		// TODO Get testimonials to use
+		$testimonials = false;
 		?>
 
 		<?php if ( ! empty( $testimonials ) ) : ?>

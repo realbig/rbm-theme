@@ -4919,6 +4919,10 @@ button, .button {
     button.effect.secondary:before, .button.effect.secondary:before {
       background: #12538F; }
 
+input[type="submit"] {
+  background: #76D100;
+  border-width: 0; }
+
 ::-moz-selection {
   background: #12538F;
   color: #fff; }
@@ -5705,6 +5709,14 @@ throughout this theme's SASS files.
 .sidebar .widgets {
   list-style: none;
   margin: 0; }
+  .sidebar .widgets .widget {
+    margin: 60px 0; }
+    .sidebar .widgets .widget .widgettitle {
+      font-size: 1.5em; }
+    .sidebar .widgets .widget:first-of-type {
+      margin-top: 0; }
+    .sidebar .widgets .widget:last-of-type {
+      margin-bottom: 0; }
 
 /*
 Styles shared among all templates.
@@ -5758,6 +5770,31 @@ throughout this theme's SASS files.
 .pagination {
   text-align: center; }
 
+.row.unexpand {
+  max-width: 33.33rem;
+  margin: 0 auto; }
+
+.alignleft {
+  float: left;
+  margin-right: 10px; }
+
+.alignright {
+  float: right;
+  margin-right: 10px; }
+
+.aligncenter {
+  margin: 0 auto; }
+
+.gform_footer br {
+  display: none; }
+.gform_footer p {
+  display: none; }
+
+.render-columns-wrapper:after {
+  content: ' ';
+  display: table;
+  clear: both; }
+
 /*
 Styles front-page.php (the home page).
 
@@ -5777,6 +5814,16 @@ body.home #wrapper .home-cta {
   background-size: cover;
   position: relative;
   overflow: hidden; }
+  body.home #wrapper .home-cta:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.3;
+    background: #fff;
+    z-index: 2; }
   body.home #wrapper .home-cta .home-cta-cover {
     position: absolute;
     top: 0;

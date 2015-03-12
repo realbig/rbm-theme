@@ -220,6 +220,16 @@ button, .button {
   }
 }
 
+// Input buttons
+input[type="submit"] {
+  background: $secondary-color;
+  border-width: 0;
+
+  &:hover {
+
+  }
+}
+
 // Selection
 ::selection {
   background: $primary-color;

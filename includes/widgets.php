@@ -161,9 +161,12 @@ class RBMThemeWidget_Image extends WP_Widget {
 		}
 
 		$image_ID = isset( $instance['image'] ) && ! empty( $instance['image'] ) ? (int) $instance['image'] : false;
+		$link = isset( $instance['link'] ) && ! empty( $instance['link'] ) ? $instance['link'] : false;
 
 		if ( $image_ID !== false ) {
+			echo $link !== false ? "<a href=\"$link\">" : '';
 			echo wp_get_attachment_image( $image_ID, 'full' );
+			echo $link !== false ? '</a>' : '';
 		}
 
 		echo $args['after_widget'];
@@ -173,8 +176,9 @@ class RBMThemeWidget_Image extends WP_Widget {
 
 		$title = ! empty( $instance['title'] ) ? $instance['title'] : 'Testimonials';
 		$image = ! empty( $instance['image'] ) ? $instance['image'] : false;
+		$link = ! empty( $instance['link'] ) ? $instance['link'] : false;
 
-		$image_preview = $image !== false ? wp_get_attachment_image_src( $image ) : false;
+		$image_preview = $image !== false ? wp_get_attachment_image_src( $image, 'full' ) : false;
 		$image_preview = $image_preview !== false ? $image_preview[0] : '';
 		?>
 		<p>
@@ -194,6 +198,13 @@ class RBMThemeWidget_Image extends WP_Widget {
 			<input class="image-id" id="<?php echo $this->get_field_id( 'image' ); ?>"
 			       name="<?php echo $this->get_field_name( 'image' ); ?>" type="hidden"
 			       value="<?php echo esc_attr( $image ); ?>">
+		</p>
+
+		<p>
+			<label for="<?php echo $this->get_field_id( 'link' ); ?>">Link:</label>
+			<input class="widefat" id="<?php echo $this->get_field_id( 'link' ); ?>"
+			       name="<?php echo $this->get_field_name( 'link' ); ?>" type="text"
+			       value="<?php echo esc_attr( $link ); ?>">
 		</p>
 	<?php
 	}

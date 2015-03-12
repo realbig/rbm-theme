@@ -13,7 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_shortcode( 'section', '_rbm_sc_section' );
 add_shortcode( 'section_page_content', '_rbm_sc_section_page_content' );
+add_shortcode( 'section_content', '_rbm_sc_content' );
 add_shortcode( 'staff', '_rbm_sc_staff' );
+add_shortcode( 'button', '_rbm_sc_button' );
 
 function _rbm_sc_section( $atts = array(), $content = '' ) {
 
@@ -69,6 +71,11 @@ function _rbm_sc_section_page_content( $atts, $content = '' ) {
 	return '';
 }
 
+function _rbm_sc_content( $atts, $content ) {
+
+	return '<div class="row unexpand text-left"><div class="columns small-12">' . do_shortcode( $content ) . '</div></div>';
+}
+
 function _rbm_sc_staff( $atts, $content ) {
 
 	$staff = get_posts( array(
@@ -118,6 +125,27 @@ function _rbm_sc_staff( $atts, $content ) {
 
 		wp_reset_postdata();
 	}
+
+	return $output;
+}
+
+function _rbm_sc_button( $atts = array(), $content = '' ) {
+
+	$atts = shortcode_atts( array(
+		'size' => '',
+		'link' => '#',
+		'classes' => '',
+	), $atts );
+
+	$classes = array();
+	$classes[] = 'button';
+	$classes[] = $atts['size'];
+	$classes[] = $atts['classes'];
+	$classes = array_filter( $classes );
+
+	$output = '<a href="' . $atts['link'] . '" class="' . implode( ' ', $classes ) . '">';
+	$output .= do_shortcode( $content );
+	$output .= '</a>';
 
 	return $output;
 }
