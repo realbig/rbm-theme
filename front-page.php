@@ -91,7 +91,7 @@ get_header();
 						</div>
 
 						<p class="service-blurb">
-							That's why focus on making mobile-friendly websites.
+							That's why we focus on making mobile-friendly websites.
 						</p>
 					</div>
 
