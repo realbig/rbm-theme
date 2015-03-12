@@ -130,12 +130,16 @@ $section-transition: 1.5s;
   }
 
   .section-summary {
-    @extend h2;
     margin-top: $section-gutter / 2;
     margin-bottom: $section-gutter / 2;
-    font-family: $font-family-special;
+    font-size: 2em;
+    font-family: $font-family-sans-serif;
     color: inherit;
     transition: color $section-transition;
+
+    .font-special {
+      font-size: 1.4em;
+    }
   }
 
   .section-cta {

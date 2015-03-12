@@ -3906,7 +3906,7 @@ th.hide-for-touch {
  }
 
 /* Typography resets */
-div, dl, dt, dd, ul, ol, li, h1, h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .section .section-summary, .section body.home #wrapper .services .section-summary, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title, h4, h5, h6, pre, form, p, blockquote, th, td {
+div, dl, dt, dd, ul, ol, li, h1, h2, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title, h4, h5, h6, pre, form, p, blockquote, th, td {
   margin: 0;
   padding: 0; }
 
@@ -3937,7 +3937,7 @@ p {
     font-style: italic; }
 
 /* Default header styles */
-h1, h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .section .section-summary, .section body.home #wrapper .services .section-summary, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title, h4, h5, h6 {
+h1, h2, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title, h4, h5, h6 {
   font-family: 'Oswald', sans-serif;
   font-weight: normal;
   font-style: normal;
@@ -3946,7 +3946,7 @@ h1, h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff
   margin-top: 0.2rem;
   margin-bottom: 0.5rem;
   line-height: 1.4; }
-  h1 small, h2 small, .section .section-summary small, .staff-list .staff-item .staff-overlay .staff-meta .staff-title small, h3 small, body.home #wrapper .services h2 small, body.home #wrapper .services .section .section-summary small, .section body.home #wrapper .services .section-summary small, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title small, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title small, h4 small, h5 small, h6 small {
+  h1 small, h2 small, .staff-list .staff-item .staff-overlay .staff-meta .staff-title small, h3 small, body.home #wrapper .services h2 small, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title small, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title small, h4 small, h5 small, h6 small {
     font-size: 80%;
     color: #6f6f6f;
     line-height: 0; }
@@ -3954,10 +3954,10 @@ h1, h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff
 h1 {
   font-size: 2.125rem; }
 
-h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff-meta .staff-title {
+h2, .staff-list .staff-item .staff-overlay .staff-meta .staff-title {
   font-size: 1.6875rem; }
 
-h3, body.home #wrapper .services h2, body.home #wrapper .services .section .section-summary, .section body.home #wrapper .services .section-summary, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title {
+h3, body.home #wrapper .services h2, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title {
   font-size: 1.375rem; }
 
 h4 {
@@ -4108,16 +4108,16 @@ blockquote, blockquote p {
   padding: 0 0.0625rem; }
 
 @media only screen and (min-width:40.063em) {
-  h1, h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .section .section-summary, .section body.home #wrapper .services .section-summary, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title, h4, h5, h6 {
+  h1, h2, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title, h4, h5, h6 {
     line-height: 1.4; }
 
   h1 {
     font-size: 2.75rem; }
 
-  h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff-meta .staff-title {
+  h2, .staff-list .staff-item .staff-overlay .staff-meta .staff-title {
     font-size: 2.3125rem; }
 
-  h3, body.home #wrapper .services h2, body.home #wrapper .services .section .section-summary, .section body.home #wrapper .services .section-summary, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title {
+  h3, body.home #wrapper .services h2, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title {
     font-size: 1.6875rem; }
 
   h4 {
@@ -4176,11 +4176,11 @@ blockquote, blockquote p {
   @page {
     margin: 0.5cm; }
 
-  p, h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .section .section-summary, .section body.home #wrapper .services .section-summary, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title {
+  p, h2, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title {
     orphans: 3;
     widows: 3; }
 
-  h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .section .section-summary, .section body.home #wrapper .services .section-summary, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title {
+  h2, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title {
     page-break-after: avoid; }
 
   .hide-on-print {
@@ -4816,7 +4816,7 @@ throughout this theme's SASS files.
     #wrapper a.force-color:hover, #wrapper .site-nav-left .menu-item a:hover, .site-nav-left .menu-item #wrapper a:hover, #wrapper .site-nav-right .menu-item a:hover, .site-nav-right .menu-item #wrapper a:hover, #wrapper #site-footer .footer-menu .menu .menu-item a:hover, #site-footer .footer-menu .menu .menu-item #wrapper a:hover {
       color: inherit; }
 
-h1, h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .section .section-summary, .section body.home #wrapper .services .section-summary, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title, h4, h5, h6 {
+h1, h2, .staff-list .staff-item .staff-overlay .staff-meta .staff-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title, h4, h5, h6 {
   letter-spacing: 1px;
   color: inherit; }
 
@@ -4824,10 +4824,10 @@ h1, h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff
   h1 {
     font-size: 1.925rem; }
 
-  h2, .section .section-summary, .staff-list .staff-item .staff-overlay .staff-meta .staff-title {
+  h2, .staff-list .staff-item .staff-overlay .staff-meta .staff-title {
     font-size: 1.61875rem; }
 
-  h3, body.home #wrapper .services h2, body.home #wrapper .services .section .section-summary, .section body.home #wrapper .services .section-summary, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title {
+  h3, body.home #wrapper .services h2, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title {
     font-size: 1.18125rem; }
 
   h4 {
@@ -5073,9 +5073,12 @@ throughout this theme's SASS files.
   .section .section-summary {
     margin-top: 25px;
     margin-bottom: 25px;
-    font-family: 'Leckerli One', cursive;
+    font-size: 2em;
+    font-family: "Open Sans", sans-serif;
     color: inherit;
     transition: color 1.5s; }
+    .section .section-summary .font-special {
+      font-size: 1.4em; }
   .section .section-cta {
     margin-top: 25px;
     margin-bottom: 25px; }
@@ -5630,7 +5633,7 @@ throughout this theme's SASS files.
   color: #555;
   padding: 0;
   text-align: center; }
-  #site-footer h1, #site-footer h2, #site-footer .section .section-summary, .section #site-footer .section-summary, #site-footer .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta #site-footer .staff-title, #site-footer h3, #site-footer body.home #wrapper .services h2, body.home #wrapper .services #site-footer h2, #site-footer body.home #wrapper .services .section .section-summary, body.home #wrapper .services .section #site-footer .section-summary, #site-footer .section body.home #wrapper .services .section-summary, .section body.home #wrapper .services #site-footer .section-summary, #site-footer body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta #site-footer .staff-title, #site-footer .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services #site-footer .staff-title, #site-footer h4, #site-footer h5, #site-footer h6 {
+  #site-footer h1, #site-footer h2, #site-footer .staff-list .staff-item .staff-overlay .staff-meta .staff-title, .staff-list .staff-item .staff-overlay .staff-meta #site-footer .staff-title, #site-footer h3, #site-footer body.home #wrapper .services h2, body.home #wrapper .services #site-footer h2, #site-footer body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta .staff-title, body.home #wrapper .services .staff-list .staff-item .staff-overlay .staff-meta #site-footer .staff-title, #site-footer .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services .staff-title, .staff-list .staff-item .staff-overlay .staff-meta body.home #wrapper .services #site-footer .staff-title, #site-footer h4, #site-footer h5, #site-footer h6 {
     color: #777;
     margin: 0; }
   #site-footer hr {
@@ -5686,6 +5689,24 @@ throughout this theme's SASS files.
       margin: 0 10px; }
 
 /*
+The sidebar common.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+/*
+ * Mixins
+ */
+.sidebar .widgets {
+  list-style: none;
+  margin: 0; }
+
+/*
 Styles shared among all templates.
 
 @since 0.1.0
@@ -5715,7 +5736,8 @@ throughout this theme's SASS files.
  */
 .page-content {
   padding-top: 80px;
-  padding-bottom: 30px; }
+  padding-bottom: 30px;
+  word-wrap: break-word; }
   @media only screen and (max-width: 40em) {
     .page-content {
       padding-top: 40px; } }
@@ -5751,24 +5773,36 @@ throughout this theme's SASS files.
  * Mixins
  */
 body.home #wrapper .home-cta {
-  background: url("http://download.fotolia.com/Content/CompImage500/FotoliaComp_72981376_avGQ8G0ZBg3IPagcwHyqj40e25dFW7Tw") no-repeat center center;
+  background: url("assets/images/home-cta.jpg");
   background-size: cover;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   body.home #wrapper .home-cta .home-cta-cover {
     position: absolute;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
-    background: linear-gradient(90deg, #000 50%, transparent 50%, transparent) repeat-x;
+    background: url("assets/images/background-stripes.png") repeat-x;
     background-size: 3px 100%;
-    opacity: 0.2; }
+    opacity: 0.2;
+    z-index: 5; }
+  body.home #wrapper .home-cta .home-cta-video {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    height: auto;
+    width: auto;
+    z-index: 1; }
   body.home #wrapper .home-cta .home-cta-message {
     position: absolute;
     top: 50%;
     left: 0;
     right: 0;
-    text-align: center; }
+    text-align: center;
+    z-index: 10; }
     body.home #wrapper .home-cta .home-cta-message h1 {
       color: #fff;
       text-shadow: 1px 1px 0 #000; }
@@ -6551,6 +6585,137 @@ throughout this theme's SASS files.
 body.page.page-template-sectionalized .page-content {
   padding-top: 0;
   padding-bottom: 0; }
+
+/*
+Full Width Sidebar page template.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+/*
+ * Mixins
+ */
+body.page.page-template-full-width-sidebar .page-content {
+  max-width: 100rem; }
+
+/*
+Styles the testimonial widget.
+
+@since 1.0.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+/*
+ * Mixins
+ */
+@-webkit-keyframes testimonial_transition_in {
+  0% {
+    -webkit-transform: perspective(100px) rotateY(-10deg);
+            transform: perspective(100px) rotateY(-10deg); }
+
+  100% {
+    -webkit-transform: perspective(100px) rotateY(0deg);
+            transform: perspective(100px) rotateY(0deg); } }
+@keyframes testimonial_transition_in {
+  0% {
+    -webkit-transform: perspective(100px) rotateY(-10deg);
+            transform: perspective(100px) rotateY(-10deg); }
+
+  100% {
+    -webkit-transform: perspective(100px) rotateY(0deg);
+            transform: perspective(100px) rotateY(0deg); } }
+
+@-webkit-keyframes testimonial_transition_out {
+  0% {
+    -webkit-transform: perspective(100px) rotateY(0deg);
+            transform: perspective(100px) rotateY(0deg); }
+
+  100% {
+    -webkit-transform: perspective(100px) rotateY(10deg);
+            transform: perspective(100px) rotateY(10deg); } }
+
+@keyframes testimonial_transition_out {
+  0% {
+    -webkit-transform: perspective(100px) rotateY(0deg);
+            transform: perspective(100px) rotateY(0deg); }
+
+  100% {
+    -webkit-transform: perspective(100px) rotateY(10deg);
+            transform: perspective(100px) rotateY(10deg); } }
+
+.testimonials-container {
+  position: relative;
+  overflow: hidden; }
+  .testimonials-container .testimonials-prev, .testimonials-container .testimonials-next {
+    color: #ccc;
+    position: absolute;
+    top: 60px;
+    font-size: 20px;
+    transition: color 300ms;
+    cursor: pointer;
+    z-index: 10; }
+    .testimonials-container .testimonials-prev:hover, .testimonials-container .testimonials-next:hover {
+      color: #555; }
+  .testimonials-container .testimonials-prev {
+    left: 0; }
+  .testimonials-container .testimonials-next {
+    right: 0; }
+  .testimonials-container .testimonials {
+    list-style: none;
+    margin: 0;
+    position: relative; }
+    .testimonials-container .testimonials.js {
+      transition: left 300ms; }
+      .testimonials-container .testimonials.js .testimonial {
+        float: left;
+        opacity: 0;
+        transition: opacity 300ms;
+        -webkit-animation: testimonial_transition_out 500ms;
+                animation: testimonial_transition_out 500ms; }
+        .testimonials-container .testimonials.js .testimonial.active {
+          opacity: 1;
+          -webkit-animation: testimonial_transition_in 500ms;
+                  animation: testimonial_transition_in 500ms; }
+  .testimonials-container .testimonial {
+    color: #777; }
+    .testimonials-container .testimonial .testimonial-image {
+      text-align: center;
+      margin: 20px 0;
+      position: relative; }
+      .testimonials-container .testimonial .testimonial-image img {
+        overflow: hidden;
+        border: 10px solid #ccc;
+        border-radius: 50%;
+        width: 100px;
+        height: 100px; }
+      .testimonials-container .testimonial .testimonial-image:after {
+        content: '';
+        border-top: 16px solid #ccc;
+        border-left: 16px solid transparent;
+        border-right: 16px solid transparent;
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        margin-left: -16px; }
+    .testimonials-container .testimonial .testimonial-author {
+      text-align: center;
+      font-family: "Open Sans", sans-serif;
+      text-transform: uppercase;
+      font-size: 1.3em; }
+      .testimonials-container .testimonial .testimonial-author .testimonial-role {
+        color: #12538F; }
+    .testimonials-container .testimonial .testimonial-content .icon-quote {
+      font-size: 35px;
+      color: #ddd; }
 
 /*
 This provides overrides for some WP stuff (not much at all).

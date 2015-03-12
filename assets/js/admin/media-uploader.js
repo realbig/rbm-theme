@@ -7,7 +7,6 @@
 (function ($) {
     'use strict';
 
-
     $(function () {
 
         // Instantiates the variable that holds the media library frame.

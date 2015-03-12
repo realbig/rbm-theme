@@ -35,9 +35,9 @@ define( 'THEME_ID', 'rbm_theme' );
  * Fonts for the theme. Must be hosted font (Google fonts for example).
  */
 $theme_fonts = array(
-	'oswald' => 'http://fonts.googleapis.com/css?family=Oswald:700',
+	'oswald'       => 'http://fonts.googleapis.com/css?family=Oswald:700',
 	'leckerli one' => 'http://fonts.googleapis.com/css?family=Leckerli+One',
-	'open sans' => 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700',
+	'open sans'    => 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700',
 );
 
 /**
@@ -45,14 +45,14 @@ $theme_fonts = array(
  *
  * @since 0.1.0
  */
-add_action( 'after_setup_theme', function() {
+add_action( 'after_setup_theme', function () {
 
 	// Add theme support
 	require_once __DIR__ . '/includes/theme-support.php';
 
 	// Allow shortcodes in text widget
-	add_filter('widget_text', 'do_shortcode');
-});
+	add_filter( 'widget_text', 'do_shortcode' );
+} );
 
 /**
  * Register theme files.
@@ -142,12 +142,13 @@ add_action( 'after_setup_theme', function () {
  * @since 0.1.0
  */
 add_action( 'widgets_init', function () {
-} );
 
-// Include other static files
-require_once __DIR__ . '/includes/shortcodes.php';
-require_once __DIR__ . '/includes/class-rbmtheme-walker-circularnav.php';
-require_once __DIR__ . '/admin/admin.php';
+	register_sidebar( array(
+		'name'          => 'Main Sidebar',
+		'id'            => 'main-sidebar',
+		'description'   => 'Used all basic pages.',
+	) );
+} );
 
 function rbm_section_title( $title = '', $anchor = '' ) {
 	echo rbm_get_section_title( $title, $anchor );
@@ -173,3 +174,9 @@ function rbm_get_section_title( $title = '', $anchor = '' ) {
 
 	return $output;
 }
+
+// Include other static files
+require_once __DIR__ . '/includes/shortcodes.php';
+require_once __DIR__ . '/includes/widgets.php';
+require_once __DIR__ . '/includes/class-rbmtheme-walker-circularnav.php';
+require_once __DIR__ . '/admin/admin.php';

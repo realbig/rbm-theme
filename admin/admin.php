@@ -21,6 +21,7 @@ require_once __DIR__ . '/post-types/testimonial.php';
  * @since 1.0.0
  */
 add_action( 'admin_enqueue_scripts', function () {
+	wp_enqueue_media();
 	wp_enqueue_script( THEME_ID . '-admin' );
 });
 

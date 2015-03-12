@@ -10,10 +10,10 @@ body.home #wrapper {
   // Home cta
   .home-cta {
     //noinspection CssUnknownTarget
-//    background: url("assets/images/home-cta.jpg");
-    background: url("http://download.fotolia.com/Content/CompImage500/FotoliaComp_72981376_avGQ8G0ZBg3IPagcwHyqj40e25dFW7Tw") no-repeat center center;
+    background: url("assets/images/home-cta.jpg");
     background-size: cover;
     position: relative;
+    overflow: hidden;
 
     .home-cta-cover {
       position: absolute;
@@ -21,9 +21,22 @@ body.home #wrapper {
       right: 0;
       bottom: 0;
       left: 0;
-      background: linear-gradient(90deg, #000 50%, transparent 50%, transparent) repeat-x;
+      //noinspection CssUnknownTarget
+      background: url("assets/images/background-stripes.png") repeat-x;
       background-size: 3px 100%;
       opacity: 0.2;
+      z-index: 5;
+    }
+
+    .home-cta-video {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      min-width: 100%;
+      min-height: 100%;
+      height: auto;
+      width: auto;
+      z-index: 1;
     }
 
     .home-cta-message {
@@ -32,6 +45,7 @@ body.home #wrapper {
       left: 0;
       right: 0;
       text-align: center;
+      z-index: 10;
 
       h1 {
         color: #fff;

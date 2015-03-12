@@ -18,7 +18,12 @@ get_header();
 
 		<section class="home-cta columns small-12">
 
-			<div class="home-cta-cover"></div>
+			<?php if ( ! wp_is_mobile() ) : ?>
+				<video autoplay loop poster="<?php echo get_template_directory_uri(); ?>/assets/images/home-cta.jpg"
+				       class="home-cta-video">
+					<source src="<?php echo get_template_directory_uri(); ?>/assets/videos/home-back.mp4" type="video/mp4"/>
+				</video>
+			<?php endif; ?>
 
 			<div class="home-cta-message">
 				<h1 class="font-special">
@@ -29,6 +34,8 @@ get_header();
 					Contact Us
 				</a>
 			</div>
+
+			<div class="home-cta-cover"></div>
 
 			<a href="#" class="scroll-down no-effect"><span class="icon-circle-down"></span></a>
 
@@ -41,7 +48,7 @@ get_header();
 				<?php rbm_section_title( 'Who We Are', 'who-we-are' ); ?>
 
 				<div class="section-summary">
-					We're a marketing firm with an emphasis on top-notch website creation.
+					We're a marketing firm with an emphasis on <span class="font-special">top-notch</span> website creation.
 				</div>
 
 				<a href="#" class="button section-cta">
@@ -131,7 +138,7 @@ get_header();
 					<?php rbm_section_title( 'What We\'ve Done', 'what-weve-done' ); ?>
 
 					<div class="section-summary">
-						We've built some pretty cool stuff. Take a look!
+						We've built some pretty <span class="font-special">cool</span> stuff. Take a look!
 					</div>
 
 					<a href="#" class="button secondary section-cta">
@@ -188,7 +195,7 @@ get_header();
 					<?php rbm_section_title( 'What People Say', 'what-people-say' ); ?>
 
 					<div class="section-summary">
-						People seem to really like us, but don't take our word for it!
+						People seem to <span class="font-special">really</span> like us, but don't take our word for it!
 					</div>
 
 					<a href="#" class="button section-cta">

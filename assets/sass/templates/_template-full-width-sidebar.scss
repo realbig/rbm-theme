@@ -1,0 +1,13 @@
+/*
+Full Width Sidebar page template.
+
+@since 0.1.0
+*/
+
+@import "../settings";
+
+body.page.page-template-full-width-sidebar {
+  .page-content {
+    max-width: $row-width * 2;
+  }
+}
