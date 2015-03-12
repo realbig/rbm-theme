@@ -87,6 +87,7 @@ function _rbm_sc_staff( $atts, $content ) {
 		foreach ( $staff as $post ) {
 			setup_postdata( $post );
 
+			$output .= '<a href="' . get_permalink( $post->ID ) . '">';
 			$output .= '<li class="staff-item">';
 
 			$output .= '<div class="staff-image">';
@@ -110,6 +111,7 @@ function _rbm_sc_staff( $atts, $content ) {
 			$output .= '</div>';
 
 			$output .= '</li>';
+			$output .= '</a>';
 		}
 
 		$output .= '</ul>';
