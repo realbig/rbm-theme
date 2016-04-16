@@ -106,7 +106,7 @@ function _rbm_sc_staff_list( $atts, $content ) {
 
 		global $post;
 
-		$output .= '<ul class="overlay-grid small-block-grid-1 medium-block-grid-' . count( $staff ) . '">';
+		$output .= '<ul class="overlay-grid small-block-grid-1 medium-block-grid-' . ( count( $staff ) / 2 ) . '">';
 
 		foreach ( $staff as $post ) {
 			setup_postdata( $post );
