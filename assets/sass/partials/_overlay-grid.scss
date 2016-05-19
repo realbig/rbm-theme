@@ -52,6 +52,7 @@ Block list overlay.
       transition: opacity 300ms;
 
       .overlay-grid-meta {
+        color: $white;
         position: absolute;
         top: 50%;
         width: 100%;
