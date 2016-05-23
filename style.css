@@ -5120,6 +5120,60 @@ throughout this theme's SASS files.
             transform: translateY(100px); }
 
 /*
+Staff list.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+/*
+ * Mixins
+ */
+.gear-svgdefs {
+  height: 0;
+  width: 0; }
+
+.staff-list .gear-clip {
+  overflow: visible;
+  -webkit-transition: -webkit-transform 300ms;
+          transition: transform 300ms; }
+  .staff-list .gear-clip .gear-overlay {
+    fill: transparent;
+    -webkit-transition: fill 300ms ease-in-out;
+            transition: fill 300ms ease-in-out;
+    opacity: 0; }
+
+.staff-list .gear-link:hover .gear-clip {
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05); }
+
+.staff-list .gear-link:hover .gear-overlay {
+  fill: rgba(18, 83, 143, 0.7);
+  opacity: 1; }
+
+.staff-list .columns {
+  text-align: center; }
+
+@media only screen and (max-width: 40em) {
+  .staff-list .gear-clip {
+    margin-left: -0.5em;
+    margin-bottom: 1em; }
+  .staff-list .row.gear-shift .gear-clip {
+    margin-left: -0.25em; } }
+
+@media only screen and (min-width: 40.063em) {
+  .staff-list .row.gear-shift .medium-6 {
+    text-align: right;
+    padding-right: 2em; }
+    .staff-list .row.gear-shift .medium-6:last-of-type {
+      padding-left: 2em;
+      text-align: left; } }
+
+/*
 The static site header.
 
 @since 0.1.0

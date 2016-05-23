@@ -5,59 +5,80 @@ Staff list.
 */
 @import "../settings";
 
+.gear-svgdefs {
+    height: 0;
+    width: 0;
+}
+
 .staff-list {
-  list-style: none;
-  margin: 0 !important;
-
-  .staff-item {
-    padding: 0;
-    position: relative;
-
-    a {
-      display: block;
-      color: #fff !important;
-    }
-
-    &:hover {
-      .staff-image {
-        img {
-          transform: scale(1.05);
-        }
-      }
-
-      .staff-overlay {
-        opacity: 1;
-      }
-    }
-
-    .staff-image {
-      overflow: hidden;
-
-      img {
+    
+    .gear-clip {
+        
+        overflow: visible;
         transition: transform 300ms;
-      }
-    }
-
-    .staff-overlay {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background: rgba($primary-color, 0.7);
-      opacity: 0;
-      transition: opacity 300ms;
-
-      .staff-meta {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        text-align: center;
-
-        .staff-title {
-          @extend h2;
+        
+        .gear-overlay {
+            fill: transparent;
+            transition: fill 300ms ease-in-out;
+            opacity: 0;
         }
-      }
+        
     }
-  }
+        
+    .gear-link:hover {
+        
+        .gear-clip {
+            transform: scale( 1.05 );
+        }
+
+        .gear-overlay {
+            fill: rgba(18, 83, 143, 0.7);
+            opacity: 1;
+        }
+
+    }
+    
+    .columns {
+        text-align: center;
+    }
+    
+    @media #{$small-only} {
+    
+        .gear-clip {
+            
+            margin-left: -0.5em;
+            margin-bottom: 1em;
+            
+        }
+        
+        .row.gear-shift {
+            .gear-clip {
+                
+                margin-left: -0.25em;
+                
+            }
+        }
+        
+    }
+    
+    @media #{$medium-up} {
+        
+        .row.gear-shift {
+            
+            .medium-6 {
+                
+                text-align: right;
+                padding-right: 2em;
+                
+                &:last-of-type {
+                    padding-left: 2em;
+                    text-align: left;
+                }
+                
+            }
+            
+        }
+        
+    }
+    
 }
