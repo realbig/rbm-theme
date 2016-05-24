@@ -83,15 +83,27 @@ Staff list.
     
     @media #{$medium-up} {
         
+        .row {
+            
+            margin-bottom: 1em;
+            
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+            
+        }
+        
         .row.gear-shift {
             
             .medium-6 {
                 
-                text-align: right;
-                padding-right: 2em;
+                &:first-of-type {
+                    text-align: right;
+                    padding-right: 8em;
+                }
                 
                 &:last-of-type {
-                    padding-left: 2em;
+                    padding-left: 8em;
                     text-align: left;
                 }
                 

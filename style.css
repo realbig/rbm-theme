@@ -5172,12 +5172,16 @@ throughout this theme's SASS files.
     .staff-list .row.gear-shift .gear-clip {
       margin-left: -0.25em; } }
   @media only screen and (min-width: 40.063em) {
-    .staff-list .row.gear-shift .medium-6 {
+    .staff-list .row {
+      margin-bottom: 1em; }
+      .staff-list .row:last-of-type {
+        margin-bottom: 0; }
+    .staff-list .row.gear-shift .medium-6:first-of-type {
       text-align: right;
-      padding-right: 2em; }
-      .staff-list .row.gear-shift .medium-6:last-of-type {
-        padding-left: 2em;
-        text-align: left; } }
+      padding-right: 8em; }
+    .staff-list .row.gear-shift .medium-6:last-of-type {
+      padding-left: 8em;
+      text-align: left; } }
 
 /*
 The static site header.

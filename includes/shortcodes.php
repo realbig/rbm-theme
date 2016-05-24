@@ -128,60 +128,114 @@ function _rbm_sc_staff_list( $atts, $content ) {
         <div class="staff-list">
 
 		<?php
-
-        // Set proper column classes
+        
+        $total = count( $staff );
+        
         // Row Maximum is used to skip to the next row. For 5+ Staff, the Even rows are $row_maximum - 1 to offset nicely
-        
         $row_maximum = 0;
-        $even_row = false;
+        $is_even_row = false;
         
-        if ( ( count( $staff ) == 2 ) || ( count( $staff ) == 4 ) ) :
-            $column_class = 'medium-6';
+        if ( ( $total == 2 ) || ( $total == 4 ) ) :
             $row_maximum = 2;
-        elseif ( count( $staff ) == 1 ) :
-            $column_class = 'medium-12';
         else : 
-            $column_class = 'medium-4';
             $row_maximum = 3;
         endif;
         
         // Not 0-indexing since we need its relation to $row_maximum
         $index = 1;
         
+        // Keeping track of current Staff Member Number so we can do some modulus division
+        $current = 0;
+        
+        $modulus = $total % 5;
+        $orphan_check = $total - $modulus;
+
+        $is_orphaned = false;
+        
         foreach ( $staff as $post ) :
 			setup_postdata( $post );
         
             if ( $index == 1 ) : ?>
-                <div class="row<?php echo ( $even_row === true ) ? ' gear-shift' : ''; ?>">
+                <div class="row<?php echo ( $is_even_row === true ) ? ' gear-shift' : ''; ?>">
         
             <?php endif;
 
 			$image = get_avatar_url( get_the_author_meta( 'ID' ), array( 'size' => 800 ) );
         
 			$extra = get_field( 'staff_title' );
+        
+            $current++; // Increment Current before creating the current item
+        
+            // "Orphan" Specific column classes
+            if ( ( $modulus !== 0 ) && ( $modulus !== 3 ) ) {
+
+                if ( $orphan_check <= $current ) {
+                    $is_orphaned = true;
+                }
+
+            }
+
+            if ( $is_even_row ) {
+
+                $column_class = 'medium-6'; // Base Case for even rows
+
+                if ( $is_orphaned ) {
+
+                    if ( ( $current > $orphan_check ) && ( $current > 5 ) ) { // Checking for >5 since we handle 1-4 seperately
+
+                        if ( ( $modulus == 4 ) ) { // If there would be 1 "orphan" after a line of 3. 
+                            $column_class = 'medium-12';
+                        }
+
+                    }
+
+                }
+
+            }
+            else {
+        
+                if ( ( $total == 2 ) || ( $total == 4 ) ) : // Base Case for odd rows
+                    $column_class = 'medium-6';
+                elseif ( $total == 1 ) :
+                    $column_class = 'medium-12';
+                else : 
+                    $column_class = 'medium-4';
+                endif;
+
+                if ( $is_orphaned ) {
+
+                    if ( $modulus == 1 ) { // If there would be 1 "orphan" after a line of 2
+                        $column_class = 'medium-12';
+                    }
+                    elseif ( $modulus == 2 ) { // If there would be 2 "orphans" after a line of 2
+                        $column_class = 'medium-6';
+                    }
+
+                }
+
+            }
 
 			echo rbm_get_overlay_grid_item( array(
 				'image' => $image,
 				'extra' => $extra,
                 'post' => $post,
                 'column_class' => $column_class,
-                'even_row' => $even_row,
-                'even_row_column_class' => 'medium-6',
+                'is_even_row' => $is_even_row,
 			) );
         
             // If we've reached the end of an odd or even row
             if ( ( $index == $row_maximum ) || 
-                ( ( $even_row === true ) && ( $index == ( $row_maximum - 1 ) ) && ( count( $staff ) !== 4 ) ) ) : ?>
+                ( ( $is_even_row === true ) && ( $index == ( $row_maximum - 1 ) ) && ( $total !== 4 ) ) ) : ?>
                 </div>
             <?php
                 // Reset for new row
                 $index = 0;
         
                 // Toggle Even/Odd Row
-                if ( $even_row ) :
-                    $even_row = false;
+                if ( $is_even_row ) :
+                    $is_even_row = false;
                 else : 
-                    $even_row = true;
+                    $is_even_row = true;
                 endif;
         
             endif;
@@ -191,9 +245,9 @@ function _rbm_sc_staff_list( $atts, $content ) {
 		endforeach; 
         
         // Ensure the row gets closed out correctly after the loop
-        if ( ( count( $staff ) == 1 ) || 
-            ( ( $even_row === true ) && ( $index % ( $row_maximum - 1 ) == 0 ) ) ||
-            ( ( count( $staff ) % $row_maximum ) == 0 ) ) : ?>
+        if ( ( $total == 1 ) || 
+            ( ( $is_even_row === true ) && ( $index % ( $row_maximum - 1 ) == 0 ) ) ||
+            ( ( $total % $row_maximum ) == 0 ) ) : ?>
             </div>
         <?php endif; ?>
             

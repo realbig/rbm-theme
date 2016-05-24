@@ -208,7 +208,7 @@ function rbm_get_overlay_grid_item( $args = array() ) {
 		'image' => false,
 		'extra' => false,
         'column_class' => false,
-        'even_row' => false,
+        'is_even_row' => false,
 	));
 
 	global $post;
@@ -224,7 +224,7 @@ function rbm_get_overlay_grid_item( $args = array() ) {
     ob_start(); ?>
     <div class="small-12 <?php echo $args['column_class']; ?> columns">
         <a class="gear-link" href="<?php echo get_permalink( $post->ID ); ?>">
-            <?php if ( $args['even_row'] ) : ?>
+            <?php if ( $args['is_even_row'] ) : ?>
                 <svg class="gear-clip" xxmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15em" height="15em" viewBox="0 0 227.37129 225.08964">
                     <g>
                         <image width="265px" height="265px" xlink:href="<?php echo $image; ?>" clip-path="url(#rbm-gear-tilt)" -webkit-clip-path="url(#rbm-gear-tilt)" -webkit-mask="url(#rbm-gear-tilt)" x="0" y="0" />
