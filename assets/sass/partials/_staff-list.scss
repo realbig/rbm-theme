@@ -17,10 +17,25 @@ Staff list.
         overflow: visible;
         transition: transform 300ms;
         
-        .gear-overlay {
+        .title-overlay {
             fill: transparent;
             transition: fill 300ms ease-in-out;
             opacity: 0;
+        }
+        
+        .title-overlay {
+            
+            transition: opacity 300ms ease-in-out;
+            transition-delay: 100ms;
+        
+            .staff-name {
+                font-size: $h4-font-size;
+            }
+
+            .staff-title {
+                font-size: $h5-font-size;
+            }
+            
         }
         
     }
@@ -31,9 +46,13 @@ Staff list.
             transform: scale( 1.05 );
         }
 
-        .gear-overlay {
+        .title-overlay {
             fill: rgba(18, 83, 143, 0.7);
             opacity: 1;
+        }
+        
+        .title-overlay {
+            fill: rgba( 18, 83, 143, .7 );
         }
 
     }
