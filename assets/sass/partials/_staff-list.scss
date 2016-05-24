@@ -5,12 +5,9 @@ Staff list.
 */
 @import "../settings";
 
-.gear-svgdefs {
-    height: 0;
-    width: 0;
-}
-
 .staff-list {
+    
+    margin-top: -150px; // Cover up SVG Defs, since we can't hide them and keep everything working in IE
     
     .gear-clip {
         

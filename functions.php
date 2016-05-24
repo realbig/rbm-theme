@@ -227,10 +227,10 @@ function rbm_get_overlay_grid_item( $args = array() ) {
             <?php if ( $args['even_row'] ) : ?>
                 <svg class="gear-clip" xxmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15em" height="15em" viewBox="0 0 227.37129 225.08964">
                     <g>
-                        <image width="16em" height="16em" xlink:href="<?php echo $image; ?>" clip-path="url(#rbm-gear-tilt)" -webkit-clip-path="url(#rbm-gear-tilt)" -webkit-mask="url(#rbm-gear-tilt)" x="0" y="0" />
+                        <image width="265px" height="265px" xlink:href="<?php echo $image; ?>" clip-path="url(#rbm-gear-tilt)" -webkit-clip-path="url(#rbm-gear-tilt)" -webkit-mask="url(#rbm-gear-tilt)" x="0" y="0" />
                     </g>
                     <g class="title-overlay">
-                        <rect x="-5" width="105%" height="5em" y="70" />
+                        <rect x="-5" width="105%" height="80px" y="70" />
                         <text class="staff-name" fill="#fff" x="115" y="100" alignment-baseline="baseline" text-anchor="middle"><?php echo $post->post_title; ?></text>
                         <text class="staff-title" fill="#fff" x="115" y="135" alignment-baseline="baseline" text-anchor="middle"><?php echo $args['extra']; ?></text>
                     </g>
@@ -238,10 +238,10 @@ function rbm_get_overlay_grid_item( $args = array() ) {
             <?php else : ?>
                 <svg class="gear-clip" xxmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="15em" height="15em" viewBox="0 0 227.37129 225.08964">
                     <g>
-                        <image width="16em" height="16em" xlink:href="<?php echo $image; ?>" clip-path="url(#rbm-gear)" -webkit-clip-path="url(#rbm-gear)" -webkit-mask="url(#rbm-gear)" x="0" y="0" />
+                        <image width="265px" height="265px" xlink:href="<?php echo $image; ?>" clip-path="url(#rbm-gear)" -webkit-clip-path="url(#rbm-gear)" -webkit-mask="url(#rbm-gear)" x="0" y="0" />
                     </g>
                     <g class="title-overlay">
-                        <rect x="-5" width="105%" height="5em" y="70" />
+                        <rect x="-5" width="105%" height="80px" y="70" />
                         <text class="staff-name" fill="#fff" x="115" y="100" alignment-baseline="baseline" text-anchor="middle"><?php echo $post->post_title; ?></text>
                         <text class="staff-title" fill="#fff" x="115" y="135" alignment-baseline="baseline" text-anchor="middle"><?php echo $args['extra']; ?></text>
                     </g>
