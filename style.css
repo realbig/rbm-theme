@@ -5153,6 +5153,8 @@ throughout this theme's SASS files.
         font-size: 1.4375rem; }
       .staff-list .gear-clip .title-overlay .staff-title {
         font-size: 1.125rem; }
+  .staff-list .gear-link:hover:after, .staff-list .gear-link:hover:before {
+    display: none; }
   .staff-list .gear-link:hover .gear-clip {
     -webkit-transform: scale(1.05);
             transform: scale(1.05); }

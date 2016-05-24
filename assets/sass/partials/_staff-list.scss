@@ -39,6 +39,10 @@ Staff list.
         
     .gear-link:hover {
         
+        &:after, &:before {
+            display: none; // Safari is showing the little lines some links on the site have. Dont' want them here.
+        }
+        
         .gear-clip {
             transform: scale( 1.05 );
         }
