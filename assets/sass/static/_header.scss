@@ -81,7 +81,9 @@ The static site header.
 
       .gear {
         fill: $header-menu-item-color;
-        transition: fill 1s, transform 500ms;
+        transition: fill 1s, transform 300ms;
+        transform-origin: 50% 50%;
+        -webkit-transform-origin: 50% 55%;
       }
     }
   }

@@ -14,20 +14,33 @@
     $logo.click(function () {
 
         if ($wrapper.hasClass('reveal')) {
+            $logo.find( 'g.gear' ).css( 'transform', 'rotate(-360deg)' );
             $wrapper.removeClass('reveal');
         } else {
             $wrapper.addClass('reveal');
+            $logo.find( 'g.gear' ).css( 'transform', 'rotate(360deg)' );
         }
     });
 
     // Hide when clicking on the back cover
     $('#back-cover').click(function () {
+        $logo.find( 'g.gear' ).css( 'transform', 'rotate(-360deg)' );
         $wrapper.removeClass('reveal');
     });
 
     // Hide when scrolling
+    var scrollInit = $( window ).scrollTop();
     $(window).scroll(function () {
-        $wrapper.removeClass('reveal');
+        
+        // Don't animate on Page Load
+        if ( $( window ).scrollTop() !== scrollInit ) {
+            scrollInit = 0; // Reset to 0 after any scrolling has happened. A page can be loaded with this value not being 0.
+            if ( $wrapper.hasClass( 'reveal' ) ) {
+                $wrapper.removeClass('reveal');
+                $logo.find( 'g.gear' ).css( 'transform', 'rotate(-360deg)' );
+            }
+        }
+
     });
 
     // Only preview the header once per session
@@ -39,9 +52,11 @@
 
         setTimeout(function () {
 
+            $logo.find( 'g.gear' ).css( 'transform', 'rotate(360deg)' );
             $wrapper.addClass('reveal');
 
             setTimeout(function () {
+                $logo.find( 'g.gear' ).css( 'transform', 'rotate(-360deg)' );
                 $wrapper.removeClass('reveal');
                 $.cookie('rbm-header-preview', '1');
             }, 2000);

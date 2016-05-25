@@ -5268,8 +5268,10 @@ throughout this theme's SASS files.
                 transition: opacity 4s, transform 500ms; }
       #site-header .site-logo .svg-rbm-logo .gear {
         fill: #ddd;
-        -webkit-transition: fill 1s, -webkit-transform 500ms;
-                transition: fill 1s, transform 500ms; }
+        -webkit-transition: fill 1s, -webkit-transform 300ms;
+                transition: fill 1s, transform 300ms;
+        transform-origin: 50% 50%;
+        -webkit-transform-origin: 50% 55%; }
 
 #wrapper.reveal #site-header {
   top: 0; }
