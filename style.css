@@ -5269,7 +5269,13 @@ throughout this theme's SASS files.
       #site-header .site-logo .svg-rbm-logo .gear {
         fill: #ddd;
         -webkit-transition: fill 1s, -webkit-transform 500ms;
-                transition: fill 1s, transform 500ms; }
+                transition: fill 1s, transform 500ms;
+        transform-origin: 50% 50%;
+        -ms-transform-origin: 50% 50%;
+        -webkit-transform-origin: 50% 55%; }
+        #site-header .site-logo .svg-rbm-logo .gear.reverse-spin {
+          -webkit-animation: 750ms gear-rotate-reverse;
+                  animation: 750ms gear-rotate-reverse; }
 
 #wrapper.reveal #site-header {
   top: 0; }
@@ -5282,7 +5288,9 @@ throughout this theme's SASS files.
     -webkit-transition: fill 1s, -webkit-transform 500ms;
             transition: fill 1s, transform 500ms; }
   #wrapper.reveal #site-header .site-logo .svg-rbm-logo .gear {
-    fill: #76D100; }
+    fill: #76D100;
+    -webkit-animation: 750ms gear-rotate;
+            animation: 750ms gear-rotate; }
   #wrapper.reveal #site-header .site-nav-circular {
     -webkit-transform: scale(1);
             transform: scale(1);
@@ -5409,6 +5417,38 @@ body.admin-bar #wrapper #site-header {
     fill: #12538F; }
   78% {
     fill: #555555; } }
+
+@-webkit-keyframes gear-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@keyframes gear-rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg); } }
+
+@-webkit-keyframes gear-rotate-reverse {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg); } }
+
+@keyframes gear-rotate-reverse {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg); }
+  100% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg); } }
 
 /*
 The static site nav menu (at the top).
