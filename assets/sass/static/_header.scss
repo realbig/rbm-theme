@@ -82,14 +82,6 @@ The static site header.
       .gear {
         fill: $header-menu-item-color;
         transition: fill 1s, transform 500ms;
-        transform-origin: 50% 50%;
-        -ms-transform-origin: 50% 50%;
-        -webkit-transform-origin: 50% 55%;
-          
-          &.reverse-spin {
-              animation: 750ms gear-rotate-reverse;
-          }
-          
       }
     }
   }
@@ -116,7 +108,6 @@ The static site header.
 
         .gear {
           fill: $secondary-color;
-          animation: 750ms gear-rotate;
         }
       }
     }
@@ -265,22 +256,4 @@ body.admin-bar {
   78% {
     fill: lighten($header-background, 20%);
   }
-}
-
-@keyframes gear-rotate {
-    0% { 
-        transform: rotate(0deg);
-    }
-    100% { 
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes gear-rotate-reverse {
-    0% { 
-        transform: rotate(0deg);
-    }
-    100% { 
-        transform: rotate(-360deg);
-    }
 }
