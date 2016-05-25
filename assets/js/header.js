@@ -53,7 +53,6 @@
 
         setTimeout(function () {
 
-            $logo.find( 'g.gear' ).removeClass( 'reverse-spin' );
             $wrapper.addClass('reveal');
 
             setTimeout(function () {
