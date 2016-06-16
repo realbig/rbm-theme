@@ -215,7 +215,7 @@ function _rbm_sc_staff_list( $atts, $content ) {
 
             }
 
-			echo rbm_get_overlay_grid_item( array(
+			echo rbm_get_gear_item( array(
 				'image' => $image,
 				'extra' => $extra,
                 'post' => $post,

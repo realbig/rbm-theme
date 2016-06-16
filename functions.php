@@ -202,6 +202,67 @@ function rbm_overlay_grid_item( $args = array() ) {
 }
 
 function rbm_get_overlay_grid_item( $args = array() ) {
+    
+    $args = wp_parse_args( $args, array(
+		'post' => false,
+		'image' => false,
+		'extra' => false,
+		'load_effect' => false,
+	));
+
+	global $post;
+	$post = $args['post'] !== false ? get_post( $args['post'] ) : $post;
+
+	$output = '<li class="overlay-grid-item">';
+
+	$output .= '<a href="' . get_permalink( $post->ID ) . '" class="no-effect" data-square>';
+
+	$output .= '<div class="overlay-grid-image">';
+	if ( $args['image'] !== false ) {
+		$image = $args['image'];
+	} else {
+		$image = get_the_post_thumbnail( $post->ID );
+	}
+
+	if ( $args['load_effect'] ) {
+
+		preg_match( '/src="(.*?)"/', $image, $matches );
+		$src = isset( $matches[1] ) ? $matches[1] : false;
+
+		if ( $src !== false ) {
+			$output .= "<img class=\"grid-load-effect-image\" src=\"" . get_template_directory_uri() . "/assets/images/blank.png\" data-src=\"$src\" />";
+		}
+
+	} else {
+		$output .= $image;
+	}
+
+	$output .= '</div>';
+
+	$output .= '<div class="overlay-grid-overlay">';
+
+	$output .= '<div class="overlay-grid-meta">';
+
+	$output .= '<p class="overlay-grid-title">';
+	$output .= get_the_title( $post->ID );
+	$output .= '</p>';
+
+	if ( $args['extra'] !== false ) {
+		$output .= $args['extra'];
+	}
+
+	$output .= '</div>';
+
+	$output .= '</div>';
+
+	$output .= '</a>';
+	$output .= '</li>';
+
+	return $output;
+    
+}
+
+function rbm_get_gear_item( $args = array() ) {
 
 	$args = wp_parse_args( $args, array(
 		'post' => false,
