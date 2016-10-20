@@ -8,6 +8,7 @@ The static site nav menu (at the top).
 
 // Left / Right nav
 .site-nav-left, .site-nav-right {
+  position: relative;
   font-family: $header-font-family;
   letter-spacing: $header-letter-spacing;
   text-transform: uppercase;
