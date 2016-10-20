@@ -127,7 +127,16 @@
 
             $('.section').each(function () {
 
-                var offset = $(this).find('.section-cta').offset().top - $(this).offset().top - 10;
+                var $cta = $(this).find('.section-cta'),
+                    offset;
+
+                if (!$cta.length) {
+
+                    return;
+                }
+
+                offset = $cta.offset().top - $(this).offset().top - 10;
+
                 $(this).find('.section-line').css('top', offset);
             });
         });

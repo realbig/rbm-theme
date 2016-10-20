@@ -5,6 +5,8 @@ The site content.
 */
 
 @import "../settings";
+@import "header-vars";
 
 #site-content {
+  margin-top: $header-interval;
 }

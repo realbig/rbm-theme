@@ -8,19 +8,26 @@ The static site header.
 
 // Push content down
 #wrapper {
-  margin-top: $header-height;
+  margin-top: $header-interval;
 }
 
 #site-header {
   position: fixed;
-  top: -$header-title-height;
+  top: $header-interval;
   left: 0;
   right: 0;
-  height: $header-height + $header-title-height;
-  line-height: $header-height;
+  //height: $header-height + $header-title-height;
+  //line-height: $header-height;
   background: $header-background;
   z-index: 500;
-  transition: top 500ms;
+  transform: translateY(-100%);
+  transition: transform 500ms, top 500ms;
+
+  &:after {
+    content: '';
+    display: table;
+    clear: both;
+  }
 
   // Title
   .site-title {
@@ -50,7 +57,9 @@ The static site header.
     cursor: pointer;
     position: absolute;
     left: 50%;
+    bottom: 0;
     margin-left: $header-logo-size / 2 * -1;
+    margin-bottom: $header-logo-size / 2 * -1;
     z-index: 10;
 
     &:hover {
@@ -87,7 +96,38 @@ The static site header.
       }
     }
   }
+}
 
+#header-tip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 20em;
+  max-width: 90%;
+  background: $dark-color;
+  color: #fff;
+  padding: 1em 3em;
+  margin-top: $header-interval + 50;
+  text-align: center;
+  box-shadow: 5px 5px 25px rgba(#222, 0.5);
+  border-radius: 1000px;
+  animation: header-tip-bob 1.5s infinite;
+  transform: translateX(-50%);
+
+  p {
+    line-height: normal;
+    margin-bottom: 0;
+  }
+
+  .icon-arrow-up {
+    position: absolute;
+    font-size: 3em;
+    top: 0;
+    left: 50%;
+    color: $dark-color;
+    text-shadow: 5px 5px 25px rgba(#222, 0.5);
+    transform: translateX(-50%) translateY(-80%);
+  }
 }
 
 // Reveal
@@ -95,6 +135,7 @@ The static site header.
 
   #site-header {
     top: 0;
+    transform: translateY(0);
 
     .site-logo {
       .svg-rbm-logo {
@@ -142,30 +183,22 @@ The static site header.
 
 // Admin bar compensation
 body.admin-bar {
-  #wrapper {
-    &.reveal {
-      #site-header {
-        top: 32px;
-      }
-    }
-    #site-header {
-      top: -$header-title-height + 32;
-    }
+  #site-header {
+    margin-top: 32px;
   }
 }
 
 // Mobile
 @media #{$small-only} {
 
-  // Push content down
+  // Don't push content down
   #wrapper {
-    margin-top: $header-height-mobile;
+    margin-top: 0;
   }
 
   #site-header {
-    top: -$header-title-height-mobile;
-    height: $header-height-mobile + $header-title-height-mobile;
-    line-height: $header-height-mobile;
+    //top: (-$header-height * 2) - $header-title-height-mobile;
+    //height: ($header-height * 3) + $header-title-height-mobile;
 
     // Title
     .site-title {
@@ -176,10 +209,10 @@ body.admin-bar {
 
     // Logo
     .site-logo {
-      width: $header-logo-size-mobile;
-      height: $header-logo-size-mobile;
-      padding: $header-logo-size-mobile / 10;
-      margin-left: $header-logo-size-mobile / 2 * -1;
+      //width: $header-logo-size-mobile;
+      //height: $header-logo-size-mobile;
+      //padding: $header-logo-size-mobile / 10;
+      //margin-left: $header-logo-size-mobile / 2 * -1;
     }
   }
 
@@ -187,7 +220,7 @@ body.admin-bar {
   body.admin-bar {
     #wrapper {
       #site-header {
-        top: -$header-title-height-mobile + 32;
+        margin-top: 46px;
       }
     }
   }
@@ -257,5 +290,14 @@ body.admin-bar {
   }
   78% {
     fill: lighten($header-background, 20%);
+  }
+}
+
+@keyframes header-tip-bob {
+  0% {
+    top: 100%;
+  }
+  50% {
+    top: 105%;
   }
 }

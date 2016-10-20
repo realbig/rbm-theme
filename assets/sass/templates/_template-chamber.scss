@@ -11,7 +11,7 @@ body.page.page-template-chamber {
 
   .section-go-up {
     position: fixed;
-    top: $header-height + ($gutter * 2);
+    top: $header-interval + ($gutter * 2);
     right: $gutter;
     animation: section-go-up 2s infinite;
     z-index: 100;

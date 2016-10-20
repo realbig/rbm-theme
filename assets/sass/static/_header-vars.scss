@@ -5,14 +5,13 @@ Shared header vars.
 */
 @import "../settings";
 
-$header-height: 50px;
+$header-interval: 50px;
 $header-title-height: 130px;
 $header-logo-size: 100px;
 $header-circular-nav-size: $header-logo-size * 3;
 $header-menu-item-color: #ddd;
 $header-background: $dark-color;
 
-$header-height-mobile: $header-height * 0.8;
 $header-logo-size-mobile: $header-logo-size * 0.6;
 $header-title-height-mobile: $header-title-height * 0.6;
 $header-circular-nav-size-mobile: $header-circular-nav-size * 0.75;
