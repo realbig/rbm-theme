@@ -27,9 +27,11 @@ The static site nav menu (at the top).
     padding: 0 $gutter;
 
     a {
-      @extend .force-color;
-      &:before, &:after {
-        background: $header-menu-item-color !important;
+      @extend .no-effect;
+      color: inherit;
+
+      &:hover {
+        color: #fff;
       }
     }
   }
