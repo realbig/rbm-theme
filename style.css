@@ -5590,6 +5590,32 @@ throughout this theme's SASS files.
       width: 56.25px;
       height: 56.25px; } }
 
+.rbm-nav-tip {
+  position: absolute;
+  background: #222;
+  color: #fff;
+  margin-top: -50px;
+  padding: 1em;
+  border-radius: 1000px;
+  text-align: center;
+  min-width: 10em;
+  box-shadow: 5px 5px 25px rgba(0, 0, 0, 0.5);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 10000; }
+  .rbm-nav-tip:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    margin-top: -5px;
+    margin-left: -10px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 10px 10px 10px;
+    border-color: transparent transparent #222 transparent; }
+
 /*
 The static site footer.
 
