@@ -65,7 +65,9 @@
      */
     function circle_nav_tip_reposition(e) {
 
-        var $tips = $('.rbm-nav-tip');
+        var $tips = $('.rbm-nav-tip'),
+            $adminbar = $('#wpadminbar'),
+            adminbar_height = $adminbar.length ? $adminbar.height() : 0;
 
         if (!$tips.length) {
 
@@ -73,7 +75,7 @@
         }
 
         $tips.css({
-            top: e.pageY,
+            top: e.pageY - adminbar_height,
             left: e.pageX
         });
     }
