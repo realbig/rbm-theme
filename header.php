@@ -45,37 +45,72 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</a>
 		</h1>
 
-		<nav class="site-nav-left">
+		<nav class="site-nav-left show-for-medium-up">
 			<?php
 			wp_nav_menu( array(
+				'menu_id'        => 'menu-top-left',
 				'theme_location' => 'primary-left',
-				'container' => false,
-			));
+				'container'      => false,
+			) );
+			?>
+		</nav>
+
+		<nav class="site-nav-mobile hide-for-medium-up">
+			<?php
+			wp_nav_menu( array(
+				'menu_id'        => 'menu-top-left-mobile',
+				'theme_location' => 'primary-left',
+				'container'      => false,
+			) );
+
+			wp_nav_menu( array(
+				'menu_id'        => 'menu-top-right-mobile',
+				'theme_location' => 'primary-right',
+				'container'      => false,
+			) );
+			?>
+
+			<a href="#menu-top-primary-mobile" class="toggle-mobile-nav" data-toggle-mobile-nav>
+				<span class="icon-menu"></span>
+			</a>
+
+			<?php
+			wp_nav_menu( array(
+				'menu_id'        => 'menu-top-primary-mobile',
+				'theme_location' => 'primary-center',
+				'container'      => false,
+			) );
 			?>
 		</nav>
 
 		<div class="site-logo">
-				<?php include __DIR__ . '/assets/images/rbm-logo.php'; ?>
+			<?php include __DIR__ . '/assets/images/rbm-logo.php'; ?>
 		</div>
 
-		<nav class="site-nav-circular">
+		<nav class="site-nav-circular show-for-medium-up">
 			<?php
 			wp_nav_menu( array(
 				'theme_location' => 'primary-center',
-				'container' => false,
-				'walker' => new RBMTheme_Walker_CircularNav(),
-			));
+				'container'      => false,
+				'walker'         => new RBMTheme_Walker_CircularNav(),
+			) );
 			?>
 		</nav>
 
-		<nav class="site-nav-right">
+		<nav class="site-nav-right show-for-medium-up">
 			<?php
 			wp_nav_menu( array(
+				'menu_id'        => 'menu-top-right',
 				'theme_location' => 'primary-right',
-				'container' => false,
-			));
+				'container'      => false,
+			) );
 			?>
 		</nav>
+
+		<div id="header-tip" style="display: none;">
+			<span class="icon-arrow-up"></span>
+			<?php echo wp_is_mobile() ? 'Tap' : 'Click'; ?> here to reveal the menu
+		</div>
 
 	</header>
 

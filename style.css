@@ -5184,6 +5184,37 @@ throughout this theme's SASS files.
       text-align: left; } }
 
 /*
+The site content.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+/*
+ * Mixins
+ */
+/*
+Shared header vars.
+
+@since 0.1.0
+*/
+/*
+Sets up the theme's styling properties and makes some variables already set in Foundation available for easy use
+throughout this theme's SASS files.
+
+@since 0.1.0
+*/
+/*
+ * Mixins
+ */
+#site-content {
+  margin-top: 50px; }
+
+/*
 The static site header.
 
 @since 0.1.0
@@ -5216,15 +5247,19 @@ throughout this theme's SASS files.
 
 #site-header {
   position: fixed;
-  top: -130px;
+  top: 50px;
   left: 0;
   right: 0;
-  height: 180px;
-  line-height: 50px;
   background: #222;
   z-index: 500;
-  -webkit-transition: top 500ms;
-          transition: top 500ms; }
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
+  -webkit-transition: -webkit-transform 500ms, top 500ms;
+          transition: transform 500ms, top 500ms; }
+  #site-header:after {
+    content: '';
+    display: table;
+    clear: both; }
   #site-header .site-title {
     line-height: 45px;
     height: 130px;
@@ -5246,7 +5281,9 @@ throughout this theme's SASS files.
     cursor: pointer;
     position: absolute;
     left: 50%;
+    bottom: 0;
     margin-left: -50px;
+    margin-bottom: -50px;
     z-index: 10; }
     #site-header .site-logo:hover .svg-rbm-logo .light-bulb, #site-header .site-logo:hover .svg-rbm-logo .light-bulb-blur {
       fill: #2487e3;
@@ -5273,8 +5310,40 @@ throughout this theme's SASS files.
         transform-origin: 50% 50%;
         -webkit-transform-origin: 50% 55%; }
 
+#header-tip {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 20em;
+  max-width: 90%;
+  background: #222;
+  color: #fff;
+  padding: 1em 3em;
+  margin-top: 100px;
+  text-align: center;
+  box-shadow: 5px 5px 25px rgba(34, 34, 34, 0.5);
+  border-radius: 1000px;
+  -webkit-animation: header-tip-bob 1.5s infinite;
+          animation: header-tip-bob 1.5s infinite;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%); }
+  #header-tip p {
+    line-height: normal;
+    margin-bottom: 0; }
+  #header-tip .icon-arrow-up {
+    position: absolute;
+    font-size: 3em;
+    top: 0;
+    left: 50%;
+    color: #222;
+    text-shadow: 5px 5px 25px rgba(34, 34, 34, 0.5);
+    -webkit-transform: translateX(-50%) translateY(-80%);
+            transform: translateX(-50%) translateY(-80%); }
+
 #wrapper.reveal #site-header {
-  top: 0; }
+  top: 0;
+  -webkit-transform: translateY(0);
+          transform: translateY(0); }
   #wrapper.reveal #site-header .site-logo .svg-rbm-logo .light-bulb {
     fill: #186dbc;
     -webkit-transition: fill 1s, -webkit-transform 500ms;
@@ -5307,30 +5376,18 @@ throughout this theme's SASS files.
   -webkit-transition: opacity 500ms, visibility 500ms;
           transition: opacity 500ms, visibility 500ms; }
 
-body.admin-bar #wrapper.reveal #site-header {
-  top: 32px; }
-
-body.admin-bar #wrapper #site-header {
-  top: -98px; }
+body.admin-bar #site-header {
+  margin-top: 32px; }
 
 @media only screen and (max-width: 40em) {
   #wrapper {
-    margin-top: 40px; }
-  #site-header {
-    top: -78px;
-    height: 118px;
-    line-height: 40px; }
-    #site-header .site-title {
-      font-size: 1.5em;
-      line-height: 1;
-      height: 78px; }
-    #site-header .site-logo {
-      width: 60px;
-      height: 60px;
-      padding: 6px;
-      margin-left: -30px; }
+    margin-top: 0; }
+  #site-header .site-title {
+    font-size: 1.5em;
+    line-height: 1;
+    height: 78px; }
   body.admin-bar #wrapper #site-header {
-    top: -46px; } }
+    margin-top: 46px; } }
 
 @-webkit-keyframes light-bulb-flicker {
   0% {
@@ -5412,6 +5469,18 @@ body.admin-bar #wrapper #site-header {
   78% {
     fill: #555555; } }
 
+@-webkit-keyframes header-tip-bob {
+  0% {
+    top: 100%; }
+  50% {
+    top: 105%; } }
+
+@keyframes header-tip-bob {
+  0% {
+    top: 100%; }
+  50% {
+    top: 105%; } }
+
 /*
 The static site nav menu (at the top).
 
@@ -5444,8 +5513,6 @@ throughout this theme's SASS files.
   font-family: "Oswald", sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
-  position: absolute;
-  width: 45%;
   z-index: 10; }
   .site-nav-left .menu, .site-nav-right .menu {
     list-style: none;
@@ -5460,11 +5527,15 @@ throughout this theme's SASS files.
 
 .site-nav-left {
   text-align: right;
-  left: 0; }
+  float: left;
+  width: 50%;
+  padding-right: 50px; }
 
 .site-nav-right {
   text-align: left;
-  right: 0; }
+  float: right;
+  width: 50%;
+  padding-left: 50px; }
 
 .site-nav-circular {
   position: absolute;
@@ -5564,31 +5635,42 @@ throughout this theme's SASS files.
       right: 15px;
       top: 19px; }
 
-@media only screen and (max-width: 40em) {
-  .site-nav-left, .site-nav-right {
-    width: 40%; }
-    .site-nav-left .menu-item, .site-nav-right .menu-item {
-      line-height: 40px;
-      font-size: 0.7em;
-      padding: 0 5px; }
-  .site-nav-circular {
-    top: 18px; }
-  .csstransforms .site-nav-circular {
-    width: 225px;
-    height: 225px;
-    margin-left: -112.5px;
-    top: 5.5px; }
-    .csstransforms .site-nav-circular .menu .menu-item {
-      width: 112.5px;
-      height: 112.5px; }
-  .no-csstransforms .site-nav-circular {
-    height: 56.25px;
-    width: 281.25px;
-    margin-left: -140.625px;
-    top: 138px; }
-    .no-csstransforms .site-nav-circular .menu .menu-item {
-      width: 56.25px;
-      height: 56.25px; } }
+.site-nav-mobile {
+  text-align: center;
+  padding-bottom: 50px; }
+  .site-nav-mobile ul {
+    list-style: none;
+    margin: 0;
+    display: inline-block; }
+  .site-nav-mobile li {
+    display: inline-block;
+    margin: 0 0.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 50px; }
+    .site-nav-mobile li[class^="icon-"] {
+      font-family: inherit; }
+      .site-nav-mobile li[class^="icon-"]:before {
+        content: ''; }
+    .site-nav-mobile li a {
+      color: #ddd; }
+      .site-nav-mobile li a:hover {
+        color: #fff; }
+  .site-nav-mobile .toggle-mobile-nav {
+    display: block;
+    line-height: 50px;
+    font-size: 2em;
+    color: #ddd; }
+  .site-nav-mobile #menu-top-primary-mobile {
+    font-size: 0.8em;
+    display: none;
+    background: #222; }
+    .site-nav-mobile #menu-top-primary-mobile li {
+      display: block;
+      line-height: normal; }
+      .site-nav-mobile #menu-top-primary-mobile li a {
+        display: block;
+        padding: 0.5em 0; }
 
 /*
 The static site footer.

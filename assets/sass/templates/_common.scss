@@ -21,7 +21,7 @@ Styles shared among all templates.
 }
 
 .page-content {
-  padding-top: $header-logo-size - $header-height + $gutter;
+  padding-top: $header-logo-size - $header-interval + $gutter;
   padding-bottom: $gutter;
   word-wrap: break-word;
   overflow: hidden;
@@ -35,7 +35,7 @@ Styles shared among all templates.
   }
 
   @media #{$small-only} {
-    padding-top: $header-logo-size-mobile - $header-height + $gutter;
+    padding-top: $header-logo-size-mobile - $header-interval + $gutter;
   }
 
   ul {

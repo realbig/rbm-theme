@@ -7,60 +7,58 @@
 (function ($) {
     'use strict';
 
-    var $wrapper = $('#wrapper'),
-        $header = $('#site-header'),
+    var $wrapper, $header, $logo, $tip;
+
+    function header_init() {
+
+        $wrapper = $('#wrapper');
+        $header = $('#site-header');
         $logo = $header.find('.site-logo');
+        $tip = $('#header-tip');
 
-    $logo.click(function () {
+        $logo.click(function () {
 
-        if ($wrapper.hasClass('reveal')) {
-            $logo.find( 'g.gear' ).css( 'transform', 'rotate(-360deg)' );
-            $wrapper.removeClass('reveal');
-        } else {
-            $wrapper.addClass('reveal');
-            $logo.find( 'g.gear' ).css( 'transform', 'rotate(360deg)' );
-        }
-    });
+            if ($wrapper.hasClass('reveal')) {
 
-    // Hide when clicking on the back cover
-    $('#back-cover').click(function () {
-        $logo.find( 'g.gear' ).css( 'transform', 'rotate(-360deg)' );
-        $wrapper.removeClass('reveal');
-    });
+                hide_header();
 
-    // Hide when scrolling
-    var scrollInit = $( window ).scrollTop();
-    $(window).scroll(function () {
-        
-        // Don't animate on Page Load
-        if ( $( window ).scrollTop() !== scrollInit ) {
-            scrollInit = 0; // Reset to 0 after any scrolling has happened. A page can be loaded with this value not being 0.
-            if ( $wrapper.hasClass( 'reveal' ) ) {
-                $wrapper.removeClass('reveal');
-                $logo.find( 'g.gear' ).css( 'transform', 'rotate(-360deg)' );
+            } else {
+
+                reveal_header();
             }
+        });
+
+        // Hide when clicking on the back cover
+        $('#back-cover').click(function () {
+
+            hide_header();
+        });
+
+        // Only preview the header once per session
+        if (!$.cookie('rbm-header-preview')) {
+
+            $tip.show();
         }
-
-    });
-
-    // Only preview the header once per session
-    if ($.cookie('rbm-header-preview') === '1') {
-        return;
     }
 
-    $(window).load(function () {
+    function reveal_header() {
 
-        setTimeout(function () {
+        $wrapper.addClass('reveal');
+        $logo.find('g.gear').css('transform', 'rotate(360deg)');
 
-            $logo.find( 'g.gear' ).css( 'transform', 'rotate(360deg)' );
-            $wrapper.addClass('reveal');
+        if ($tip.is(':visible')) {
 
-            setTimeout(function () {
-                $logo.find( 'g.gear' ).css( 'transform', 'rotate(-360deg)' );
-                $wrapper.removeClass('reveal');
-                $.cookie('rbm-header-preview', '1');
-            }, 2000);
-        }, 500 );
-    });
+            $.cookie('rbm-header-preview', 1);
+            $tip.fadeOut();
+        }
+    }
+
+    function hide_header() {
+
+        $logo.find('g.gear').css('transform', 'rotate(-360deg)');
+        $wrapper.removeClass('reveal');
+    }
+
+    $(header_init);
 
 })(jQuery);

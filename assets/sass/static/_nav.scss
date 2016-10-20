@@ -11,8 +11,6 @@ The static site nav menu (at the top).
   font-family: $header-font-family;
   letter-spacing: $header-letter-spacing;
   text-transform: uppercase;
-  position: absolute;
-  width: 45%;
   z-index: 10;
 
   .menu {
@@ -23,7 +21,7 @@ The static site nav menu (at the top).
   .menu-item {
     display: inline-block;
     color: $header-menu-item-color;
-    line-height: $header-height;
+    line-height: $header-interval;
     padding: 0 $gutter;
 
     a {
@@ -37,12 +35,16 @@ The static site nav menu (at the top).
 
 .site-nav-left {
   text-align: right;
-  left: 0;
+  float: left;
+  width: 50%;
+  padding-right: 50px;
 }
 
 .site-nav-right {
   text-align: left;
-  right: 0;
+  float: right;
+  width: 50%;
+  padding-left: 50px;
 }
 
 // Circular nav base
@@ -113,7 +115,7 @@ The static site nav menu (at the top).
   position: absolute;
   left: 50%;
   margin-left: -$header-circular-nav-size / 2;
-  top: ($header-circular-nav-size / 2 * -1) + $header-height + $header-title-height;
+  top: ($header-circular-nav-size / 2 * -1) + $header-interval + $header-title-height;
   border-radius: 50%;
   overflow: hidden;
   transition: transform 500ms;
@@ -193,51 +195,60 @@ The static site nav menu (at the top).
   }
 }
 
-// Mobile support
-@media #{$small-only} {
+// Mobile nav
+.site-nav-mobile {
+  text-align: center;
+  padding-bottom: $header-interval;
 
-  // Left / Right nav
-  .site-nav-left, .site-nav-right {
-    width: 40%;
+  ul {
+    list-style: none;
+    margin: 0;
+    display: inline-block;
+  }
 
-    .menu-item {
-      line-height: $header-height-mobile;
-      font-size: 0.7em;
-      padding: 0 5px;
+  li {
+    display: inline-block;
+    margin: 0 0.5em;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: $header-interval;
+
+    &[class^="icon-"] {
+      font-family: inherit;
+
+      &:before {
+        content: '';
+      }
     }
-  }
 
-  // Circular nav base
-  .site-nav-circular {
-    top: $header-title-height-mobile - $header-logo-size-mobile;
-  }
+    a {
+      color: $header-menu-item-color;
 
-  // Circular nav with everything
-  .csstransforms .site-nav-circular {
-    width: $header-circular-nav-size-mobile;
-    height: $header-circular-nav-size-mobile;
-    margin-left: -$header-circular-nav-size-mobile / 2;
-    top: ($header-circular-nav-size-mobile / 2 * -1) + $header-height-mobile + $header-title-height-mobile;
-
-    .menu {
-      .menu-item {
-        width: $header-circular-nav-size-mobile / 2;
-        height: $header-circular-nav-size-mobile / 2;
+      &:hover {
+        color: #fff;
       }
     }
   }
 
-  // Non-circular nav support
-  .no-csstransforms .site-nav-circular {
-    height: $header-circular-nav-size-mobile / 4;
-    width: ($header-circular-nav-size-mobile / 4) * 5;
-    margin-left: ($header-circular-nav-size-mobile / 4) * 2.5 * -1;
-    top: $header-logo-size-mobile + $header-title-height-mobile;
+  .toggle-mobile-nav {
+    display: block;
+    line-height: $header-interval;
+    font-size: 2em;
+    color: $header-menu-item-color;
+  }
 
-    .menu {
-      .menu-item {
-        width: $header-circular-nav-size-mobile / 4;
-        height: $header-circular-nav-size-mobile / 4;
+  #menu-top-primary-mobile {
+    font-size: 0.8em;
+    display: none;
+    background: $dark-color;
+
+    li {
+      display: block;
+      line-height: normal;
+
+      a {
+        display: block;
+        padding: 0.5em 0;
       }
     }
   }

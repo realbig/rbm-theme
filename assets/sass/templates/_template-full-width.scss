@@ -10,7 +10,7 @@ Sectionalized page template.
 body.page.page-template-full-width {
 
   .page-title {
-    margin-top: $header-logo-size - $header-height + $gutter;
+    margin-top: $header-logo-size - $header-interval + $gutter;
   }
 
   .page-content {
