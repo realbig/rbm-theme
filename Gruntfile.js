@@ -37,7 +37,8 @@ module.exports = function (grunt) {
         // SASS
         sass: {
             options: {
-                sourceMap: true
+                sourceMap: true,
+                outputStyle: 'compressed'
             },
             front: {
                 files: {
