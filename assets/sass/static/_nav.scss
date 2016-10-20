@@ -133,6 +133,7 @@ The static site nav menu (at the top).
           height: 100%;
           margin-top: 10%;
           padding-left: 11%;
+          pointer-events: none;
 
           // Overrides
           &:before {

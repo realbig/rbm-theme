@@ -5527,7 +5527,8 @@ throughout this theme's SASS files.
       width: 100%;
       height: 100%;
       margin-top: 10%;
-      padding-left: 11%; }
+      padding-left: 11%;
+      pointer-events: none; }
       .csstransforms .site-nav-circular .menu .menu-item a span:before {
         position: relative;
         left: auto;
