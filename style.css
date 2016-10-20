@@ -4597,34 +4597,15 @@ throughout this theme's SASS files.
 /*
  * Mixins
  */
-#wrapper a {
+a {
   position: relative; }
-  #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):before, #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):after {
-    content: '';
-    position: absolute;
-    border-top: 2px solid;
-    height: 0;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    -webkit-transition: opacity 300ms, top 300ms, bottom 300ms;
-            transition: opacity 300ms, top 300ms, bottom 300ms; }
-  #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):before {
-    top: 0; }
-  #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):after {
-    bottom: 0; }
-  #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):hover:before {
-    top: -5px;
-    opacity: 1; }
-  #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):hover:after {
-    bottom: -5px;
-    opacity: 1; }
-  #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button).force-color:before, #wrapper .site-nav-left .menu-item a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):before, .site-nav-left .menu-item #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):before, #wrapper .site-nav-right .menu-item a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):before, .site-nav-right .menu-item #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):before, #wrapper #site-footer .footer-menu .menu .menu-item a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):before, #site-footer .footer-menu .menu .menu-item #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):before, #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button).force-color:after, #wrapper .site-nav-left .menu-item a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):after, .site-nav-left .menu-item #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):after, #wrapper .site-nav-right .menu-item a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):after, .site-nav-right .menu-item #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):after, #wrapper #site-footer .footer-menu .menu .menu-item a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):after, #site-footer .footer-menu .menu .menu-item #wrapper a:not(.no-effect):not(.scroll-down):not(#site-header .site-title a):not(.wp-caption a):not(.button):after {
-    color: inherit; }
-  #wrapper a.force-color, #wrapper .site-nav-left .menu-item a, .site-nav-left .menu-item #wrapper a, #wrapper .site-nav-right .menu-item a, .site-nav-right .menu-item #wrapper a, #wrapper #site-footer .footer-menu .menu .menu-item a, #site-footer .footer-menu .menu .menu-item #wrapper a {
-    color: inherit; }
-    #wrapper a.force-color:hover, #wrapper .site-nav-left .menu-item a:hover, .site-nav-left .menu-item #wrapper a:hover, #wrapper .site-nav-right .menu-item a:hover, .site-nav-right .menu-item #wrapper a:hover, #wrapper #site-footer .footer-menu .menu .menu-item a:hover, #site-footer .footer-menu .menu .menu-item #wrapper a:hover {
-      color: inherit; }
+  a:not(.button):hover {
+    text-decoration: underline; }
+  a.force-color, #site-footer .footer-menu .menu .menu-item a {
+    color: inherit !important; }
+
+.no-effect:hover, .scroll-down:hover, #site-header .site-title a:hover, .site-nav-left .menu-item a:hover, .site-nav-right .menu-item a:hover, .wp-caption a:hover {
+  text-decoration: none; }
 
 h1, h2, .overlay-grid .overlay-grid-item .overlay-grid-overlay .overlay-grid-meta .overlay-grid-title, h3, body.home #wrapper .services h2, body.home #wrapper .services .overlay-grid .overlay-grid-item .overlay-grid-overlay .overlay-grid-meta .overlay-grid-title, .overlay-grid .overlay-grid-item .overlay-grid-overlay .overlay-grid-meta body.home #wrapper .services .overlay-grid-title, h4, body.page.page-template-chamber .chamber h2, body.page.page-template-chamber .chamber .overlay-grid .overlay-grid-item .overlay-grid-overlay .overlay-grid-meta .overlay-grid-title, .overlay-grid .overlay-grid-item .overlay-grid-overlay .overlay-grid-meta body.page.page-template-chamber .chamber .overlay-grid-title, h5, h6 {
   letter-spacing: 1px;
@@ -5455,8 +5436,10 @@ throughout this theme's SASS files.
     color: #ddd;
     line-height: 50px;
     padding: 0 30px; }
-    .site-nav-left .menu-item a:before, .site-nav-left .menu-item a:after, .site-nav-right .menu-item a:before, .site-nav-right .menu-item a:after {
-      background: #ddd !important; }
+    .site-nav-left .menu-item a, .site-nav-right .menu-item a {
+      color: inherit; }
+      .site-nav-left .menu-item a:hover, .site-nav-right .menu-item a:hover {
+        color: #fff; }
 
 .site-nav-left {
   text-align: right;

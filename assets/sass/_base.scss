@@ -9,54 +9,23 @@ Base element settings (no classes or id's).
 @import "../vendor/sass/foundation/components/buttons";
 
 // Anchors
-#wrapper a {
+a {
   position: relative;
 
-  &:not(.no-effect):not(.button) {
-    &:before, &:after {
-      content: '';
-      position: absolute;
-      border-top: 2px solid;
-      height: 0;
-      left: 0;
-      right: 0;
-      opacity: 0;
-      transition: opacity 300ms, top 300ms, bottom 300ms;
-    }
-
-    &:before {
-      top: 0;
-    }
-
-    &:after {
-      bottom: 0;
-    }
-
+  &:not(.button) {
     &:hover {
-      &:before {
-        top: -5px;
-        opacity: 1;
-      }
-
-      &:after {
-        bottom: -5px;
-        opacity: 1;
-      }
-    }
-
-    &.force-color {
-      &:before, &:after {
-        color: inherit;
-      }
+      text-decoration: underline;
     }
   }
 
   &.force-color {
-    color: inherit;
+    color: inherit !important;
+  }
+}
 
-    &:hover {
-      color: inherit;
-    }
+.no-effect {
+  &:hover {
+    text-decoration: none;
   }
 }
 
