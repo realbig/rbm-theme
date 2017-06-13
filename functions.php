@@ -35,9 +35,9 @@ define( 'THEME_ID', 'rbm_theme' );
  * Fonts for the theme. Must be hosted font (Google fonts for example).
  */
 $theme_fonts = array(
-	'oswald'       => 'http://fonts.googleapis.com/css?family=Oswald:700',
-	'leckerli one' => 'http://fonts.googleapis.com/css?family=Leckerli+One',
-	'open sans'    => 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700',
+	'oswald'       => 'https://fonts.googleapis.com/css?family=Oswald:700',
+	'leckerli one' => 'https://fonts.googleapis.com/css?family=Leckerli+One',
+	'open sans'    => 'https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700',
 );
 
 /**
