@@ -1,0 +1,96 @@
+javascript:
+  front:
+    root: "./"
+    # filename to output
+    filename: "script.js"
+    vendor: 
+      - "bower_components/foundation-sites/js/foundation.core.js"
+      - "bower_components/foundation-sites/js/foundation.util.keyboard.js"
+      - "bower_components/foundation-sites/js/foundation.util.box.js"
+      - "bower_components/foundation-sites/js/foundation.util.nest.js"
+      - "bower_components/foundation-sites/js/foundation.util.mediaQuery.js"
+      - "bower_components/foundation-sites/js/foundation.util.triggers.js"
+      - "bower_components/foundation-sites/js/foundation.util.motion.js"
+      - "bower_components/foundation-sites/js/foundation.dropdownMenu.js"
+      - "bower_components/foundation-sites/js/foundation.offcanvas.js"
+      - "bower_components/foundation-sites/js/foundation.sticky.js"
+      - "bower_components/foundation-sites/js/foundation.util.timerAndImageLoader.js"
+      - "bower_components/foundation-sites/js/foundation.equalizer.js"
+      - "bower_components/foundation-sites/js/foundation.abide.js"
+      - "bower_components/foundation-sites/js/foundation.tooltip.js"
+    notification: "Running JavaScript"
+    # Paths to JavaScript libraries, which are combined into one file
+    src:
+      # Paths to your own project code are here
+      # All the files in this list and in the js dir are concatenated into script.js
+      - "assets/js/**/*.js"
+      - "!assets/vendor/js/html5.js"
+      - "!assets/js/admin/**/*.js"
+      - "!assets/js/tinymce/**/*.js"
+  admin:
+    root: "./"
+    filename: "admin.js"
+    vendor:
+      - ""
+    notification: "Running Admin JavaScript"
+    src:
+      - "assets/js/admin/**/*.js"
+  tinymce:
+    root: "./tinymce/"
+    notification: "Running TinyMCE JavaScript"
+    src:
+      - "assets/js/tinymce/**/*.js"
+
+sass:
+  # Autoprefixer will make sure your CSS works with these browsers
+  compatibility:
+    - "last 2 versions"
+    - "ie >= 9"
+  front:
+    root: "./"
+    filename: "style.css"
+    vendor: 
+      - "bower_components/foundation-sites/scss"
+    notification: "Running Sass"
+    src: "assets/sass/main.scss"
+  admin:
+    root: "./assets/css"
+    filename: "admin.css"
+    vendor:
+      - ""
+    notification: "Running Admin Sass"
+    src: "assets/sass/admin/main.scss"
+
+watch:
+  javascript:
+    front:
+      - "assets/js/**/*.js"
+      - "!assets/js/admin/**/*.js"
+      - "!assets/js/tinymce/**/*.js"
+    admin: "assets/js/admin/**/*.js"
+    tinymce: "assets/js/tinymce/**/*.js"
+  sass: 
+    front: 
+      - "assets/sass/**/*.scss"
+      - "!assets/sass/admin/**/*.scss"
+    admin: "assets/sass/admin/**/*.scss"
+
+release:
+  type: 'theme'
+  languagesDir: './languages/'
+  files:
+    - "./**/*.*"
+    - "!./**/*.map"
+    - "!./assets/**/*.*"
+    - "!./**/.git/**"
+    - "!./**/.gitignore"
+    - "!./**/.gitmodules"
+    - "!./**/gulpfile.js"
+    - "!./**/gruntfile.js"
+    - "!./gulp/**/*.*"
+    - "!./**/package.json"
+    - "!./**/bower.json"
+    - "!./node_modules/**/*.*"
+    - "!./**/bower_components/**/*.*"
+    - "!./README.md"
+    - "!./*.zip"

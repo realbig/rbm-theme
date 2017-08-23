@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 </div> <!-- #site-content -->
 
-<footer id="site-footer" class="row expand">
+<footer id="site-footer" class="row expanded">
 
 	<hr/>
 
@@ -23,12 +23,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 			Connect with us.
 		</h2>
 
-		<ul class="footer-social-list small-block-grid-2 medium-block-grid-4">
-			<li><a href="http://www.facebook.com/realbigmarketing" class="footer-social-icon force-color"><span class="icon-facebook"></span></a></li>
-			<li><a href="http://twitter.com/gorealbig" class="footer-social-icon force-color"><span class="icon-twitter"></span></a></li>
-			<li><a href="http://www.linkedin.com/company/real-big-marketing" class="footer-social-icon force-color"><span class="icon-linkedin"></span></a></li>
-			<li><a href="https://plus.google.com/+Realbigmarketing/" class="footer-social-icon force-color"><span class="icon-google"></span></a></li>
-		</ul>
+		<div class="footer-social-list row small-up-2 medium-up-4">
+			<div class="column column-block"><a href="http://www.facebook.com/realbigmarketing" class="footer-social-icon force-color"><span class="icon-facebook"></span></a></div>
+			<div class="column column-block"><a href="http://twitter.com/gorealbig" class="footer-social-icon force-color"><span class="icon-twitter"></span></a></div>
+			<div class="column column-block"><a href="http://www.linkedin.com/company/real-big-marketing" class="footer-social-icon force-color"><span class="icon-linkedin"></span></a></div>
+			<div class="column column-block"><a href="https://plus.google.com/+Realbigmarketing/" class="footer-social-icon force-color"><span class="icon-google"></span></a></div>
+		</div>
 
 		<p class="footer-phone">
 			Call Us:

@@ -1,0 +1,60 @@
+.button {
+	
+	border-radius: 1000px;
+	text-transform: uppercase;
+
+	@each $name, $color in $foundation-palette {
+		
+		&.#{$name} {
+
+			@include foundation-button-fix( $color );
+			
+		}
+
+		&.hollow.#{$name} {
+
+			color: $color;
+			border-width: 2px;
+			font-weight: 600;
+
+			&:hover, &:focus {
+
+				background-color: $color;
+				border-color: $color;
+				@include light-or-dark-text( $color );
+
+			}
+
+		}
+		
+		&.#{$name}.slide-left {
+			@include background-slide-in( $color, 'left' );
+		}
+
+		&.#{$name}.slide-right {
+			@include background-slide-in( $color, 'right' );
+		}
+
+		&.#{$name}.slide-top {
+			@include background-slide-in( $color, 'top' );
+		}
+
+		&.#{$name}.slide-bottom {
+			@include background-slide-in( $color, 'bottom' );
+		}
+
+	}
+
+}
+
+.give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"], .tribe-events-button, .search-form .button {
+
+	@include button( false, $secondary-color, scale-color( $secondary-color, $lightness: $button-background-hover-lightness ), 'auto', 'solid' );
+	
+	border-radius: 1000px;
+	
+	@include foundation-button-fix( $secondary-color );
+	
+	@include background-slide-in( $secondary-color, 'right' );
+
+}

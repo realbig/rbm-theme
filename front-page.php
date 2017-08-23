@@ -14,7 +14,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-	<div class="row expand">
+	<div class="row expanded">
 
 		<section class="home-cta columns small-12">
 
@@ -30,7 +30,7 @@ get_header();
 					Ready for your website to pull its weight?
 				</h1>
 
-				<a href="<?php echo get_permalink( 47 ); ?>" class="button">
+				<a href="<?php echo get_permalink( 47 ); ?>" class="button xlarge secondary slide-right">
 					Contact Us
 				</a>
 			</div>
@@ -51,7 +51,7 @@ get_header();
 					We're a marketing firm with an emphasis on <span class="font-special">top-notch</span> website creation.
 				</div>
 
-				<a href="<?php echo get_permalink( 24 ); ?>" class="button section-cta">
+				<a href="<?php echo get_permalink( 24 ); ?>" class="button xlarge secondary slide-right section-cta">
 					Learn more about our company
 				</a>
 
@@ -63,12 +63,12 @@ get_header();
 						</h2>
 
 						<div class="service-icons">
-							<ul class="small-block-grid-12 medium-block-grid-8">
+							<div class="small-up-12 medium-up-8">
 							<?php for ( $i = 0; $i < 40; $i ++ ) : ?>
-								<li class="service-icon visible icon-earth <?php echo $i < 24 ? 'dark' : ''; ?>"
-								    data-index="<?php echo $i; ?>"></li>
+								<div class="column column-block service-icon visible icon-earth <?php echo $i < 24 ? 'dark' : ''; ?>"
+								    data-index="<?php echo $i; ?>"></div>
 							<?php endfor; ?>
-							</ul>
+							</div>
 						</div>
 
 						<p class="service-blurb">
@@ -82,12 +82,12 @@ get_header();
 						</h2>
 
 						<div class="service-icons">
-							<ul class="small-block-grid-12 medium-block-grid-8">
+							<div class="small-up-12 medium-up-8">
 							<?php for ( $i = 0; $i < 40; $i ++ ) : ?>
-								<li class="service-icon visible icon-mobile <?php echo $i < 32 ? 'dark' : ''; ?>"
-								    data-index="<?php echo $i + 40; ?>"></li>
+								<div class="column column-block service-icon visible icon-mobile <?php echo $i < 32 ? 'dark' : ''; ?>"
+								    data-index="<?php echo $i + 40; ?>"></div>
 							<?php endfor; ?>
-							</ul>
+							</div>
 						</div>
 
 						<p class="service-blurb">
@@ -101,12 +101,12 @@ get_header();
 						</h2>
 
 						<div class="service-icons">
-							<ul class="small-block-grid-12 medium-block-grid-8">
+							<div class="row small-up-12 medium-up-8">
 							<?php for ( $i = 0; $i < 40; $i ++ ) : ?>
-								<li class="service-icon visible icon-cart <?php echo $i < 16 ? 'dark' : ''; ?>"
-								    data-index="<?php echo $i + 80; ?>"></li>
+								<div class="column column-block service-icon visible icon-cart <?php echo $i < 16 ? 'dark' : ''; ?>"
+								    data-index="<?php echo $i + 80; ?>"></div>
 							<?php endfor; ?>
-							</ul>
+							</div>
 						</div>
 
 						<p class="service-blurb">
@@ -143,7 +143,7 @@ get_header();
 						We've built some pretty <span class="font-special">cool</span> stuff. Take a look!
 					</div>
 
-					<a href="<?php echo get_permalink( 464 ); ?>" class="button secondary section-cta">
+					<a href="<?php echo get_permalink( 464 ); ?>" class="button xlarge primary slide-right section-cta">
 						We can build you a site like these
 					</a>
 
@@ -207,7 +207,7 @@ get_header();
 						People seem to <span class="font-special">really like</span> us, but don't take our word for it!
 					</div>
 
-					<a href="#" class="button section-cta">
+					<a href="#" class="button xlarge secondary slide-right section-cta">
 						Join the list
 					</a>
 
@@ -228,21 +228,21 @@ get_header();
 						?>
 					</div>
 
-					<ul class="testimonials-list small-block-grid-2 medium-block-grid-4">
+					<div class="testimonials-list small-2 medium-4">
 						<?php
 						foreach ( $testimonials as $post ) :
 							setup_postdata( $post );
 							?>
-							<li class="testimonial-item active" data-square>
+							<div class="column column-block testimonial-item active" data-square>
 								<a class="no-effect testimonial-image" href="#">
 									<?php the_post_thumbnail( 'full' ); ?>
 								</a>
-							</li>
+							</div>
 						<?php
 						endforeach;
 						wp_reset_postdata();
 						?>
-					</ul>
+					</div>
 				</div>
 
 			</section>

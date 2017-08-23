@@ -10,21 +10,35 @@ Version: 1.0.1
 @import "../vendor/css/normalize";
 @import "../vendor/css/icomoon";
 
-// Deps
-@import "settings.scss";
-
 // Foundation
 // Here we control all of the various foundation components to use
-@import "../vendor/sass/foundation/components/visibility";
-@import "../vendor/sass/foundation/components/clearing";
-@import "../vendor/sass/foundation/components/grid";
-@import "../vendor/sass/foundation/components/block-grid";
-@import "../vendor/sass/foundation/components/type";
-@import "../vendor/sass/foundation/components/forms";
-@import "../vendor/sass/foundation/components/tooltips";
+//@import "foundation";
+@import "../../bower_components/foundation-sites/scss/foundation";
+
+@import "mixins";
+@import "functions";
+
+@import "settings";
+
+@include foundation-global-styles;
+@include foundation-typography;
+@include foundation-forms;
+@include foundation-button;
+@include foundation-grid;
+@include foundation-top-bar;
+@include foundation-menu;
+@include foundation-menu-icon;
+@include foundation-off-canvas;
+@include foundation-dropdown;
+@include foundation-dropdown-menu;
+@include foundation-visibility-classes;
+@include foundation-sticky;
+@include foundation-tooltip;
 
 // Setup
-@import "base";
+@import "global/base";
+@import "global/buttons";
+@import "global/wp";
 
 // Partials
 @import "partials/search-form";
@@ -55,6 +69,3 @@ Version: 1.0.1
 
 // Shortcodes
 @import "shortcodes/content-width";
-
-// Overrides
-@import "wp";

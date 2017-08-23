@@ -45,7 +45,7 @@ the_post();
 					Did you know?
 				</div>
 
-				<div class="row unexpand text-left">
+				<div class="row text-left">
 					<div class="columns small-12">
 						<p>In 2014 web usage by handheld devices overtook laptop and desktop. One of the most important
 							conversations you can have about your success is, "How will you engage clients, donors,

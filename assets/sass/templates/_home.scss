@@ -6,6 +6,21 @@ Styles front-page.php (the home page).
 @import "../settings";
 
 body.home #wrapper {
+	
+	.button {
+		
+		&.slide-right, &.slide-left, &.slide-top, &.slide-bottom {
+			
+			border-color: $light-color;
+			text-shadow: 1px 1px 0 $dark-color;
+			
+			.button-text {
+				color: $light-color;
+			}
+			
+		}
+		
+	}
 
   // Home cta
   .home-cta {

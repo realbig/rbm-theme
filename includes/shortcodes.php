@@ -39,18 +39,20 @@ function _rbm_sc_section( $atts = array(), $content = '' ) {
 	$output = '';
 	$output .= '<section id="' . $atts['id'] . '" class="section ' . implode( $classes ) . ' columns small-12">';
 
-	$output .= '<div class="section-content expand">';
+	$output .= '<div class="section-content expanded">';
 
 	$output .= rbm_get_section_title( $atts['title'], $atts['id'] );
 
 	if ( $atts['full_width'] == 'no' ) {
-		$output .= '<div class="row unexpand text-left">';
+		$output .= '<div class="small-12 medium-8 medium-push-2">';
+		$output .= '<div class="row text-left">';
 		$output .= '<div class="columns small-12">';
 	}
 
 	$output .= do_shortcode( $content );
 
 	if ( $atts['full_width'] == 'no' ) {
+		$output .= '</div>';
 		$output .= '</div>';
 		$output .= '</div>';
 	}
@@ -71,7 +73,7 @@ function _rbm_sc_section_button( $atts = array(), $content = '' ) {
 	), $atts);
 
 	$output = '<p class="text-center">';
-	$output .= "<a href=\"$atts[link]\" class=\"button section-cta\">";
+	$output .= "<a href=\"$atts[link]\" class=\"secondary xlarge button slide-right section-cta\">";
 	$output .= $content;
 	$output .= '</a>';
 	$output .= '</p>';
@@ -90,7 +92,7 @@ function _rbm_sc_section_summary( $atts = array(), $content = '' ) {
 }
 
 function _rbm_sc_column_width( $atts, $content = '' ) {
-	return '<div class="row unexpand text-left"><div class="columns small-12">' . do_shortcode( $content ) . '</div></div>';
+	return '<div class="small-12 columns"><div class="row text-left"><div class="columns small-12">' . do_shortcode( $content ) . '</div></div></div>';
 }
 
 function _rbm_sc_staff_list( $atts, $content ) {

@@ -5,8 +5,6 @@ throughout this theme's SASS files.
 @since 0.1.0
 */
 
-@import "../vendor/sass/foundation/functions";
-
 // We use these as default colors throughout
 $primary-color: #12538F;
 $secondary-color: #76D100;
@@ -14,7 +12,30 @@ $alert-color: #f04124;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
 $info-color: #a0d3e8;
+
+// Allows our color changes to be passed to things like the Button classes
+$foundation-palette: (
+    primary: $primary-color,
+    secondary: $secondary-color,
+    info: $info-color,
+    success: $success-color,
+    warning: $warning-color,
+    alert: $alert-color,
+);
+
+// Why, Foundation 6.3. Why.
+$button-palette: $foundation-palette;
+
+$button-sizes: (
+	tiny: 0.6rem,
+	small: 0.75rem,
+	default: 0.9rem,
+	large: 1.25rem,
+	xlarge: 1.375rem,
+);
+
 $dark-color: #222;
+$light-color: #fff;
 
 // We use these to define default font stacks
 $font-family-sans-serif: "Open Sans", sans-serif;
@@ -84,31 +105,15 @@ $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max
 $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
 
-/*
- * Mixins
- */
+$retina-only: (
+  "#{$screen} and (-webkit-min-device-pixel-ratio: 2)",
+  "#{$screen} and (min--moz-device-pixel-ratio: 2)",
+  "#{$screen} and (-o-min-device-pixel-ratio: 2/1)",
+  "#{$screen} and (min-device-pixel-ratio: 2)",
+  "#{$screen} and (min-resolution: 192dpi)",
+  "#{$screen} and (min-resolution: 2dppx)"
+) !default;
 
-@mixin clearfix {
-  &:after {
-    content: ' ';
-    display: table;
-    clear: both;
-  }
-}
-
-@mixin light-or-dark($color) {
-
-  $light-color: $secondary-color;
-  $dark-color: $primary-color;
-
-  @if lightness($primary-color) > 70% {
-    $light-color: $primary-color;
-    $dark-color: $secondary-color;
-  }
-
-  @if lightness($color) > 70% {
-    color: $dark-color;
-  } @else {
-    color: $light-color;
-  }
-}
+$phablet-landscape: "#{$screen} and (max-width: 733px) and (orientation: landscape)" !default;
+$ipad-portrait: "#{$medium-only} and (orientation: portrait)" !default; // This includes up through Medium technically, but it shouldn't cause problems for desktop users unless they have a low resolution portrait monitor for some reason
+$ipad-landscape: "#{$screen} and (min-device-width : 768px) and (max-width: 1024px) and (orientation: landscape)" !default;

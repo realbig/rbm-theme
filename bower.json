@@ -1,0 +1,19 @@
+{
+	"name": "RBMTheme",
+	"version": "1.0.1",
+	"dependencies": {
+		"foundation-sites": "^6.4.3"
+	},
+	"ignore": [
+		"**/.*",
+		"node_modules",
+		"bower_components",
+		"test",
+		"tests"
+	],
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/realbig/RBM-Theme.git"
+	}
+}

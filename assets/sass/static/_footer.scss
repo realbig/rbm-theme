@@ -19,6 +19,8 @@ The static site footer.
 
   hr {
     border-top: 5px dotted #2a2a2a;
+	  border-bottom: 0;
+	  max-width: none;
     margin: 10px 0 ;
   }
 
@@ -72,9 +74,18 @@ The static site footer.
       .button-text {
         color: #555;
       }
+		
+		text-shadow: none;
 
       &:hover {
         border-color: $secondary-color;
+		  
+		@if lightness( $secondary-color ) < 50% {
+			text-shadow: 1px 1px 0 $dark-color;
+		}
+		@else {
+			text-shadow: 1px 1px 0 $light-color;
+		}
 
         .button-text {
           color: #fff;
@@ -113,6 +124,8 @@ The static site footer.
     .menu {
       list-style: none;
       margin: 0;
+		text-align: center;
+		display: block;
 
       .menu-item {
         display: inline-block;
