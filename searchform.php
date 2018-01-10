@@ -1,30 +1,17 @@
 <?php
 /**
- * The theme's search form.
+ * The template for displaying search form
  *
- * @since   0.1.0
- * @package RBMTheme
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
  */
+ ?>
 
-// Don't load directly
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
-?>
-
-<form role="search" method="get" class="search-form" action="<?php bloginfo( 'url' ); ?>">
-
-	<div class="fields row">
-		<label class="search-field-label columns small-12 medium-8">
-			<span class="screen-reader-text">Search for:</span>
-			<input type="search" class="search-field" placeholder="Looking for something?" value="" name="s"
-			       title="Search for:">
-		</label>
-
-		<div class="columns small-12 medium-4">
-			<button class="button tiny">
-				Search
-			</button>
+<form role="search" method="get" id="searchform" action="<?php echo home_url( '/' ); ?>">
+	<div class="input-group">
+		<input type="text" class="input-group-field" value="" name="s" id="s" placeholder="<?php esc_attr_e( 'Search', 'foundationpress' ); ?>">
+		<div class="input-group-button">
+			<input type="submit" id="searchsubmit" value="<?php esc_attr_e( 'Search', 'foundationpress' ); ?>" class="button">
 		</div>
 	</div>
 </form>

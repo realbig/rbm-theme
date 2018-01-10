@@ -1,21 +1,12 @@
 <?php
 /**
- * Displays archive of posts.
+ * The sidebar containing the main widget area
  *
- * @since   0.1.0
- * @package RBMTheme
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
  */
 
-// Don't load directly
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
-
-get_header();
 ?>
-
-<aside class="sidebar columns small-12 medium-4">
-	<ul class="widgets">
-		<?php dynamic_sidebar( 'main-sidebar' ); ?>
-	</ul>
+<aside class="sidebar">
+	<?php dynamic_sidebar( 'sidebar-widgets' ); ?>
 </aside>

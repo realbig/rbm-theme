@@ -1,132 +1,155 @@
 <?php
 /**
- * The theme's comment template file.
+ * The template for displaying comments
  *
- * @since   0.1.0
- * @package RBMTheme
+ * The area of the page that contains both current comments
+ * and the comment form.
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
  */
 
-// Don't load directly
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
+if ( have_comments() ) :
+	if ( (is_page() || is_single()) && ( ! is_home() && ! is_front_page()) ) :
+?>
+	<section id="comments"><?php
 
-if ( post_password_required() ) { ?>
-	<p class="nocomments"><?php _e( 'This post is password protected. Enter the password to view comments.' ); ?></p>
-	<?php
-	return;
-}
+
+		wp_list_comments(
+			array(
+				'walker'            => new Foundationpress_Comments(),
+				'max_depth'         => '',
+				'style'             => 'ol',
+				'callback'          => null,
+				'end-callback'      => null,
+				'type'              => 'all',
+				'reply_text'        => __( 'Reply', 'foundationpress' ),
+				'page'              => '',
+				'per_page'          => '',
+				'avatar_size'       => 48,
+				'reverse_top_level' => null,
+				'reverse_children'  => '',
+				'format'            => 'html5',
+				'short_ping'        => false,
+				'echo'              => true,
+				'moderation'        => __( 'Your comment is awaiting moderation.', 'foundationpress' ),
+			)
+		);
+
+		?>
+
+ 	</section>
+<?php
+	endif;
+endif;
 ?>
 
-<!-- You can start editing here. -->
+<?php
 
-<?php if ( have_comments() ) : ?>
-	<h3 id="comments"><?php printf( _n( 'One Response to %2$s', '%1$s Responses to %2$s', get_comments_number() ),
-			number_format_i18n( get_comments_number() ), '&#8220;' . get_the_title() . '&#8221;' ); ?></h3>
+	/*
+	Do not delete these lines.
+	Prevent access to this file directly
+	*/
 
-	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link() ?></div>
-		<div class="alignright"><?php next_comments_link() ?></div>
-	</div>
+	defined( 'ABSPATH' ) || die( __( 'Please do not load this page directly. Thanks!', 'foundationpress' ) );
 
-	<ol class="commentlist">
-		<?php wp_list_comments(); ?>
-	</ol>
-
-	<div class="navigation">
-		<div class="alignleft"><?php previous_comments_link() ?></div>
-		<div class="alignright"><?php next_comments_link() ?></div>
-	</div>
-<?php else : // this is displayed if there are no comments so far ?>
-
-	<?php if ( comments_open() ) : ?>
-		<!-- If comments are open, but there are no comments. -->
-
-	<?php else : // comments are closed ?>
-		<!-- If comments are closed. -->
-		<p class="nocomments"><?php _e( 'Comments are closed.' ); ?></p>
-
-	<?php endif; ?>
-<?php endif; ?>
-
-<?php if ( comments_open() ) : ?>
-
-	<div id="respond">
-
-		<h3><?php comment_form_title( __( 'Leave a Reply' ), __( 'Leave a Reply to %s' ) ); ?></h3>
-
-		<div id="cancel-comment-reply">
-			<?php cancel_comment_reply_link() ?>
+	if ( post_password_required() ) { ?>
+	<section id="comments">
+		<div class="notice">
+			<p class="bottom"><?php _e( 'This post is password protected. Enter the password to view comments.', 'foundationpress' ); ?></p>
 		</div>
+	</section>
+	<?php
+		return;
+	}
+?>
 
-		<?php if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) : ?>
-			<p>
-				<?php
-				printf(
-					__( 'You must be <a href="%s">logged in</a> to post a comment.' ),
-					wp_login_url( get_permalink() )
+<?php
+if ( comments_open() ) :
+	if ( (is_page() || is_single()) && ( ! is_home() && ! is_front_page()) ) :
+?>
+<section id="respond">
+	<h3>
+		<?php
+			comment_form_title(
+				__( 'Leave a Reply', 'foundationpress' ),
+				/* translators: %s: author of comment being replied to */
+				__( 'Leave a Reply to %s', 'foundationpress' )
+			);
+		?>
+	</h3>
+	<p class="cancel-comment-reply"><?php cancel_comment_reply_link(); ?></p>
+	<?php if ( get_option( 'comment_registration' ) && ! is_user_logged_in() ) : ?>
+	<p>
+		<?php
+			/* translators: %s: login url */
+			printf( __(
+				'You must be <a href="%s">logged in</a> to post a comment.', 'foundationpress' ),
+				wp_login_url( get_permalink() )
+			);
+		?>
+	</p>
+	<?php else : ?>
+	<form action="<?php echo get_option( 'siteurl' ); ?>/wp-comments-post.php" method="post" id="commentform">
+		<?php if ( is_user_logged_in() ) : ?>
+		<p>
+			<?php
+				/* translators: %1$s: site url, %2$s: user identity  */
+				printf( __(
+					'Logged in as <a href="%1$s/wp-admin/profile.php">%2$s</a>.', 'foundationpress' ),
+					get_option( 'siteurl' ),
+					$user_identity
 				);
-				?>
-			</p>
+			?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'foundationpress' ); ?>"><?php _e( 'Log out &raquo;', 'foundationpress' ); ?></a>
+		</p>
 		<?php else : ?>
-
-			<form action="<?php echo site_url(); ?>/wp-comments-post.php" method="post" id="commentform" data-abide novalidate>
-
-				<?php if ( is_user_logged_in() ) : ?>
-
-					<p>
-						<?php printf( __( 'Logged in as <a href="%1$s">%2$s</a>.' ), get_edit_user_link(), $user_identity ); ?>
-						<a href="<?php echo wp_logout_url( get_permalink() ); ?>"
-						   title="<?php esc_attr_e( 'Log out of this account' ); ?>"><?php _e( 'Log out &raquo;' ); ?></a>
-					</p>
-
-				<?php else : ?>
-
-					<label>
-						<?php _e( 'Author' ); ?>
-						<input type="text" name="author" required
-						       value="<?php echo esc_attr( $comment_author ); ?>"
-						       size="22" tabindex="1" <?php if ( $req ) {
-							echo "aria-required='true'";
-						} ?> />
-						<small class="error">Required</small>
-					</label>
-
-					<label>
-						<?php _e( 'Email' ); ?>
-						<input type="text" name="email" required pattern="email"
-						       value="<?php echo esc_attr( $comment_author_email ); ?>" size="22"
-						       tabindex="2" <?php if ( $req ) {
-							echo "aria-required='true'";
-						} ?> />
-						<small class="error">Required and must be email format</small>
-					</label>
-
-
-				<?php endif; ?>
-
-				<label>
-					<?php _e( 'Comment' ); ?>
-					<textarea name="comment" id="comment" cols="58" rows="10" tabindex="4" required></textarea>
-					<small class="error">Required</small>
-				</label>
-
-				<p>
-					<?php printf( __( '<strong>XHTML:</strong> You can use these tags: <code>%s</code>' ), allowed_tags() ); ?>
-				</p>
-
-				<p>
-					<input type="submit" name="submit" id="submit" tabindex="5" value="Submit Comment" class="button" />
-					<?php comment_id_fields(); ?>
-				</p>
+		<p>
+			<label for="author">
 				<?php
-				/** This filter is documented in wp-includes/comment-template.php */
-				do_action( 'comment_form', $post->ID );
+					_e( 'Name', 'foundationpress' ); if ( $req ) { _e( ' (required)', 'foundationpress' ); }
 				?>
-
-			</form>
-
-		<?php endif; // If registration required and not logged in ?>
-	</div>
-
-<?php endif; // if you delete this the sky will fall on your head ?>
+			</label>
+			<input type="text" class="five" name="author" id="author" value="<?php echo esc_attr( $comment_author ); ?>" size="22" tabindex="1" <?php if ( $req ) { echo "aria-required='true'"; } ?>>
+		</p>
+		<p>
+			<label for="email">
+				<?php
+					_e( 'Email (will not be published)', 'foundationpress' ); if ( $req ) { _e( ' (required)', 'foundationpress' ); }
+				?>
+			</label>
+			<input type="text" class="five" name="email" id="email" value="<?php echo esc_attr( $comment_author_email ); ?>" size="22" tabindex="2" <?php if ( $req ) { echo "aria-required='true'"; } ?>>
+		</p>
+		<p>
+			<label for="url">
+				<?php
+					_e( 'Website', 'foundationpress' );
+				?>
+			</label>
+			<input type="text" class="five" name="url" id="url" value="<?php echo esc_attr( $comment_author_url ); ?>" size="22" tabindex="3">
+		</p>
+		<?php endif; ?>
+		<p>
+			<label for="comment">
+					<?php
+						_e( 'Comment', 'foundationpress' );
+					?>
+			</label>
+			<textarea name="comment" id="comment" tabindex="4"></textarea>
+		</p>
+		<p id="allowed_tags" class="small"><strong>XHTML:</strong>
+			<?php
+				_e( 'You can use these tags:','foundationpress' );
+			?>
+			<code>
+				<?php echo allowed_tags(); ?>
+			</code>
+		</p>
+		<p><input name="submit" class="button" type="submit" id="submit" tabindex="5" value="<?php esc_attr_e( 'Submit Comment', 'foundationpress' ); ?>"></p>
+		<?php comment_id_fields(); ?>
+		<?php do_action( 'comment_form', $post->ID ); ?>
+	</form>
+	<?php endif; // If registration required and not logged in. ?>
+</section>
+<?php
+	endif; // If you delete this the sky will fall on your head.
+	endif; // If you delete this the sky will fall on your head.

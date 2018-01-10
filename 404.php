@@ -1,36 +1,41 @@
 <?php
 /**
- * The theme's 404 page for showing not found pages.
+ * The template for displaying 404 pages (not found)
  *
- * @since 0.1.0
- * @package KidNiche
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
  */
 
-// Don't load directly
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
+get_header(); ?>
 
-get_header();
-
-the_post();
-?>
-
-	<div class="page-content row">
-
-		<article id="page-404" class="columns small-12">
-
-			<h1 class="page-title">
-				404 - Not Found
-			</h1>
-
-			<p>
-				Sorry, but there's nothing here.
-			</p>
-
+ <div class="main-wrap">
+	<main class="main-content">
+		<article>
+			<header>
+				<h1 class="entry-title"><?php _e( 'File Not Found', 'foundationpress' ); ?></h1>
+			</header>
+			<div class="entry-content">
+				<div class="error">
+					<p class="bottom"><?php _e( 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.', 'foundationpress' ); ?></p>
+				</div>
+				<p><?php _e( 'Please try the following:', 'foundationpress' ); ?></p>
+				<ul>
+					<li><?php _e( 'Check your spelling', 'foundationpress' ); ?></li>
+					<li>
+						<?php
+							/* translators: %s: home page url */
+							printf( __(
+								'Return to the <a href="%s">home page</a>', 'foundationpress' ),
+								home_url()
+							);
+						?>
+					</li>
+					<li><?php _e( 'Click the <a href="javascript:history.back()">Back</a> button', 'foundationpress' ); ?></li>
+				</ul>
+			</div>
 		</article>
+	</main>
+ <?php get_sidebar(); ?>
+</div>
 
-	</div>
-
-<?php
-get_footer();
+<?php get_footer();

@@ -1,38 +1,23 @@
 <?php
 /**
- * The theme's single file use for displaying single posts.
+ * The template for displaying all single posts and attachments
  *
- * @since 0.1.0
- * @package RBMTheme
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
  */
 
-// Don't load directly
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
+get_header(); ?>
 
-get_header();
+<?php get_template_part( 'template-parts/featured-image' ); ?>
 
-the_post();
-?>
-
-	<div class="page-content row">
-
-		<article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
-
-			<h1 class="page-title">
-				<?php the_title(); ?>
-			</h1>
-
-			<?php the_content(); ?>
-
-		</article>
-
-		<div class="columns small-12">
+<div class="main-wrap">
+	<main class="main-content">
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part( 'template-parts/content', '' ); ?>
+			<?php the_post_navigation(); ?>
 			<?php comments_template(); ?>
-		</div>
-
-	</div>
-
-<?php
-get_footer();
+		<?php endwhile;?>
+	</main>
+<?php get_sidebar(); ?>
+</div>
+<?php get_footer();

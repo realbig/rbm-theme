@@ -1,73 +1,51 @@
 <?php
 /**
- * Displays latest blog posts.
+ * The template for displaying archive pages
  *
- * @since   0.1.0
- * @package RBMTheme
+ * Used to display archive-type pages if nothing more specific matches a query.
+ * For example, puts together date-based pages if no date.php file exists.
+ *
+ * If you'd like to further customize these archive views, you may create a
+ * new template file for each one. For example, tag.php (Tag archives),
+ * category.php (Category archives), author.php (Author archives), etc.
+ *
+ * @link https://codex.wordpress.org/Template_Hierarchy
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
  */
 
-// Don't load directly
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
+get_header(); ?>
 
-get_header();
-?>
+<div class="main-wrap">
+	<main class="main-content">
+	<?php if ( have_posts() ) : ?>
 
-	<div class="page-content row">
+		<?php /* Start the Loop */ ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+			<?php get_template_part( 'template-parts/content', get_post_format() ); ?>
+		<?php endwhile; ?>
 
-		<h1 class="page-title columns small-12">
-			<?php post_type_archive_title( '' ); ?>
-		</h1>
+		<?php else : ?>
+			<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
+		<?php endif; // End have_posts() check. ?>
+
+		<?php /* Display navigation to next/previous pages when applicable */ ?>
 		<?php
-		the_archive_description( '<div class="taxonomy-description columns small-12">', '</div>' );
+		if ( function_exists( 'foundationpress_pagination' ) ) :
+			foundationpress_pagination();
+		elseif ( is_paged() ) :
 		?>
-
-		<?php if ( have_posts() ) : ?>
-			<?php
-			while ( have_posts() ) :
-				the_post();
-				?>
-				<article id="post-<?php the_ID(); ?>" <?php post_class( array(
-					'columns',
-					'small-12'
-				) ); ?>>
-
-					<h2 class="post-title">
-						<a href="<?php the_permalink(); ?>" class="force-color">
-							<?php the_title(); ?>
-						</a>
-					</h2>
-
-					<?php the_excerpt(); ?>
-
-					<a href="<?php the_permalink(); ?>" class="button dark">
-						Read more
-					</a>
-
-				</article>
-			<?php endwhile; ?>
-
-			<div class="columns small-12">
-				<?php
-				the_posts_pagination( array(
-					'prev_text'          => 'Previous page',
-					'next_text'          => 'Next page',
-					'before_page_number' => '<span class="meta-nav screen-reader-text">' . 'Page' . ' </span>',
-				) );
-				?>
-			</div>
-
-		<?php else: ?>
-
-			<div class="columns small-12">
-				Nothing found, sorry!
-			</div>
-
+			<nav id="post-nav">
+				<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'foundationpress' ) ); ?></div>
+				<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'foundationpress' ) ); ?></div>
+			</nav>
 		<?php endif; ?>
 
-	</div>
+	</main>
+	<?php get_sidebar(); ?>
 
-<?php
-get_footer();
+</div>
+
+<?php get_footer();

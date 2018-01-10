@@ -1,34 +1,26 @@
 <?php
 /**
- * The theme's page file use for displaying pages.
+ * The template for displaying pages
  *
- * @since   0.1.0
- * @package RBMTheme
+ * This is the template that displays all pages by default.
+ * Please note that this is the WordPress construct of pages and that
+ * other "pages" on your WordPress site will use a different template.
+ *
+ * @package FoundationPress
+ * @since FoundationPress 1.0.0
  */
 
-// Don't load directly
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-}
+ get_header(); ?>
 
-get_header();
+ <?php get_template_part( 'template-parts/featured-image' ); ?>
 
-the_post();
-?>
-
-	<div class="page-content row">
-
-		<article id="page-<?php the_ID(); ?>" <?php post_class( array( 'columns', 'small-12' ) ); ?>>
-
-			<h1 class="page-title">
-				<?php the_title(); ?>
-			</h1>
-
-			<?php the_content(); ?>
-
-		</article>
-
-	</div>
-
-<?php
-get_footer();
+ <div class="main-wrap">
+	 <main class="main-content">
+		 <?php while ( have_posts() ) : the_post(); ?>
+		 	<?php get_template_part( 'template-parts/content', 'page' ); ?>
+			<?php comments_template(); ?>
+		 <?php endwhile;?>
+	 </main>
+ <?php get_sidebar(); ?>
+ </div>
+ <?php get_footer();
