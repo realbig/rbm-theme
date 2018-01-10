@@ -1,9 +1,7 @@
 {
-  "name": "foundationpress",
-  "title": "FoundationPress",
-  "version": "2.10.4",
-  "description": "FoundationPress is a WordPress starter theme based on Foundation 6 by Zurb",
-  "homepage": "https://foundationpress.olefredrik.com",
+  "name": "RBMTheme",
+  "title": "RBMTheme",
+  "version": "1.0.1",
   "license": "MIT",
   "main": "gulpfile.js",
   "scripts": {
@@ -59,10 +57,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/olefredrik/foundationpress.git"
+    "url": "https://github.com/realbig/RBM-Theme.git"
   },
   "bugs": {
-    "url": "https://github.com/olefredrik/foundationpress/issues"
+    "url": "https://github.com/realbig/RBM-Theme/issues"
   },
   "babel": {
     "presets": [
