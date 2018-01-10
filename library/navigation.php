@@ -8,8 +8,10 @@
  */
 
 register_nav_menus( array(
-	'top-bar-r'  => esc_html__( 'Right Top Bar', 'foundationpress' ),
-	'mobile-nav' => esc_html__( 'Mobile', 'foundationpress' ),
+	'primary-right'  => esc_html__( 'Primary Right', 'foundationpress' ),
+	'primary-left' => esc_html__( 'Primary Left', 'foundationpress' ),
+	'primary-center' => esc_html__( 'Primary Center', 'foundationpress' ),
+	'footer' => esc_html__( 'Footer', 'foundationpress' ),
 ));
 
 
@@ -24,7 +26,7 @@ if ( ! function_exists( 'foundationpress_top_bar_r' ) ) {
 			'container'      => false,
 			'menu_class'     => 'dropdown menu',
 			'items_wrap'     => '<ul id="%1$s" class="%2$s desktop-menu" data-dropdown-menu>%3$s</ul>',
-			'theme_location' => 'top-bar-r',
+			'theme_location' => 'primary-center',
 			'depth'          => 3,
 			'fallback_cb'    => false,
 			'walker'         => new Foundationpress_Top_Bar_Walker(),
