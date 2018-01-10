@@ -14,6 +14,12 @@
  * @since FoundationPress 1.0.0
  */
 
+$theme_header = wp_get_theme();
+
+define( 'THEME_VER', $theme_header->get( 'Version' ) );
+define( 'THEME_URL', get_stylesheet_directory_uri() );
+define( 'THEME_DIR', get_stylesheet_directory() );
+
 /** Various clean up functions */
 require_once( 'library/cleanup.php' );
 
