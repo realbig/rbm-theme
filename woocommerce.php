@@ -4,7 +4,7 @@
  * For an alternative integration method see WC docs
  * http://docs.woothemes.com/document/third-party-custom-theme-compatibility/
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.0.0
  */
 

@@ -2,7 +2,7 @@
 /**
  * Protocol Relative Theme Assets
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.1.0
  */
 

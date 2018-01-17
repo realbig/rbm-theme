@@ -2,7 +2,7 @@
 /**
  * Entry meta information for posts
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.0.0
  */
 

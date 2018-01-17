@@ -2,7 +2,7 @@
 /**
  * Customize the output of menus for Foundation mobile walker
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.0.0
  */
 

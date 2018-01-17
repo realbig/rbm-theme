@@ -2,7 +2,7 @@
 /**
  * Template part for off canvas menu
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.0.0
  */
 

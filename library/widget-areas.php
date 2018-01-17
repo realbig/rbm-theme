@@ -2,7 +2,7 @@
 /**
  * Register widget areas
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.0.0
  */
 

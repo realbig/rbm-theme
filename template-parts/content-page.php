@@ -3,7 +3,7 @@
  * The default template for displaying page content
  *
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.0.0
  */
 

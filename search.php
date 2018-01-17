@@ -2,7 +2,7 @@
 /**
  * The template for displaying search results pages.
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.0.0
  */
 

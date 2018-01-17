@@ -2,7 +2,7 @@
 /**
  * Clean up WordPress defaults
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.0.0
  */
 

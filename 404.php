@@ -2,7 +2,7 @@
 /**
  * The template for displaying 404 pages (not found)
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.0.0
  */
 

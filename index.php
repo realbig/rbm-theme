@@ -9,7 +9,7 @@
  *
  * Learn more: {@link https://codex.wordpress.org/Template_Hierarchy}
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 1.0.0
  */
 

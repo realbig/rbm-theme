@@ -2,7 +2,7 @@
 /**
  * FoundationPress Comments
  *
- * @package FoundationPress
+ * @package RBMTheme
  */
 
 if ( ! class_exists( 'Foundationpress_Comments' ) ) :

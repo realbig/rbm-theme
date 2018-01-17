@@ -2,7 +2,7 @@
 /**
  * Change the class for sticky posts to .wp-sticky to avoid conflicts with Foundation's Sticky plugin
  *
- * @package FoundationPress
+ * @package RBMTheme
  * @since FoundationPress 2.2.0
  */
 
