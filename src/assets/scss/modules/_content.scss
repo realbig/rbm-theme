@@ -21,6 +21,22 @@
         .sidebar { order: 1; }
       }
   }
+  
+  &.sidebar-right {
+
+    // Place the sidebar after main content on small screens ...
+    @include breakpoint(small) {
+      .main-content { order: 2; }
+      .sidebar { order: 1; }
+    }
+
+    // ... and to the right on medium-up screens, when using the sidebar-right template
+    @include breakpoint(medium) {
+      .main-content { order: 1; }
+      .sidebar { order: 2; }
+    }
+    
+  }
 
   // Full width template
   &.full-width {
