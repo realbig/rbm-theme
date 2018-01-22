@@ -15,6 +15,20 @@
       position: relative;
     }
 
+    .top-bar {
+
+      .menu li:not(.current-menu-item) a {
+        
+        color: $body-font-color;
+        
+        &:hover {
+          color: #e6e6e6; // Default color
+        }
+        
+      }
+
+    }
+
   }
 
   .front-hero {
