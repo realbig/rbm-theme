@@ -28,7 +28,15 @@
 			<div class="title-bar-left">
 				<button class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
 				<span class="site-mobile-title title-bar-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						
+						<?php if ( is_front_page() ) : ?>
+							<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/RBM-Logo-for-use-on-Black-Background.svg' ); ?>
+						<?php else : ?>
+							<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/RBM-Logo-for-use-on-Dark-Blue-Background.svg' ); ?>
+						<?php endif; ?>
+						
+					</a>
 				</span>
 			</div>
 		</div>
@@ -36,7 +44,15 @@
 		<nav class="site-navigation top-bar" role="navigation">
 			<div class="top-bar-left">
 				<div class="site-desktop-title top-bar-title">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						
+						<?php if ( is_front_page() ) : ?>
+							<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/RBM-Logo-for-use-on-Black-Background.svg' ); ?>
+						<?php else : ?>
+							<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/RBM-Logo-for-use-on-Dark-Blue-Background.svg' ); ?>
+						<?php endif; ?>
+						
+					</a>
 				</div>
 			</div>
 			<div class="top-bar-left">
