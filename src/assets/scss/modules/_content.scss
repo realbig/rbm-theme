@@ -1,3 +1,7 @@
+.off-canvas-content {
+  background-color: $white;
+}
+
 .main-wrap {
   @include xy-grid-container;
   @include xy-grid();

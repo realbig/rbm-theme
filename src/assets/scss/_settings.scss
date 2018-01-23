@@ -70,20 +70,28 @@
 $global-font-size: 100%;
 $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
+
+$primary-color: #0984C5;
+$secondary-color: #76D100;
+$success-color: #43AC6A;
+$warning-color: #f08a24;
+$alert-color: #f04124;
+$info-color: #a0d3e8;
+
 $foundation-palette: (
-	primary: #0984C5,
-	secondary: #76D100,
-	success: #43AC6A,
-	warning: #f08a24,
-	alert: #f04124,
-	info: #a0d3e8
+	primary: $primary-color,
+	secondary: $secondary-color,
+	success: $success-color,
+	warning: $warning-color,
+	alert: $alert-color,
+	info: $info-color
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
 $dark-gray: #8a8a8a;
 $black: #0a0a0a;
 $white: #fefefe;
-$body-background: $white;
+$body-background: $primary-color;
 $body-font-color: $black;
 $body-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
 $body-antialiased: true;
