@@ -16,7 +16,7 @@ while ( have_posts() ) : the_post(); ?>
 				<div class="color-overlay"></div>
 			</div>
 			
-			<div class="row expanded tagline">
+			<div class="expanded row tagline">
 				<div class="small-12 medium-6 columns">
 					<?php the_content(); ?>
 				</div>
@@ -26,11 +26,10 @@ while ( have_posts() ) : the_post(); ?>
 
 	</header>
 
-	 <div class="main-wrap">
-		 <main class="main-content">
-			<?php //get_template_part( 'template-parts/content', 'page' ); ?>
-			<?php comments_template(); ?>
-		 </main>
+	 <div class="main-wrap row">
+		 <div class="small-12 columns text-center">
+			<?php echo apply_filters( 'the_content', rbm_theme_get_field( 'case_studies_header' ) ); ?>
+		 </div>
 	 <?php get_sidebar(); ?>
 	 </div>
 

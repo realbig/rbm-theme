@@ -6,7 +6,7 @@
 @import 'motion-ui';
 
 @include foundation-global-styles;
-//@include foundation-grid;
+@include foundation-grid;
 //@include foundation-flex-grid;
 
 @include foundation-xy-grid-classes;
@@ -76,6 +76,7 @@
 @import "components/featured-image";
 @import "components/dividers";
 @import "components/links";
+@import "components/grid";
 
 // Templates
 @import "templates/front";

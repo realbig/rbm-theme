@@ -35,11 +35,12 @@
 
     position: relative;
 
-    padding: rem-calc(400%) 0;
     margin: 0 0 rem-calc(32);
     height: auto;
+    padding: rem-calc(175%) 0 rem-calc(25%) 0;
 
     @include breakpoint(medium) {
+      padding: rem-calc(400%) 0;
       height: rem-calc(685);
       margin: 0 0 rem-calc(72);  
     }
