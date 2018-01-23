@@ -16,14 +16,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<?php wp_head(); ?>
 	</head>
-	<body <?php body_class(); ?>>
+	<body <?php body_class( array(
+		'offcanvas',
+	)); ?>>
 
 	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 
 	<header class="site-header" role="banner">
 		<div class="site-title-bar title-bar">
 			<div class="title-bar-left">
-				<button class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
+				<button class="menu-icon" type="button" data-toggle="off-canvas-menu"></button>
 				<span class="site-mobile-title title-bar-title show-for-small-only">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						

@@ -48,9 +48,6 @@ require_once( 'library/enqueue-scripts.php' );
 /** Add theme support */
 require_once( 'library/theme-support.php' );
 
-/** Add Nav Options to Customer */
-require_once( 'library/custom-nav.php' );
-
 /** Change WP's sticky post class */
 require_once( 'library/sticky-posts.php' );
 
