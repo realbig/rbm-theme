@@ -102,3 +102,22 @@
 .nav-next {
   float:right;
 }
+
+@include breakpoint(small only) {
+
+  .title-bar {
+
+    svg {
+      width: 75%;
+      margin-top: 1rem;
+      margin-left: 1rem;
+    }
+    
+    .menu-icon {
+      margin-left: 0.75rem;
+      margin-top: 3.25rem;
+    }
+
+  }
+
+}
