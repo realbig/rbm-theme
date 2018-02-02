@@ -52,7 +52,7 @@
 
 				</a>
 			</div>
-			<div class="top-bar-left">
+			<div class="top-bar-right">
 				<?php foundationpress_top_bar_r(); ?>
 			</div>
 		</nav>
