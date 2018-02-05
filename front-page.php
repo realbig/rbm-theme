@@ -12,14 +12,14 @@ get_header();
 while ( have_posts() ) : the_post(); ?>
 
 	<header class="front-hero" role="banner">
-		<div class="marketing">
+		<div class="marketing main-wrap">
 
 			<div class="image">
 				<div class="color-overlay"></div>
 			</div>
 			
 			<div class="expanded row tagline">
-				<div class="small-12 medium-6 columns">
+				<div class="small-12 columns">
 					<?php the_content(); ?>
 				</div>
 			</div>
