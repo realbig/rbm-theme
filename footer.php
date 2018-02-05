@@ -12,7 +12,24 @@
 </div><!-- Close container -->
 	<div class="footer-container">
 		<footer class="footer">
-			<?php dynamic_sidebar( 'footer-widgets' ); ?>
+			
+			<div class="row">
+			
+				<?php
+				$footer_columns = get_theme_mod( 'rbm_theme_footer_columns', 4 );
+				for ( $index = 0; $index < $footer_columns; $index++ ) {
+					?>
+
+						<div class = "small-12 medium-<?php echo ( 12 / $footer_columns ); ?> columns">
+							<?php dynamic_sidebar( 'footer-' . ( $index + 1 ) ); ?>
+						</div>
+
+					<?php
+				}
+				?>
+			
+			</div>
+			
 		</footer>
 	</div>
 
