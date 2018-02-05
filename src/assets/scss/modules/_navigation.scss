@@ -119,6 +119,8 @@
 @include breakpoint(small only) {
 
   .title-bar {
+    
+    padding: 0;
 
     svg {
       width: 75%;
@@ -128,7 +130,6 @@
     
     .menu-icon {
       margin-top: 3.25rem;
-      margin-left: 0.75rem;
     }
 
   }
