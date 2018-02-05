@@ -5,6 +5,7 @@
 }
 
 .footer {
+
   @include xy-grid-container;
   @include xy-grid;
   padding: rem-calc(30) 0;
@@ -18,4 +19,118 @@
     margin: 0;
     padding: 0;
   }
+
+  .footer-widgets {
+
+    @include light-or-dark-text( $primary-color );
+
+    padding-bottom: 30px * 2;
+
+    .widget-title {
+      @include light-or-dark-text( $primary-color );
+      margin-top: 0.9677em;
+      margin-bottom: 0.9677em;
+    }
+
+    .gform_title, .gfield_label, label, .gfield_description, .ginput_counter, .gform_wrapper .gfield_required {
+      @include light-or-dark-text( $primary-color );
+    }
+
+    #field_1_2 { // Phone, basically just gf_left_half
+
+      clear: left !important;
+      margin-right: 1.6%;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 0 0.50em 0;
+      width: 49%;
+
+      input {
+        width: 89% !important;
+      }
+
+    }
+
+    #field_1_3 { // Email, basically just gf_right_half
+
+      clear: right !important;
+      display: inline-block;
+      vertical-align: top;
+      margin: 0 0 0.50em 0;
+      width: 48.5%;
+
+      input {
+        width: 100% !important;
+      }
+
+    }
+
+    input[type="submit"] {
+
+      display: block !important;
+      width: 100% !important;
+
+      @include button( false, $secondary-color, scale-color( $secondary-color, $lightness: -15% ), 'auto', 'solid' );
+
+      border-width: 0.25em;
+      border-color: $secondary-color;
+
+      @include foundation-button-fix( $secondary-color );
+
+      &:hover, &:focus {
+
+        background: $body-background;
+        color: $secondary-color;
+        border-width: 0.25em;
+
+      }
+
+    }
+
+    a {
+
+      color: $white;
+      text-decoration: underline;
+
+      &:hover {
+        color: scale-color( $secondary-color, $lightness: 15% );
+        text-decoration: none;
+      }
+
+    }
+
+    &, a {
+      font-weight: bold;
+    }
+
+  }
+
+  .widget_nav_menu {
+
+    .menu {
+
+      list-style: none;
+      margin-bottom: 0;
+
+      li {
+
+        width: 100%;
+        margin-bottom: 0.5em;
+
+        &:last-of-type {
+          margin-bottom: 0;   
+        }
+
+      }
+
+    }
+
+  }
+
+  .copyright {
+
+    @include light-or-dark-text( $primary-color );
+
+  }
+
 }

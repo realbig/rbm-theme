@@ -101,6 +101,3 @@ require_once( 'library/rbm-field-helpers-functions.php' );
 
 // Front Page Extra Meta
 require_once( 'library/admin/extra-meta/front-page.php' );
-
-// Customizer Additions
-require_once( 'library/customizer.php' );

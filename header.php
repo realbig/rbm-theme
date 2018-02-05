@@ -22,41 +22,47 @@
 
 	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 
-	<header class="site-header" role="banner">
-		<div class="row">
-			<div class="site-title-bar title-bar">
-				<div class="title-bar-left">
-					<button class="menu-icon<?php echo ( is_front_page() ? ' dark' : '' ); ?>" type="button" data-toggle="off-canvas-menu"></button>
-					<span class="site-mobile-title title-bar-title show-for-small-only">
+	<header class="site-header" role="banner" data-sticky-container>
+		<div class="sticky-top-bar" data-sticky data-options="anchor: page; marginTop: 0; stickyOn: small;">
+			
+			<div class="row">
+				
+				<div class="site-title-bar title-bar">
+					<div class="title-bar-left">
+						<button class="menu-icon<?php echo ( is_front_page() ? ' dark' : '' ); ?>" type="button" data-toggle="off-canvas-menu"></button>
+						<span class="site-mobile-title title-bar-title show-for-small-only">
+							<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+
+								<div class="rbm-logo-svg">
+									<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/rbm-logo-full.svg' ); ?>
+								</div>
+								
+								<div class="rbm-logo-svg small-version">
+									<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/rbm-logo-small.svg' ); ?>
+								</div>
+
+							</a>
+						</span>
+					</div>
+				</div>
+
+				<nav class="site-navigation top-bar" role="navigation">
+					<div class="site-desktop-title top-bar-title hide-for-small-only">
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 
-							<?php if ( is_front_page() ) : ?>
-								<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/RBM-Logo-for-use-on-Black-Background.svg' ); ?>
-							<?php else : ?>
-								<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/RBM-Logo-for-use-on-Dark-Blue-Background.svg' ); ?>
-							<?php endif; ?>
+							<div class="rbm-logo-svg">
+								<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/rbm-logo-full.svg' ); ?>
+							</div>
 
 						</a>
-					</span>
-				</div>
+					</div>
+					<div class="top-bar-right">
+						<?php foundationpress_top_bar_r(); ?>
+					</div>
+				</nav>
+				
 			</div>
-
-			<nav class="site-navigation top-bar" role="navigation">
-				<div class="site-desktop-title top-bar-title hide-for-small-only">
-					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
-
-						<?php if ( is_front_page() ) : ?>
-							<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/RBM-Logo-for-use-on-Black-Background.svg' ); ?>
-						<?php else : ?>
-							<?php echo file_get_contents( THEME_DIR . '/dist/assets/images/RBM-Logo-for-use-on-Dark-Blue-Background.svg' ); ?>
-						<?php endif; ?>
-
-					</a>
-				</div>
-				<div class="top-bar-right">
-					<?php foundationpress_top_bar_r(); ?>
-				</div>
-			</nav>
+			
 		</div>
 		
 	</header>

@@ -10,28 +10,17 @@
 ?>
 
 </div><!-- Close container -->
-	<div class="footer-container">
-		<footer class="footer">
-			
-			<div class="row">
-			
-				<?php
-				$footer_columns = get_theme_mod( 'rbm_theme_footer_columns', 4 );
-				for ( $index = 0; $index < $footer_columns; $index++ ) {
-					?>
+<div class="footer-container">
+	<footer class="footer">
 
-						<div class = "small-12 medium-<?php echo ( 12 / $footer_columns ); ?> columns">
-							<?php dynamic_sidebar( 'footer-' . ( $index + 1 ) ); ?>
-						</div>
-
-					<?php
-				}
-				?>
-			
+		<div class="copyright expanded row">
+			<div class="small-12 columns text-center">
+				<?php echo sprintf( __( 'Copyright &copy; %s %s', 'real-big-marketing' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
 			</div>
-			
-		</footer>
-	</div>
+		</div>
+
+	</footer>
+</div>
 
 </div><!-- Close off-canvas content -->
 

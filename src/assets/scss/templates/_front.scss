@@ -1,8 +1,12 @@
 .home {
 
   // Transparent to overlay on top of Hero
-  .top-bar, .top-bar ul, .title-bar {
+  .sticky-top-bar {
     background: transparent;
+  }
+	
+  .is-stuck.sticky-top-bar {
+    @include background-opacity( #fff, 0.8 );
   }
 
   .site-header {

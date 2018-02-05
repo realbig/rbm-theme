@@ -1,0 +1,27 @@
+.rbm-logo-svg {
+	
+	.green {
+		fill: $secondary-color; // Brighter green which meshes better with our theme colors
+	}
+	
+	.blue {
+		fill: #fff; // White on non-Home pages
+	}
+	
+}
+
+.home {
+	
+	.rbm-logo-svg {
+		
+		.green {
+			fill: $logo-green;
+		}
+		
+		.blue {
+			fill: $logo-blue;
+		}
+		
+	}
+	
+}

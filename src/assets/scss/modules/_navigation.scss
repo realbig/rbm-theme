@@ -52,6 +52,15 @@
 
 // Tablet and desktop menu
 
+.sticky-top-bar {
+  background-color: $primary-color;
+  
+  &, * {
+    transition: ease all 300ms;
+  }
+  
+}
+
 .top-bar {
 
   .top-bar-title a {
@@ -103,6 +112,10 @@
   float:right;
 }
 
+.rbm-logo-svg.small-version {
+  display: none;
+}
+
 @include breakpoint(small only) {
 
   .title-bar {
@@ -114,10 +127,45 @@
     }
     
     .menu-icon {
-      margin-left: 0.75rem;
       margin-top: 3.25rem;
+      margin-left: 0.75rem;
     }
 
   }
+  
+  .is-stuck.sticky-top-bar {
+    
+    .title-bar-title {
+      margin-top: 2.5rem;
+    }
+    
+    .rbm-logo-svg {
+      
+      display: none;
+      
+      &.small-version {
+        display: inline-block;
+      }
+      
+    }
+    
+  }
 
+}
+
+@include breakpoint(medium) {
+  
+  .is-stuck.sticky-top-bar {
+    
+    .top-bar-title {
+      margin-top: 1.25rem;
+      margin-bottom: -1rem;
+    }
+    
+    .top-bar-right {
+      margin-top: 1.5rem;
+    }
+    
+  }
+  
 }
