@@ -30,7 +30,6 @@
 				
 					<div class="site-title-bar title-bar">
 						<div class="title-bar-left">
-							<button class="menu-icon<?php echo ( is_front_page() ? ' dark' : '' ); ?>" type="button" data-toggle="off-canvas-menu"></button>
 							<span class="site-mobile-title title-bar-title show-for-small-only">
 								<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 
@@ -44,6 +43,7 @@
 
 								</a>
 							</span>
+                            <button class="alignright menu-icon<?php echo ( is_front_page() ? ' dark' : '' ); ?>" type="button" data-toggle="off-canvas-menu"></button>
 						</div>
 					</div>
 

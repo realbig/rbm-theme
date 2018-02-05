@@ -125,11 +125,12 @@
     svg {
       width: 75%;
       margin-top: 1rem;
-      margin-left: 1rem;
+      margin-left: 0.5rem;
     }
     
     .menu-icon {
       margin-top: 3.25rem;
+      margin-right: 0.5rem;
     }
 
   }
@@ -137,7 +138,11 @@
   .is-stuck.sticky-top-bar {
     
     .title-bar-title {
-      margin-top: 2.5rem;
+      margin-top: 2.25rem;
+    }
+    
+    .menu-icon {
+      margin-top: 4.25rem;
     }
     
     .rbm-logo-svg {
