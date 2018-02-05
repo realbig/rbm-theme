@@ -1,11 +1,11 @@
 .rbm-logo-svg {
 	
 	.green {
-		fill: $secondary-color; // Brighter green which meshes better with our theme colors
+		fill: $logo-green;
 	}
 	
 	.blue {
-		fill: #fff; // White on non-Home pages
+		fill: #fff;
 	}
 	
 }
@@ -13,10 +13,6 @@
 .home {
 	
 	.rbm-logo-svg {
-		
-		.green {
-			fill: $logo-green;
-		}
 		
 		.blue {
 			fill: $logo-blue;
