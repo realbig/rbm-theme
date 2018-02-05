@@ -2,7 +2,7 @@
 /**
  * Home extra meta.
  *
- * @since   1.0.0
+ * @since   {{VERSION}}
  * @package RBMTheme
  * @subpackage  RBMTheme/library/admin/extra-meta
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Quick access to plugin field helpers.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @return RBM_FieldHelpers
  */
@@ -30,7 +30,7 @@ function rbm_theme_field_helpers() {
 /**
  * Initializes a field group for automatic saving.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param $group
  */
@@ -41,7 +41,7 @@ function rbm_theme_init_field_group( $group ) {
 /**
  * Gets a meta field helpers field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param string $name Field name.
  * @param string|int $post_ID Optional post ID.
@@ -58,7 +58,7 @@ function rbm_theme_get_field( $name, $post_ID = false, $default = '', $args = ar
 /**
  * Gets a option field helpers field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param string $name Field name.
  * @param mixed $default Default value if none is retrieved.
@@ -74,7 +74,7 @@ function rbm_theme_get_option_field( $name, $default = '', $args = array() ) {
 /**
  * Outputs a text field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -85,7 +85,7 @@ function rbm_theme_do_field_text( $args = array() ) {
 /**
  * Outputs a textarea field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -96,7 +96,7 @@ function rbm_theme_do_field_textarea( $args = array() ) {
 /**
  * Outputs a checkbox field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -107,7 +107,7 @@ function rbm_theme_do_field_checkbox( $args = array() ) {
 /**
  * Outputs a toggle field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -118,7 +118,7 @@ function rbm_theme_do_field_toggle( $args = array() ) {
 /**
  * Outputs a radio field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -129,7 +129,7 @@ function rbm_theme_do_field_radio( $args = array() ) {
 /**
  * Outputs a select field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -140,7 +140,7 @@ function rbm_theme_do_field_select( $args = array() ) {
 /**
  * Outputs a number field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -151,7 +151,7 @@ function rbm_theme_do_field_number( $args = array() ) {
 /**
  * Outputs an image field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -162,7 +162,7 @@ function rbm_theme_do_field_media( $args = array() ) {
 /**
  * Outputs a datepicker field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -173,7 +173,7 @@ function rbm_theme_do_field_datepicker( $args = array() ) {
 /**
  * Outputs a timepicker field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -184,7 +184,7 @@ function rbm_theme_do_field_timepicker( $args = array() ) {
 /**
  * Outputs a datetimepicker field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -195,7 +195,7 @@ function rbm_theme_do_field_datetimepicker( $args = array() ) {
 /**
  * Outputs a colorpicker field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -206,7 +206,7 @@ function rbm_theme_do_field_colorpicker( $args = array() ) {
 /**
  * Outputs a list field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -217,7 +217,7 @@ function rbm_theme_do_field_list( $args = array() ) {
 /**
  * Outputs a hidden field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -228,7 +228,7 @@ function rbm_theme_do_field_hidden( $args = array() ) {
 /**
  * Outputs a table field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -239,7 +239,7 @@ function rbm_theme_do_field_table( $args = array() ) {
 /**
  * Outputs a HTML field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */
@@ -250,7 +250,7 @@ function rbm_theme_do_field_html( $args = array() ) {
 /**
  * Outputs a repeater field.
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param mixed $values
  */
@@ -261,7 +261,7 @@ function rbm_theme_do_field_repeater( $args = array() ) {
 /**
  * Outputs a String if a Callback Function does not exist for an Options Page Field
  *
- * @since 1.0.0
+ * @since {{VERSION}}
  *
  * @param array $args
  */

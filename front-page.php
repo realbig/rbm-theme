@@ -1,6 +1,7 @@
 <?php
 /**
  * Frontpage Template
+ * @since {{VERSION}}
  *
  * @package RBMTheme
  */
@@ -61,7 +62,7 @@ while ( have_posts() ) : the_post(); ?>
 					
 							while ( $case_studies->have_posts() ) : $case_studies->the_post();
 					
-								get_template_part( 'template-parts/loop/loop', 'home-case-studies' );
+								include locate_template( 'template-parts/loop/loop-home-case-studies.php' );
 					
 							endwhile;
 					
@@ -95,7 +96,7 @@ while ( have_posts() ) : the_post(); ?>
 								<button <?php echo ( $is_first ? 'class="is-active" ' : '' ); ?>data-slide="<?php echo $index; ?>">
 									<span class="show-for-sr"><?php the_title(); ?></span>
 									<?php if ( $is_first ) : ?>
-										<span class="show-for-sr"><?php echo _( 'Current Slide', 'real-big-marketing' ); ?></span>
+										<span class="show-for-sr"><?php echo __( 'Current Slide', 'real-big-marketing' ); ?></span>
 									<?php endif; ?>
 								</button>
 					
