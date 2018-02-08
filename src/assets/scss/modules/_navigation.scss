@@ -164,12 +164,19 @@
   .is-stuck.sticky-top-bar {
     
     .top-bar-title {
-      margin-top: 1.25rem;
+      margin-top: -1rem;
       margin-bottom: -1rem;
     }
     
-    .top-bar-right {
-      margin-top: 1.5rem;
+    .rbm-logo-svg {
+      
+      svg {
+      
+        width: 70%;
+        height: auto;
+        
+      }
+      
     }
     
   }
