@@ -72,14 +72,14 @@ $global-width: rem-calc(1200);
 $global-lineheight: 1.5;
 
 $primary-color: #29367A;
-$secondary-color: #76D100;
+$secondary-color: #AECA48;
 $success-color: #43AC6A;
 $warning-color: #f08a24;
 $alert-color: #f04124;
 $info-color: #a0d3e8;
 
 $logo-blue: $primary-color;
-$logo-green: #AECA48; // UI Elements look better with the other green
+$logo-green: $secondary-color;
 
 $foundation-palette: (
 	primary: $primary-color,
