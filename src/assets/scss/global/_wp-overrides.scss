@@ -28,3 +28,8 @@ p.wp-caption-text{
   margin-left: auto;
   margin-right: auto;
 }
+
+// The Content Editor loads the Theme CSS and messes things up
+body.mce-content-body {
+	background: transparent;
+}
