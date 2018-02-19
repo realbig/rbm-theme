@@ -1,7 +1,7 @@
 <?php
 /**
  * Frontpage Template
- * @since {{VERSION}}
+ * @since 1.1.0
  *
  * @package RBMTheme
  */

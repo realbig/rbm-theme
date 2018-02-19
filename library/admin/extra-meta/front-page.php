@@ -2,7 +2,7 @@
 /**
  * Home extra meta.
  *
- * @since   {{VERSION}}
+ * @since   1.1.0
  * @package RBMTheme
  * @subpackage  RBMTheme/library/admin/extra-meta
  */
@@ -19,7 +19,7 @@ add_action( 'add_meta_boxes', 'rbm_theme_add_home_metaboxes' );
 /**
  * Determine if we're editing the Home Page
  * 
- * @since       {{VERSION}}
+ * @since       1.1.0
  * @return      boolean Whether we're editing the Home Page or not
  */
 function rbm_theme_is_editing_home() {
@@ -37,7 +37,7 @@ function rbm_theme_is_editing_home() {
 /**
  * Remove Supports from the Home Page
  * 
- * @since       {{VERSION}}
+ * @since       1.1.0
  * @return      void
  */
 function rbm_theme_remove_home_supports() {
@@ -53,7 +53,7 @@ function rbm_theme_remove_home_supports() {
 /**
  * Needs to be called at do_meta_boxes since it is created at a different time than Supports Metaboxes
  * 
- * @since       {{VERSION}}
+ * @since       1.1.0
  * @return      void
  */
 function rbm_theme_remove_home_metaboxes() {
@@ -70,7 +70,7 @@ function rbm_theme_remove_home_metaboxes() {
 /**
  * Create Metaboxes for the Home Page
  * 
- * @since       {{VERSION}}
+ * @since       1.1.0
  * @return      void
  */
 function rbm_theme_add_home_metaboxes() {
@@ -92,7 +92,7 @@ function rbm_theme_add_home_metaboxes() {
 /**
  * Put fields in the Case Studies Metabox
  * 
- * @since       {{VERSION}}
+ * @since       1.1.0
  * @return      void
  */
 function rbm_theme_home_case_studies_metabox_content() {
