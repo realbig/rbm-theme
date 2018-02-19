@@ -260,18 +260,10 @@ msgid "<a href=\"%s\">Customize</a>"
 msgstr ""
 
 #: library/navigation.php:11
-msgid "Primary Right"
+msgid "Primary"
 msgstr ""
 
 #: library/navigation.php:12
-msgid "Primary Left"
-msgstr ""
-
-#: library/navigation.php:13
-msgid "Primary Center"
-msgstr ""
-
-#: library/navigation.php:14
 msgid "Footer"
 msgstr ""
 
