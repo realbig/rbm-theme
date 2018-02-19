@@ -43,10 +43,10 @@ while ( have_posts() ) : the_post(); ?>
 				<ul class="orbit-container">
 					
 					<button class="orbit-previous" aria-label="previous">
-						<span class="show-for-sr"><?php _e( 'Previous Slide', 'real-big-marketing' ); ?></span>&#9664;
+						<span class="show-for-sr"><?php _e( 'Previous Slide', 'rbm-theme' ); ?></span>&#9664;
 					</button>
 					<button class="orbit-next" aria-label="next"><span class="show-for-sr">
-						<?php _e( 'Next Slide', 'real-big-marketing' ); ?></span>&#9654;
+						<?php _e( 'Next Slide', 'rbm-theme' ); ?></span>&#9654;
 					</button>
 					
 					<?php
@@ -71,7 +71,7 @@ while ( have_posts() ) : the_post(); ?>
 						else : ?>
 					
 							<li class="is-active orbit-slide">
-								<?php _e( 'No Case Studies created yet', 'real-big-marketing' ); ?>
+								<?php _e( 'No Case Studies created yet', 'rbm-theme' ); ?>
 							</li>
 					
 						<?php endif;
@@ -96,7 +96,7 @@ while ( have_posts() ) : the_post(); ?>
 								<button <?php echo ( $is_first ? 'class="is-active" ' : '' ); ?>data-slide="<?php echo $index; ?>">
 									<span class="show-for-sr"><?php the_title(); ?></span>
 									<?php if ( $is_first ) : ?>
-										<span class="show-for-sr"><?php echo __( 'Current Slide', 'real-big-marketing' ); ?></span>
+										<span class="show-for-sr"><?php echo __( 'Current Slide', 'rbm-theme' ); ?></span>
 									<?php endif; ?>
 								</button>
 					

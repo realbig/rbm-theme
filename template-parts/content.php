@@ -22,13 +22,13 @@
 	</header>
 	<div class="entry-content">
 		<?php the_content(); ?>
-		<?php edit_post_link( __( '(Edit)', 'real-big-marketing' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php edit_post_link( __( '(Edit)', 'rbm-theme' ), '<span class="edit-link">', '</span>' ); ?>
 	</div>
 	<footer>
 		<?php
 			wp_link_pages(
 				array(
-					'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'real-big-marketing' ),
+					'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'rbm-theme' ),
 					'after'  => '</p></nav>',
 				)
 			);

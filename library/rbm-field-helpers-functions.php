@@ -268,7 +268,7 @@ function rbm_theme_do_field_repeater( $args = array() ) {
 function rbm_theme_missing_callback( $args ) {
 	
 	printf( 
-		_x( 'A callback function called "rbm_theme_do_field_%s" does not exist.', '%s is the Field Type', 'real-big-marketing' ),
+		_x( 'A callback function called "rbm_theme_do_field_%s" does not exist.', '%s is the Field Type', 'rbm-theme' ),
 		$args['type']
 	);
 		

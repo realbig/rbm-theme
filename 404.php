@@ -12,25 +12,25 @@ get_header(); ?>
 	<main class="main-content">
 		<article>
 			<header>
-				<h1 class="entry-title"><?php _e( 'File Not Found', 'real-big-marketing' ); ?></h1>
+				<h1 class="entry-title"><?php _e( 'File Not Found', 'rbm-theme' ); ?></h1>
 			</header>
 			<div class="entry-content">
 				<div class="error">
-					<p class="bottom"><?php _e( 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.', 'real-big-marketing' ); ?></p>
+					<p class="bottom"><?php _e( 'The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.', 'rbm-theme' ); ?></p>
 				</div>
-				<p><?php _e( 'Please try the following:', 'real-big-marketing' ); ?></p>
+				<p><?php _e( 'Please try the following:', 'rbm-theme' ); ?></p>
 				<ul>
-					<li><?php _e( 'Check your spelling', 'real-big-marketing' ); ?></li>
+					<li><?php _e( 'Check your spelling', 'rbm-theme' ); ?></li>
 					<li>
 						<?php
 							/* translators: %s: home page url */
 							printf( __(
-								'Return to the <a href="%s">home page</a>', 'real-big-marketing' ),
+								'Return to the <a href="%s">home page</a>', 'rbm-theme' ),
 								home_url()
 							);
 						?>
 					</li>
-					<li><?php _e( 'Click the <a href="javascript:history.back()">Back</a> button', 'real-big-marketing' ); ?></li>
+					<li><?php _e( 'Click the <a href="javascript:history.back()">Back</a> button', 'rbm-theme' ); ?></li>
 				</ul>
 			</div>
 		</article>

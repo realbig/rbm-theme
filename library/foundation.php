@@ -21,8 +21,8 @@ function foundationpress_pagination() {
 		'total' => $wp_query->max_num_pages,
 		'mid_size' => 5,
 		'prev_next' => true,
-		'prev_text' => __( '&laquo;', 'real-big-marketing' ),
-		'next_text' => __( '&raquo;', 'real-big-marketing' ),
+		'prev_text' => __( '&laquo;', 'rbm-theme' ),
+		'next_text' => __( '&raquo;', 'rbm-theme' ),
 		'type' => 'list',
 	) );
 
@@ -48,13 +48,13 @@ if ( ! function_exists( 'foundationpress_menu_fallback' ) ) :
 function foundationpress_menu_fallback() {
 	echo '<div class="alert-box secondary">';
 	/* translators: %1$s: link to menus, %2$s: link to customize. */
-	printf( __( 'Please assign a menu to the primary menu location under %1$s or %2$s the design.', 'real-big-marketing' ),
+	printf( __( 'Please assign a menu to the primary menu location under %1$s or %2$s the design.', 'rbm-theme' ),
 		/* translators: %s: menu url */
-		sprintf(  __( '<a href="%s">Menus</a>', 'real-big-marketing' ),
+		sprintf(  __( '<a href="%s">Menus</a>', 'rbm-theme' ),
 			get_admin_url( get_current_blog_id(), 'nav-menus.php' )
 		),
 		/* translators: %s: customize url */
-		sprintf(  __( '<a href="%s">Customize</a>', 'real-big-marketing' ),
+		sprintf(  __( '<a href="%s">Customize</a>', 'rbm-theme' ),
 			get_admin_url( get_current_blog_id(), 'customize.php' )
 		)
 	);

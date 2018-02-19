@@ -79,7 +79,7 @@ function rbm_theme_add_home_metaboxes() {
 		
 		add_meta_box(
             'rbm-theme-home-case-studies',
-            __( 'Case Studies', 'real-big-marketing' ),
+            __( 'Case Studies', 'rbm-theme' ),
             'rbm_theme_home_case_studies_metabox_content',
             'page',
             'normal'

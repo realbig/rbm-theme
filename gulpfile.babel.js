@@ -16,13 +16,13 @@ import named         from 'vinyl-named';
 const $ = plugins();
 
 // Check for --production flag
-const PRODUCTION = !!(yargs.argv.production);
+var PRODUCTION = !!(yargs.argv.production);
 
 // Check for --development flag unminified with sourcemaps
 const DEV = !!(yargs.argv.dev);
 
 // Load settings from settings.yml
-const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS } = loadConfig();
+const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS, RELEASE } = loadConfig();
 
 // Check if file exists synchronously
 function checkFileExists(filepath) {
@@ -173,3 +173,66 @@ function watch() {
   gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
   gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
 }
+
+var pkg			= JSON.parse( fs.readFileSync( './package.json' ) );
+var packageName	= pkg.name.toLowerCase().replace( /_/g, '-' ).replace( /\s/g, '-' ).trim();
+
+require( 'gulp-grunt' )( gulp, {
+	prefix: 'release:grunt-',
+} ); // add all the gruntfile tasks to gulp
+
+gulp.task( 'release:localization', function( done ) {
+	
+	// Set as a Release build, important for Source Files
+	PRODUCTION = true;
+
+	return gulp.src( './**/*.php' )
+		.pipe( $.sort() )
+		.pipe( $.wpPot( {
+			domain: packageName,
+			destFile: packageName + '.pot',
+			package: pkg.name,
+		} ) )
+		.pipe( gulp.dest( RELEASE.languagesDir + packageName + '.pot' ) );
+
+} );
+
+gulp.task( 'release:copy', function( done ) {
+	
+	return gulp.src( RELEASE.files )
+		.pipe( gulp.dest( './' + packageName ) );
+	
+} );
+
+gulp.task( 'release:rename', function( done ) {
+	
+	// Grab Version from the appropriate file. This way it doesn't matter if I forget to update package.json
+	var sourceFile = '';
+	if ( RELEASE.type == 'plugin' ) {
+		sourceFile = './' + packageName + '.php';
+	}
+	else {
+		sourceFile = './style.css';
+	}
+	
+	var mainFile = fs.readFileSync( sourceFile, 'utf8' ),
+		versionLine = mainFile.match( /^\s\*\sversion:(?:\s)+(?:\S)+/im ),
+		version = versionLine[0].replace( /\s\*\sversion:(?:\s)+/i, '' );
+	
+	fs.renameSync( './' + packageName + '.zip', './' + packageName + '-' + version + '.zip' );
+	
+	// We need to recreate those files with Source Maps now
+	PRODUCTION = false;
+	
+	return done();
+	
+} );
+
+gulp.task( 'release:cleanup', function( done ) {
+	
+	return gulp.src( './' + packageName, { read: false } )
+		.pipe( $.clean() );
+	
+} );
+
+gulp.task( 'release', gulp.series( 'release:localization', 'build', 'release:copy', 'release:grunt-compress', 'release:rename', 'build', 'release:cleanup' ) );

@@ -15,7 +15,7 @@
 
 		<div class="copyright expanded row">
 			<div class="small-12 columns text-center">
-				<?php echo sprintf( __( 'Copyright &copy; %s %s', 'real-big-marketing' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
+				<?php echo sprintf( __( 'Copyright &copy; %s %s', 'rbm-theme' ), date( 'Y' ), get_bloginfo( 'name' ) ); ?>
 			</div>
 		</div>
 

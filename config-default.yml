@@ -27,3 +27,30 @@ PATHS:
 
 # Set to true if you want static asset revisioning, helpful for cache busting
 REVISIONING: false    
+
+RELEASE:
+  type: 'theme'
+  languagesDir: './languages/'
+  files:
+    - "./**/*.*"
+    - "!./**/*.map"
+    - "!./**/build/**/*.*"
+    - "!./**/.git/**"
+    - "!./**/.gitignore"
+    - "!./**/.gitmodules"
+    - "!./**/gulpfile.js"
+    - "!./**/gruntfile.js"
+    - "!./**/gulp/**/*.*"
+    - "!./**/package.json"
+    - "!./**/package-lock.json"
+    - "!./**/bower.json"
+    - "!./**/composer.json"
+    - "!./**/node_modules/**/*.*"
+    - "!./**/bower_components/**/*.*"
+    - "!./**/README.md"
+    - "!./**/*.zip"
+    - "!./**/config-default.yml"
+    - "!./**/gulpfile.babel.js"
+    - "!./**/.babelrc"
+    - "!./**/config.yml"
+    - "!./**/webpack.config.js"

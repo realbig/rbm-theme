@@ -23,7 +23,7 @@ if ( have_comments() ) :
 				'callback'          => null,
 				'end-callback'      => null,
 				'type'              => 'all',
-				'reply_text'        => __( 'Reply', 'real-big-marketing' ),
+				'reply_text'        => __( 'Reply', 'rbm-theme' ),
 				'page'              => '',
 				'per_page'          => '',
 				'avatar_size'       => 48,
@@ -32,7 +32,7 @@ if ( have_comments() ) :
 				'format'            => 'html5',
 				'short_ping'        => false,
 				'echo'              => true,
-				'moderation'        => __( 'Your comment is awaiting moderation.', 'real-big-marketing' ),
+				'moderation'        => __( 'Your comment is awaiting moderation.', 'rbm-theme' ),
 			)
 		);
 
@@ -51,12 +51,12 @@ endif;
 	Prevent access to this file directly
 	*/
 
-	defined( 'ABSPATH' ) || die( __( 'Please do not load this page directly. Thanks!', 'real-big-marketing' ) );
+	defined( 'ABSPATH' ) || die( __( 'Please do not load this page directly. Thanks!', 'rbm-theme' ) );
 
 	if ( post_password_required() ) { ?>
 	<section id="comments">
 		<div class="notice">
-			<p class="bottom"><?php _e( 'This post is password protected. Enter the password to view comments.', 'real-big-marketing' ); ?></p>
+			<p class="bottom"><?php _e( 'This post is password protected. Enter the password to view comments.', 'rbm-theme' ); ?></p>
 		</div>
 	</section>
 	<?php
@@ -72,9 +72,9 @@ if ( comments_open() ) :
 	<h3>
 		<?php
 			comment_form_title(
-				__( 'Leave a Reply', 'real-big-marketing' ),
+				__( 'Leave a Reply', 'rbm-theme' ),
 				/* translators: %s: author of comment being replied to */
-				__( 'Leave a Reply to %s', 'real-big-marketing' )
+				__( 'Leave a Reply to %s', 'rbm-theme' )
 			);
 		?>
 	</h3>
@@ -84,7 +84,7 @@ if ( comments_open() ) :
 		<?php
 			/* translators: %s: login url */
 			printf( __(
-				'You must be <a href="%s">logged in</a> to post a comment.', 'real-big-marketing' ),
+				'You must be <a href="%s">logged in</a> to post a comment.', 'rbm-theme' ),
 				wp_login_url( get_permalink() )
 			);
 		?>
@@ -96,17 +96,17 @@ if ( comments_open() ) :
 			<?php
 				/* translators: %1$s: site url, %2$s: user identity  */
 				printf( __(
-					'Logged in as <a href="%1$s/wp-admin/profile.php">%2$s</a>.', 'real-big-marketing' ),
+					'Logged in as <a href="%1$s/wp-admin/profile.php">%2$s</a>.', 'rbm-theme' ),
 					get_option( 'siteurl' ),
 					$user_identity
 				);
-			?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'real-big-marketing' ); ?>"><?php _e( 'Log out &raquo;', 'real-big-marketing' ); ?></a>
+			?> <a href="<?php echo wp_logout_url( get_permalink() ); ?>" title="<?php __( 'Log out of this account', 'rbm-theme' ); ?>"><?php _e( 'Log out &raquo;', 'rbm-theme' ); ?></a>
 		</p>
 		<?php else : ?>
 		<p>
 			<label for="author">
 				<?php
-					_e( 'Name', 'real-big-marketing' ); if ( $req ) { _e( ' (required)', 'real-big-marketing' ); }
+					_e( 'Name', 'rbm-theme' ); if ( $req ) { _e( ' (required)', 'rbm-theme' ); }
 				?>
 			</label>
 			<input type="text" class="five" name="author" id="author" value="<?php echo esc_attr( $comment_author ); ?>" size="22" tabindex="1" <?php if ( $req ) { echo "aria-required='true'"; } ?>>
@@ -114,7 +114,7 @@ if ( comments_open() ) :
 		<p>
 			<label for="email">
 				<?php
-					_e( 'Email (will not be published)', 'real-big-marketing' ); if ( $req ) { _e( ' (required)', 'real-big-marketing' ); }
+					_e( 'Email (will not be published)', 'rbm-theme' ); if ( $req ) { _e( ' (required)', 'rbm-theme' ); }
 				?>
 			</label>
 			<input type="text" class="five" name="email" id="email" value="<?php echo esc_attr( $comment_author_email ); ?>" size="22" tabindex="2" <?php if ( $req ) { echo "aria-required='true'"; } ?>>
@@ -122,7 +122,7 @@ if ( comments_open() ) :
 		<p>
 			<label for="url">
 				<?php
-					_e( 'Website', 'real-big-marketing' );
+					_e( 'Website', 'rbm-theme' );
 				?>
 			</label>
 			<input type="text" class="five" name="url" id="url" value="<?php echo esc_attr( $comment_author_url ); ?>" size="22" tabindex="3">
@@ -131,20 +131,20 @@ if ( comments_open() ) :
 		<p>
 			<label for="comment">
 					<?php
-						_e( 'Comment', 'real-big-marketing' );
+						_e( 'Comment', 'rbm-theme' );
 					?>
 			</label>
 			<textarea name="comment" id="comment" tabindex="4"></textarea>
 		</p>
 		<p id="allowed_tags" class="small"><strong>XHTML:</strong>
 			<?php
-				_e( 'You can use these tags:','real-big-marketing' );
+				_e( 'You can use these tags:','rbm-theme' );
 			?>
 			<code>
 				<?php echo allowed_tags(); ?>
 			</code>
 		</p>
-		<p><input name="submit" class="button" type="submit" id="submit" tabindex="5" value="<?php esc_attr_e( 'Submit Comment', 'real-big-marketing' ); ?>"></p>
+		<p><input name="submit" class="button" type="submit" id="submit" tabindex="5" value="<?php esc_attr_e( 'Submit Comment', 'rbm-theme' ); ?>"></p>
 		<?php comment_id_fields(); ?>
 		<?php do_action( 'comment_form', $post->ID ); ?>
 	</form>

@@ -12,7 +12,7 @@ get_header(); ?>
 	<main id="search-results" class="main-content">
 
 	<header>
-	    <h1 class="entry-title"><?php _e( 'Search Results for', 'real-big-marketing' ); ?> "<?php echo get_search_query(); ?>"</h1>
+	    <h1 class="entry-title"><?php _e( 'Search Results for', 'rbm-theme' ); ?> "<?php echo get_search_query(); ?>"</h1>
 	</header>
 
 	<?php if ( have_posts() ) : ?>
@@ -32,8 +32,8 @@ get_header(); ?>
 	elseif ( is_paged() ) :
 	?>
 		<nav id="post-nav">
-			<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'real-big-marketing' ) ); ?></div>
-			<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'real-big-marketing' ) ); ?></div>
+			<div class="post-previous"><?php next_posts_link( __( '&larr; Older posts', 'rbm-theme' ) ); ?></div>
+			<div class="post-next"><?php previous_posts_link( __( 'Newer posts &rarr;', 'rbm-theme' ) ); ?></div>
 		</nav>
 	<?php endif; ?>
 	

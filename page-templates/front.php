@@ -34,7 +34,7 @@ get_header(); ?>
 				<?php
 					wp_link_pages(
 						array(
-							'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'real-big-marketing' ),
+							'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'rbm-theme' ),
 							'after'  => '</p></nav>',
 						)
 					);

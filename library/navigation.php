@@ -8,10 +8,10 @@
  */
 
 register_nav_menus( array(
-	'primary-right'  => esc_html__( 'Primary Right', 'real-big-marketing' ),
-	'primary-left' => esc_html__( 'Primary Left', 'real-big-marketing' ),
-	'primary-center' => esc_html__( 'Primary Center', 'real-big-marketing' ),
-	'footer' => esc_html__( 'Footer', 'real-big-marketing' ),
+	'primary-right'  => esc_html__( 'Primary Right', 'rbm-theme' ),
+	'primary-left' => esc_html__( 'Primary Left', 'rbm-theme' ),
+	'primary-center' => esc_html__( 'Primary Center', 'rbm-theme' ),
+	'footer' => esc_html__( 'Footer', 'rbm-theme' ),
 ));
 
 
