@@ -38,7 +38,7 @@ while ( have_posts() ) : the_post(); ?>
 	<div class="main-wrap case-studies-slider">
 		<div class="small-12 columns">
 			
-			<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+			<div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit data-timer-delay="30000">
 				
 				<ul class="orbit-container">
 					
