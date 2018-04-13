@@ -56,6 +56,9 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 			'all'
 		);
 
+		/*
+		// Commented out to fix bug with Gravity Forms
+		
 		// Deregister the jquery version bundled with WordPress.
 		wp_deregister_script( 'jquery' );
 
@@ -67,6 +70,7 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 			'3.2.1', // jQuery version, not Theme version
 			false
 		);
+		*/
 
 		// Enqueue Founation scripts
 		wp_enqueue_script(
