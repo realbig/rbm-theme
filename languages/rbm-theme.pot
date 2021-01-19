@@ -1,4 +1,4 @@
-# Copyright (C) 2020 RBM_Theme
+# Copyright (C) 2021 RBM_Theme
 # This file is distributed under the same license as the RBM_Theme package.
 msgid ""
 msgstr ""

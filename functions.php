@@ -120,7 +120,7 @@ add_action( 'edd_subscription_receipt_after_table', function() {
  * @param   string   $post_title  Post Title
  * @param   integer  $post_id     Post ID
  *
- * @since   {{VERSION}}
+ * @since   1.1.7
  * @return  string                Modified String
  */
 function rbm_projects_add_download_link_wrapper( $post_title, $post_id ) {
