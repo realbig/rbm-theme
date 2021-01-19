@@ -101,3 +101,30 @@ require_once( 'library/rbm-field-helpers-functions.php' );
 
 // Front Page Extra Meta
 require_once( 'library/admin/extra-meta/front-page.php' );
+
+add_action( 'edd_subscription_receipt_before_table', function() {
+
+	add_filter( 'the_title', 'rbm_projects_add_download_link_wrapper', 10, 2 );
+
+} );
+
+add_action( 'edd_subscription_receipt_after_table', function() {
+
+	remove_filter( 'the_title', 'rbm_projects_add_download_link_wrapper', 10, 2 );
+
+} ); 
+
+/**
+ * Make Subscriptions table show links for the purchased Products
+ *
+ * @param   string   $post_title  Post Title
+ * @param   integer  $post_id     Post ID
+ *
+ * @since   {{VERSION}}
+ * @return  string                Modified String
+ */
+function rbm_projects_add_download_link_wrapper( $post_title, $post_id ) {
+
+	return '<a href="' . get_permalink( $post_id ) . '">' . $post_title . '</a>';
+
+}
