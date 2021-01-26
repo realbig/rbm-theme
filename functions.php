@@ -134,7 +134,7 @@ add_action('wp_head', 'rbm_gtm_head');
 /**
  * Adds GMT data to <head>.
  *
- * @since {{VERSION}}
+ * @since 1.1.8
  */
 function rbm_gtm_head() {
     
@@ -156,7 +156,7 @@ add_action('wp_body_open', 'rbm_gtm_body_open');
 /**
  * Adds GTM data after the opening body tag.
  *
- * @since {{VERSION}}
+ * @since 1.1.8
  */
 function rbm_gtm_body_open() {
 
