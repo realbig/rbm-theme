@@ -17,10 +17,11 @@
 		<?php wp_head(); ?>
 	</head>
 	<body 
-		<?php wp_body_open(); ?>
 		<?php body_class( array(
 		'offcanvas',
 	)); ?>>
+
+	<?php wp_body_open(); ?>
 
 	<?php get_template_part( 'template-parts/mobile-off-canvas' ); ?>
 
