@@ -172,7 +172,7 @@ function rbm_gtm_body_open() {
     
 /**
  * Defers parsing of JS
- * @since {{VERSION}}
+ * @since 1.1.9
  */
 
 add_filter( 'script_loader_tag', 'lowry_defer_js', 10, 3 );
