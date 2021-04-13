@@ -128,3 +128,23 @@ function rbm_projects_add_download_link_wrapper( $post_title, $post_id ) {
 	return '<a href="' . get_permalink( $post_id ) . '">' . $post_title . '</a>';
 
 }
+
+/**
+ * Defers parsing of JS
+ * @since {{VERSION}}
+ */
+
+add_filter( 'script_loader_tag', 'lowry_defer_js', 10, 3 );
+function lowry_defer_js( $tag, $handle, $src ) {
+
+	if ( is_admin() ) return $tag;
+
+	if ( $handle == 'jquery' ) return $tag;
+
+	// Ensures stuff like `wp` is available
+	// Also contains a fix for WooCommerce Square
+	if ( strpos( $src, 'wp-includes' ) !== false || strpos( $src, 'woocommerce-square' ) !== false ) return $tag;
+
+	$tag = str_replace( 'src', 'defer="defer" src', $tag );
+    return $tag;
+}
