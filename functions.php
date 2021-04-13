@@ -176,6 +176,7 @@ function rbm_gtm_body_open() {
  */
 
 add_filter( 'script_loader_tag', 'lowry_defer_js', 10, 3 );
+
 function lowry_defer_js( $tag, $handle, $src ) {
 
 	if ( is_admin() ) return $tag;
