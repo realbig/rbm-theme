@@ -129,6 +129,50 @@ function rbm_projects_add_download_link_wrapper( $post_title, $post_id ) {
 
 }
 
+<<<<<<< Updated upstream
+=======
+add_action('wp_head', 'rbm_gtm_head');
+
+/**
+ * Adds GMT data to <head>.
+ *
+ * @since 1.1.8
+ */
+function rbm_gtm_head() {
+    
+    ?>
+
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5DLM8CQ');</script>
+    <!-- End Google Tag Manager -->
+
+    <?php
+}
+
+add_action('wp_body_open', 'rbm_gtm_body_open');
+
+/**
+ * Adds GTM data after the opening body tag.
+ *
+ * @since 1.1.8
+ */
+function rbm_gtm_body_open() {
+
+    ?>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DLM8CQ"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+ 
+    <?php
+}
+    
+>>>>>>> Stashed changes
 /**
  * Defers parsing of JS
  * @since {{VERSION}}
