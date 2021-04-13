@@ -129,6 +129,11 @@ function rbm_projects_add_download_link_wrapper( $post_title, $post_id ) {
 
 }
 
+<<<<<<< HEAD
+=======
+<<<<<<< Updated upstream
+=======
+>>>>>>> develop
 add_action('wp_head', 'rbm_gtm_head');
 
 /**
@@ -166,10 +171,18 @@ function rbm_gtm_body_open() {
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DLM8CQ"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+<<<<<<< HEAD
 
     <?php
 
     
+=======
+ 
+    <?php
+}
+    
+>>>>>>> Stashed changes
+>>>>>>> develop
 /**
  * Defers parsing of JS
  * @since 1.1.9
