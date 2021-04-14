@@ -35,7 +35,13 @@ function rbm_theme_field_helpers() {
  * @param $group
  */
 function rbm_theme_init_field_group( $group ) {
-	rbm_theme_field_helpers()->fields->save->initialize_fields( $group );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->save->initialize_fields( $group );
+
 }
 
 /**
@@ -51,8 +57,14 @@ function rbm_theme_init_field_group( $group ) {
  * @return mixed Field value
  */
 function rbm_theme_get_field( $name, $post_ID = false, $default = '', $args = array() ) {
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return false;
+
     $value = rbm_theme_field_helpers()->fields->get_meta_field( $name, $post_ID, $args );
     return $value !== false ? $value : $default;
+
 }
 
 /**
@@ -67,8 +79,15 @@ function rbm_theme_get_field( $name, $post_ID = false, $default = '', $args = ar
  * @return mixed Field value
  */
 function rbm_theme_get_option_field( $name, $default = '', $args = array() ) {
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return false;
+
 	$value = rbm_theme_field_helpers()->fields->get_option_field( $name, $args );
+
 	return $value !== false ? $value : $default;
+
 }
 
 /**
@@ -79,7 +98,13 @@ function rbm_theme_get_option_field( $name, $default = '', $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_text( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_text( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_text( $args['name'], $args );
+
 }
 
 /**
@@ -90,7 +115,13 @@ function rbm_theme_do_field_text( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_textarea( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_textarea( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_textarea( $args['name'], $args );
+
 }
 
 /**
@@ -101,7 +132,13 @@ function rbm_theme_do_field_textarea( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_checkbox( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_checkbox( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_checkbox( $args['name'], $args );
+
 }
 
 /**
@@ -112,7 +149,13 @@ function rbm_theme_do_field_checkbox( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_toggle( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_toggle( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_toggle( $args['name'], $args );
+
 }
 
 /**
@@ -123,7 +166,13 @@ function rbm_theme_do_field_toggle( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_radio( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_radio( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_radio( $args['name'], $args );
+
 }
 
 /**
@@ -134,7 +183,13 @@ function rbm_theme_do_field_radio( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_select( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_select( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_select( $args['name'], $args );
+
 }
 
 /**
@@ -145,7 +200,13 @@ function rbm_theme_do_field_select( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_number( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_number( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_number( $args['name'], $args );
+
 }
 
 /**
@@ -156,7 +217,13 @@ function rbm_theme_do_field_number( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_media( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_media( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_media( $args['name'], $args );
+
 }
 
 /**
@@ -167,7 +234,13 @@ function rbm_theme_do_field_media( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_datepicker( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_datepicker( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_datepicker( $args['name'], $args );
+
 }
 
 /**
@@ -178,7 +251,13 @@ function rbm_theme_do_field_datepicker( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_timepicker( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_timepicker( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_timepicker( $args['name'], $args );
+
 }
 
 /**
@@ -189,7 +268,13 @@ function rbm_theme_do_field_timepicker( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_datetimepicker( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_datetimepicker( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_datetimepicker( $args['name'], $args 
+);
 }
 
 /**
@@ -200,7 +285,13 @@ function rbm_theme_do_field_datetimepicker( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_colorpicker( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_colorpicker( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_colorpicker( $args['name'], $args );
+
 }
 
 /**
@@ -211,7 +302,13 @@ function rbm_theme_do_field_colorpicker( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_list( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_list( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_list( $args['name'], $args );
+
 }
 
 /**
@@ -222,7 +319,13 @@ function rbm_theme_do_field_list( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_hidden( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_hidden( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_hidden( $args['name'], $args );
+
 }
 
 /**
@@ -233,7 +336,13 @@ function rbm_theme_do_field_hidden( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_table( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_table( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_table( $args['name'], $args );
+
 }
 
 /**
@@ -244,7 +353,13 @@ function rbm_theme_do_field_table( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_do_field_html( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_html( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_html( $args['name'], $args );
+
 }
 
 /**
@@ -255,7 +370,13 @@ function rbm_theme_do_field_html( $args = array() ) {
  * @param mixed $values
  */
 function rbm_theme_do_field_repeater( $args = array() ) {
-	rbm_theme_field_helpers()->fields->do_field_repeater( $args['name'], $args );
+
+	$rbm_field_helpers = rbm_theme_field_helpers();
+
+	if ( ! $rbm_field_helpers ) return;
+
+	$rbm_field_helpers->fields->do_field_repeater( $args['name'], $args );
+
 }
 
 /**
@@ -266,7 +387,7 @@ function rbm_theme_do_field_repeater( $args = array() ) {
  * @param array $args
  */
 function rbm_theme_missing_callback( $args ) {
-	
+
 	printf( 
 		_x( 'A callback function called "rbm_theme_do_field_%s" does not exist.', '%s is the Field Type', 'rbm-theme' ),
 		$args['type']
