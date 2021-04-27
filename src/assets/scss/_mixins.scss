@@ -1,17 +1,27 @@
-@mixin light-or-dark-text( $color ) {
-
-  @if lightness( $color ) < 65% {
-
-    color: $light-color;
-
-  }
-  @else {
-
-    color: $dark-color;
-
-  }
-
+@mixin light-or-dark-text(
+	$background-color,
+	$dark-text-color: $dark-color,
+  $light-text-color: $light-color
+) {
+	color: color-pick-contrast($background-color, ($dark-text-color, $light-text-color));
 }
+
+@mixin light-or-dark-link(
+	$background-color: $body-background,
+	$dark-link-color: $anchor-color,
+  $light-link-color: $white
+) {
+	color: color-pick-contrast($background-color, ($dark-link-color, $light-link-color));
+
+	&:hover,
+	&:focus {
+		color: smart-scale(
+			color-pick-contrast($background-color, ($dark-link-color, $light-link-color)),
+			14%
+		);
+	}
+}
+
 
 // Foundation's Light/Dark check makes the buttons hard to read sometimes
 @mixin foundation-button-fix( $button-color ) {

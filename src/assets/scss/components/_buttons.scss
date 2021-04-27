@@ -37,6 +37,25 @@
 
   }
 
+  &.job {
+
+    color: #fff;
+    border: none;
+    font-size: rem-calc( 12 );
+    border-radius: rem-calc( 50 );
+    letter-spacing: rem-calc( 0 );
+    padding: .8em 3em;
+    line-height: inherit;
+
+    &:hover, &:focus {
+
+      background-color: #b2de70;
+      color: #fff;
+
+    }
+
+  }
+
 }
 
 .give-btn, .woocommerce a.button, .woocommerce a.button.alt, .woocommerce button.button.alt, .woocommerce input.button, .woocommerce input.button.alt, input[type="submit"], #site-content .tribe-events-button, #site-content #tribe-events .tribe-events-button, .tribe_community_edit #site-content .tribe-button, .tribe_community_list #site-content .tribe-button {
