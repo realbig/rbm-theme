@@ -1,0 +1,50 @@
+$primary-color: #29367A;
+$secondary-color: #AECA48;
+$success-color: #43AC6A;
+$warning-color: #f08a24;
+$alert-color: #f04124;
+$info-color: #a0d3e8;
+
+$logo-blue: $primary-color;
+$logo-green: $secondary-color;
+
+$foundation-palette: (
+	primary: $primary-color,
+	secondary: $secondary-color,
+	success: $success-color,
+	warning: $warning-color,
+	alert: $alert-color,
+	info: $info-color
+);
+
+$body-background: $primary-color;
+
+$header-color: $primary-color;
+
+$header-styles: (
+  small: (
+    'h1': ('font-size': 24),
+    'h2': ('font-size': 20),
+    'h3': ('font-size': 19),
+    'h4': ('font-size': 18),
+    'h5': ('font-size': 17),
+    'h6': ('font-size': 16),
+  ),
+  medium: (
+    'h1': ('font-size': 48),
+    'h2': ('font-size': 36),
+    'h3': ('font-size': 30),
+    'h4': ('font-size': 24),
+    'h5': ('font-size': 20),
+    'h6': ('font-size': 18),
+  ),
+);
+
+$dropdown-menu-item-background-active: lighten($primary-color, 5%);
+
+$offcanvas-background: $primary-color;
+
+$titlebar-background: transparent;
+
+$topbar-background: transparent;
+$topbar-submenu-background: $dark-nav-color;

@@ -1,8 +1,11 @@
 @charset 'utf-8';
 
 
-@import 'settings';
 @import 'foundation';
+@import 'settings/settings';
+
+@import 'foundationpress-settings';
+@import 'settings-overrides';
 @import 'motion-ui';
 
 @include foundation-global-styles;
