@@ -17,6 +17,13 @@ $foundation-palette: (
 	info: $info-color
 );
 
+// Make palette variable names available
+// This will not work for any custom color names
+@include add-foundation-colors;
+
+// These global settings are dependent of what was previously defined. This will override them to what we want
+$button-palette: $foundation-palette;
+
 $body-background: $primary-color;
 
 $header-color: $primary-color;
