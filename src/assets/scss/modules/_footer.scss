@@ -1,7 +1,7 @@
 .footer-container {
   margin: 0 auto;
   margin-top: rem-calc(60);
-  background-color: $primary-color;
+  background-color: $white;
 }
 
 .footer {
@@ -22,18 +22,18 @@
 
   .footer-widgets {
 
-    @include light-or-dark-text( $primary-color );
+    @include light-or-dark-text( $white );
 
     padding-bottom: 30px * 2;
 
     .widget-title {
-      @include light-or-dark-text( $primary-color );
+      @include light-or-dark-text( $white );
       margin-top: 0.9677em;
       margin-bottom: 0.9677em;
     }
 
     .gform_title, .gfield_label, label, .gfield_description, .ginput_counter, .gform_wrapper .gfield_required {
-      @include light-or-dark-text( $primary-color );
+      @include light-or-dark-text( $white );
     }
 
     #field_1_2 { // Phone, basically just gf_left_half
@@ -79,7 +79,7 @@
 
       &:hover, &:focus {
 
-        background: #fff;
+        background: $white;
         color: $secondary-color;
         border-width: 0.25em;
 
@@ -89,7 +89,7 @@
 
     a {
 
-      color: $white;
+      color: $primary-color;
       text-decoration: underline;
 
       &:hover {
@@ -129,7 +129,7 @@
 
   .copyright {
 
-    @include light-or-dark-text( $primary-color );
+    @include light-or-dark-text( $white );
 
   }
 

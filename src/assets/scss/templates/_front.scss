@@ -6,7 +6,30 @@
   }
 	
   .is-stuck.sticky-top-bar {
-    @include background-opacity( #fff, 0.8 );
+    background-color: $white;
+
+    .top-bar {
+
+      .menu li:not(.current-menu-item) a {
+        
+        color: $primary-color;
+
+        &:hover {
+          color: $white;
+        }
+        
+      }
+
+    }
+
+    .title-bar {
+
+      .menu-icon::after {
+       background-color: $primary-color;
+       box-shadow: 0 7px 0 $primary-color, 0 14px 0 $primary-color;
+      }
+
+    }
   }
 
   .site-header {
@@ -23,73 +46,43 @@
 
       .menu li:not(.current-menu-item) a {
         
-        color: $body-font-color;
+        color: $white;
         
-        &:hover {
-          color: #e6e6e6; // Default color
-        }
-        
+      }
+
+    }
+
+    .title-bar {
+
+      .menu-icon::after {
+       background-color: $white;
+       box-shadow: 0 7px 0 $white, 0 14px 0 $white;
       }
 
     }
 
   }
 
-  .front-hero {
+  .wp-block-cover:first-of-type {
+    padding-top: 10rem;
 
-    position: relative;
+    h1 {
+      font-weight: bold;
+      font-size: 34px;
 
-    margin: 0 0 rem-calc(32);
-    height: auto;
-    padding: rem-calc(175%) 0 rem-calc(25%) 0;
-
-    @include breakpoint(medium) {
-      padding: rem-calc(400%) 0;
-      height: rem-calc(685);
-      margin: 0 0 rem-calc(72);  
+      @include breakpoint( medium ){
+        font-size: 48px;
+        font-weight: 600;
+      }
     }
 
-    .marketing {
+    p {
+      font-size: 20px;
 
-      @include xy-grid;
-
-      & > * {
-        position: relative;
+      @include breakpoint( medium ){
+        font-size: 25px;
       }
-
     }
-
-    .image {
-      position: absolute;
-
-      .color-overlay {
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-        background-color: rgba( 240, 240, 240, 0.86 );
-      }
-
-      @include breakpoint(small) {
-        background: url('../images/front-page/hero.png') bottom center;
-        background-size: cover;
-        background-position: bottom;
-        position: absolute;
-        top: 0;
-        right: 0;
-        left: 0;
-        bottom: 0;
-      }
-
-      @include breakpoint(medium) {
-        background: url('../images/front-page/hero.png') bottom center;
-        background-size: cover;
-        background-position: center;
-      }
-
-    }
-
   }
 
 }

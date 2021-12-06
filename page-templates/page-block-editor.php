@@ -1,11 +1,7 @@
 <?php
-/**
- * Frontpage Template
- * @since 1.1.0
- *
- * @package RBMTheme
- */
-
+/*
+Template Name: Block Editor
+*/
 get_header(); ?>
 
 <div class="main-wrap full-width">

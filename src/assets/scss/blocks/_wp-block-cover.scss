@@ -1,0 +1,17 @@
+.wp-block-cover {
+  @include breakpoint(large) {
+    padding-left: 4rem;
+    padding-right: 4rem;
+  }
+}
+
+.wp-block-cover__inner-container {
+  max-width: $global-width;
+  align-self: center;
+
+  > * {
+    @include breakpoint(large) {
+      max-width: 50%;
+    }
+  }
+}

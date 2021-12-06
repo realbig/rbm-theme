@@ -42,6 +42,26 @@ function foundationpress_theme_support() {
 
 	// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
 	add_editor_style( 'dist/assets/css/app.css' );
+
+	// Add wide block support
+	add_theme_support( 'align-wide' );
+
+	// Set up color palette
+	add_theme_support(
+		'editor-color-palette',
+		array(
+			array(
+				'name' => esc_html__( 'Primary Color', 'rbm-theme' ),
+				'slug' => 'primary',
+				'color' => '#29367A',
+			),
+			array(
+				'name' => esc_html__( 'Secondary Color', 'rbm-theme' ),
+				'slug' => 'secondary',
+				'color' => '#AECA48',
+			)
+		)
+	);
 }
 
 add_action( 'after_setup_theme', 'foundationpress_theme_support' );

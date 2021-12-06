@@ -24,19 +24,25 @@ $foundation-palette: (
 
 // These global settings are dependent of what was previously defined. This will override them to what we want
 $button-palette: $foundation-palette;
+$button-sizes: (
+  tiny: 0.6rem,
+  small: 0.75rem,
+  default: 1rem,
+  large: 1.25rem,
+);
 
-$body-background: $primary-color;
+$body-background: white;
 
 $header-color: $primary-color;
 
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
-    'h3': ('font-size': 19),
-    'h4': ('font-size': 18),
-    'h5': ('font-size': 17),
-    'h6': ('font-size': 16),
+    'h1': ('font-size': 32),
+    'h2': ('font-size': 28),
+    'h3': ('font-size': 24),
+    'h4': ('font-size': 20),
+    'h5': ('font-size': 18),
+    'h6': ('font-size': 18),
   ),
   medium: (
     'h1': ('font-size': 48),
@@ -53,6 +59,7 @@ $dropdown-menu-item-background-active: lighten($primary-color, 5%);
 $offcanvas-background: $primary-color;
 
 $titlebar-background: transparent;
+$titlebar-icon-color: $primary-color;
 
 $topbar-background: transparent;
-$topbar-submenu-background: $white;
+$topbar-submenu-background: $dark-nav-color;

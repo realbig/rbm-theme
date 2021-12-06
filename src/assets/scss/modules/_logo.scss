@@ -5,7 +5,7 @@
 	}
 	
 	.blue {
-		fill: #fff;
+		fill: $logo-blue;
 	}
 	
 }
@@ -15,9 +15,19 @@
 	.rbm-logo-svg {
 		
 		.blue {
-			fill: $logo-blue;
+			fill: $white;
 		}
 		
+	}
+
+	.is-stuck.sticky-top-bar {
+		.rbm-logo-svg {
+		
+			.blue {
+				fill: $logo-blue;
+			}
+			
+		}
 	}
 	
 }

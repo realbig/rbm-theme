@@ -56,22 +56,6 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 			'all'
 		);
 
-		/*
-		// Commented out to fix bug with Gravity Forms
-		
-		// Deregister the jquery version bundled with WordPress.
-		wp_deregister_script( 'jquery' );
-
-		// CDN hosted jQuery placed in the header, as some plugins require that jQuery is loaded in the header.
-		wp_enqueue_script(
-			'jquery',
-			'//ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js',
-			array(),
-			'3.2.1', // jQuery version, not Theme version
-			false
-		);
-		*/
-
 		// Enqueue Founation scripts
 		wp_enqueue_script(
 			'foundation',
@@ -98,4 +82,12 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 	}
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
+endif;
+
+if ( ! function_exists( 'block_editor_assets' ) ) :
+	function block_editor_assets() {
+		wp_enqueue_style( 'block-editor-styles', get_template_directory_uri() . '/dist/assets/css/app.css' );
+	}
+
+	//add_action( 'enqueue_block_editor_assets', 'block_editor_assets' );
 endif;

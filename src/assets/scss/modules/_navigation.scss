@@ -53,7 +53,7 @@
 // Tablet and desktop menu
 
 .sticky-top-bar {
-  background-color: $primary-color;
+  background-color: #fff;
   
   &, * {
     transition: ease all 300ms;
@@ -65,13 +65,13 @@
 
   .top-bar-title a {
     font-size: 1rem;
-    color: #B9B9B9;
+    color: $primary-color;
     padding-left: 1rem;
     line-height: 1.8;
   }
 
   .menu a {
-    color: #fff;
+    color: $primary-color;
     padding-top: 0;
     padding-bottom: 0;
     font-weight: bold;
@@ -79,6 +79,7 @@
     line-height: 1;
 
     &:hover:not(.button) {
+      color: #fff;
       background-color: $secondary-color;
     }
   }

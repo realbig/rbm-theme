@@ -46,7 +46,7 @@
 
 								</a>
 							</span>
-                            <button class="alignright menu-icon<?php echo ( is_front_page() ? ' dark' : '' ); ?>" type="button" data-toggle="off-canvas-menu"></button>
+                            <button class="alignright menu-icon" type="button" data-toggle="off-canvas-menu"></button>
 						</div>
 					</div>
 
