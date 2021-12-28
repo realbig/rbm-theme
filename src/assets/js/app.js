@@ -11,3 +11,4 @@ import Foundation from 'foundation-sites';
 $(document).foundation();
 
 import './lib/foundation-off-canvas';
+import './lib/open-overlay-form';

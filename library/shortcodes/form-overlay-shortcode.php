@@ -52,7 +52,11 @@ function add_rbm_button_form_overlay_shortcode( $atts, $content = '' ) {
 
 	<div class="reveal" id="<?php echo $uuid; ?>" data-reveal>
 
-		[gravityform id="<?php echo esc_attr( $atts['form_id'] ); ?>" title="<?php echo esc_attr( $atts['title'] ); ?>" description="<?php echo esc_attr( $atts['description'] ); ?>" ajax="true"]
+        <?php if ( function_exists( 'gravity_form' ) ) : ?>
+
+            <?php gravity_form( $atts['form_id'], false, true, false, null, true ); ?>
+
+        <?php endif; ?>
 
 		<button class="close-button" data-close aria-label="<?php _e( 'Close modal', 'rbm-theme' ); ?>" type="button">
 			<span aria-hidden="true">&times;</span>
@@ -65,7 +69,7 @@ function add_rbm_button_form_overlay_shortcode( $atts, $content = '' ) {
     $output = ob_get_contents();
     ob_end_clean();
     
-    return html_entity_decode( do_shortcode( $output ) );
+    return $output;
     
 }
 

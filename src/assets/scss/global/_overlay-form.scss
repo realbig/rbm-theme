@@ -1,0 +1,21 @@
+#overlay-form {
+
+    .reveal-header .grid-x {
+
+        display: flex;
+        align-items: center;
+
+    }
+
+
+    .testimonial {
+
+        @include breakpoint( medium ) {
+            .cell {
+                padding: 0;
+            }
+        }
+
+    }
+
+}
