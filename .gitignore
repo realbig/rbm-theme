@@ -7,3 +7,4 @@ config.yml
 .idea/
 *.swp
 *.zip
+.vscode/launch.json
