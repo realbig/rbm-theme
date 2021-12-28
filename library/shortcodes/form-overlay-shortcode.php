@@ -2,7 +2,7 @@
 /**
  * Adds the [rbm_form_overlay] shortcode
  *
- * @since   {{VERSION}}
+ * @since   1.3.0
  * @package RBMTheme
  * @subpackage  RBMTheme/library/shortcodes
  */
@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Add Form Overlay Shortcode
  *
- * @since       {{VERSION}}
+ * @since       1.3.0
  * @return      HTML
  */
 add_shortcode( 'rbm_form_overlay', 'add_rbm_button_form_overlay_shortcode' );
@@ -72,7 +72,7 @@ function add_rbm_button_form_overlay_shortcode( $atts, $content = '' ) {
 /**
  * Add Form Overlay Shortcode to TinyMCE
  *
- * @since       {{VERSION}}
+ * @since       1.3.0
  * @return      void
  */
 add_action( 'admin_init', 'add_rbm_form_overlay_tinymce_filters' );
@@ -98,7 +98,7 @@ function add_rbm_form_overlay_tinymce_filters() {
 /**
  * Add Localized Text for our TinyMCE Form Overlay
  *
- * @since       {{VERSION}}
+ * @since       1.3.0
  * @return      Array Localized Text
  */
 add_filter( 'rbm_tinymce_l10n', 'rbm_form_overlay_tinymce_l10n' );
@@ -145,7 +145,7 @@ function rbm_form_overlay_tinymce_l10n( $l10n ) {
  * wp_localize_script() doesn't work on non-enqueued scripts like TinyMCE Plugins
  * So we're going to fake it!
  *
- * @since       {{VERSION}}
+ * @since       1.3.0
  * @return      void
  */
 add_action( 'before_wp_tiny_mce', 'rbm_localize_tinymce' );
