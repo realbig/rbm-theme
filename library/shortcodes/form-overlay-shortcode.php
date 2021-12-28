@@ -54,7 +54,7 @@ function add_rbm_button_form_overlay_shortcode( $atts, $content = '' ) {
 
         <?php if ( function_exists( 'gravity_form' ) ) : ?>
 
-            <?php gravity_form( $atts['form_id'], false, true, false, null, true ); ?>
+            <?php gravity_form( $atts['form_id'], filter_var( $atts['title'], FILTER_VALIDATE_BOOLEAN ), filter_var( $atts['description'], FILTER_VALIDATE_BOOLEAN ), false, null, true ); ?>
 
         <?php endif; ?>
 
