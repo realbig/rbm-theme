@@ -1,7 +1,7 @@
 # Browsersync config
 BROWSERSYNC:
   # URL of local development server goes here (ex. http://localsite.dev)
-  url: ""
+  url: "http://pyimagesearch.test"
 
 # Autoprefixer will make sure your CSS works with these browsers
 COMPATIBILITY:
@@ -23,34 +23,10 @@ PATHS:
     - "node_modules/motion-ui/src"
   # Paths to JavaScript entry points for webpack to bundle modules
   entries:
-    - "src/assets/js/app.js"
+    scss: 
+      - "src/assets/scss/app.scss"
+    js: 
+      - "src/assets/js/app.js"
 
 # Set to true if you want static asset revisioning, helpful for cache busting
 REVISIONING: false    
-
-RELEASE:
-  type: 'theme'
-  languagesDir: './languages/'
-  files:
-    - "./**/*.*"
-    - "!./**/*.map"
-    - "!./**/build/**/*.*"
-    - "!./**/.git/**"
-    - "!./**/.gitignore"
-    - "!./**/.gitmodules"
-    - "!./**/gulpfile.js"
-    - "!./**/gruntfile.js"
-    - "!./**/gulp/**/*.*"
-    - "!./**/package.json"
-    - "!./**/package-lock.json"
-    - "!./**/bower.json"
-    - "!./**/composer.json"
-    - "!./**/node_modules/**/*.*"
-    - "!./**/bower_components/**/*.*"
-    - "!./**/README.md"
-    - "!./**/*.zip"
-    - "!./**/config-default.yml"
-    - "!./**/gulpfile.babel.js"
-    - "!./**/.babelrc"
-    - "!./**/config.yml"
-    - "!./**/webpack.config.js"

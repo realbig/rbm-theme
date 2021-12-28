@@ -1,16 +1,19 @@
 'use strict';
 
 import plugins       from 'gulp-load-plugins';
-import gutil         from 'gulp-util';
 import yargs         from 'yargs';
 import browser       from 'browser-sync';
 import gulp          from 'gulp';
 import rimraf        from 'rimraf';
 import yaml          from 'js-yaml';
 import fs            from 'fs';
+import dateFormat    from 'dateformat';
 import webpackStream from 'webpack-stream';
 import webpack2      from 'webpack';
 import named         from 'vinyl-named';
+import log           from 'fancy-log';
+import colors        from 'ansi-colors';
+import compareVersions from 'compare-versions';
 
 // Load all Gulp plugins into one variable
 const $ = plugins();
@@ -19,10 +22,10 @@ const $ = plugins();
 var PRODUCTION = !!(yargs.argv.production);
 
 // Check for --development flag unminified with sourcemaps
-const DEV = !!(yargs.argv.dev);
+var DEV = ! PRODUCTION;
 
 // Load settings from settings.yml
-const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS, RELEASE } = loadConfig();
+const { BROWSERSYNC, COMPATIBILITY, REVISIONING, PATHS } = loadConfig();
 
 // Check if file exists synchronously
 function checkFileExists(filepath) {
@@ -37,35 +40,27 @@ function checkFileExists(filepath) {
 
 // Load default or custom YML config file
 function loadConfig() {
-  gutil.log('Loading config file...');
+  log('Loading config file...');
 
   if (checkFileExists('config.yml')) {
     // config.yml exists, load it
-    gutil.log(gutil.colors.cyan('config.yml'), 'exists, loading', gutil.colors.cyan('config.yml'));
+    log(colors.cyan('config.yml'), 'exists, loading', colors.cyan('config.yml'));
     let ymlFile = fs.readFileSync('config.yml', 'utf8');
     return yaml.load(ymlFile);
 
   } else if(checkFileExists('config-default.yml')) {
     // config-default.yml exists, load it
-    gutil.log(gutil.colors.cyan('config.yml'), 'does not exist, loading', gutil.colors.cyan('config-default.yml'));
+    log(colors.cyan('config.yml'), 'does not exist, loading', colors.cyan('config-default.yml'));
     let ymlFile = fs.readFileSync('config-default.yml', 'utf8');
     return yaml.load(ymlFile);
 
   } else {
     // Exit if config.yml & config-default.yml do not exist
-    gutil.log('Exiting process, no config file exists.');
-    gutil.log('Error Code:', err.code);
+    log('Exiting process, no config file exists.');
+    log('Error Code:', err.code);
     process.exit(1);
   }
 }
-
-// Build the "dist" folder by running all of the below tasks
-gulp.task('build',
- gulp.series(clean, sass, javascript, images, copy));
-
-// Build the site, run the server, and watch for file changes
-gulp.task('default',
-  gulp.series('build', server, watch));
 
 // Delete the "dist" folder
 // This happens every time a build starts
@@ -83,66 +78,125 @@ function copy() {
 // Compile Sass into CSS
 // In production, the CSS is compressed
 function sass() {
-  return gulp.src('src/assets/scss/app.scss')
-    .pipe($.sourcemaps.init())
-    .pipe($.sass({
-      includePaths: PATHS.sass
-    })
-      .on('error', $.sass.logError))
-    .pipe($.autoprefixer({
-      browsers: COMPATIBILITY
-    }))
 
-    .pipe($.if(PRODUCTION, $.cleanCss({ compatibility: 'ie9' })))
-    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
-    .pipe(gulp.dest(PATHS.dist + '/assets/css'))
-    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
-    .pipe(gulp.dest(PATHS.dist + '/assets/css'))
-    .pipe(browser.reload({ stream: true }));
+	return gulp.src( PATHS.entries.scss, { allowEmpty: true } )
+		.pipe( named() )
+		.pipe( $.sourcemaps.init() )
+		.pipe(
+			$.sass( {
+				includePaths: PATHS.sass,
+				outputStyle: 'compressed'
+			} )
+			.on( 'error', $.sass.logError )
+		)
+		.pipe(
+			$.autoprefixer( {
+				browsers: COMPATIBILITY
+			} )
+		)
+		.pipe(
+			$.cleanCss( { compatibility: 'ie9' } )
+		)
+		.pipe(
+			$.sourcemaps.write( '.' ),
+		)
+		.pipe(
+			$.if( REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev() )
+		)
+		.pipe(
+			gulp.dest( PATHS.dist + '/assets/css' )
+		)
+		.pipe(
+			$.if( REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest() )
+		)
+		.pipe(
+			gulp.dest( PATHS.dist + '/assets/css' )
+		);
+
 }
 
-let webpackConfig = {
-  module: {
-    rules: [
-      {
-        test: /.js$/,
-        use: [
-          {
-            loader: 'babel-loader'
-          }
-        ]
-      }
-    ]
-  },
-  externals: {
-    jquery: 'jQuery'
-  }
-}
 // Combine JavaScript into one file
 // In production, the file is minified
-function javascript() {
-  return gulp.src(PATHS.entries)
-    .pipe(named())
-    .pipe($.sourcemaps.init())
-    .pipe(webpackStream(webpackConfig, webpack2))
-    .pipe($.if(PRODUCTION, $.uglify()
-      .on('error', e => { console.log(e); })
-    ))
-    .pipe($.if(!PRODUCTION, $.sourcemaps.write()))
-    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
-    .pipe(gulp.dest(PATHS.dist + '/assets/js'))
-    .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
-    .pipe(gulp.dest(PATHS.dist + '/assets/js'));
+var webpack = {
+  config: {
+    devtool: 'inline-source-map',
+    module: {
+      rules: [
+        {
+          test: /.js$/,
+          loader: 'babel-loader',
+          exclude: /node_modules(?![\\\/]foundation-sites)/,
+        },
+      ],
+    },
+    externals: {
+      jquery: 'jQuery',
+    },
+  },
+
+  changeHandler(err, stats) {
+    log('[webpack]', stats.toString({
+      colors: true,
+    }));
+
+    browser.reload();
+  },
+
+  build() {
+	  
+    return gulp.src(PATHS.entries.js, { allowEmpty: true } )
+      .pipe(named())
+      .pipe(webpackStream(webpack.config, webpack2))
+      .pipe( $.sourcemaps.init( { loadMaps: true } ) )
+	    .pipe( $.uglify().on('error', e => { console.log(e); }) )
+      .pipe( $.sourcemaps.write( '.' ) )
+      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev()))
+      .pipe(gulp.dest(PATHS.dist + '/assets/js'))
+      .pipe($.if(REVISIONING && PRODUCTION || REVISIONING && DEV, $.rev.manifest()))
+      .pipe(gulp.dest(PATHS.dist + '/assets/js'));
+  },
+
+  watch() {
+    const watchConfig = Object.assign(webpack.config, {
+      watch: true,
+      devtool: 'inline-source-map',
+    });
+
+    return gulp.src(PATHS.entries.js, { allowEmpty: true } )
+      .pipe(named())
+      .pipe(webpackStream(watchConfig, webpack2, webpack.changeHandler)
+        .on('error', (err) => {
+          log('[webpack:error]', err.toString({
+            colors: true,
+          }));
+        }),
+      )
+      .pipe(gulp.dest(PATHS.dist + '/assets/js'));
+  },
+};
+
+gulp.task('webpack:build', webpack.build);
+gulp.task('webpack:watch', webpack.watch);
+
+function tinymce() {
+
+	return gulp.src( "src/assets/js/admin/tinymce/**/*.js" )
+		.pipe( $.foreach( function( stream, file ) {
+			return stream
+				.pipe( $.babel() )
+				.pipe( $.uglify() )
+				.pipe( gulp.dest( PATHS.dist + '/assets/js/tinymce' ) )
+		} ) );
+
 }
 
 // Copy images to the "dist" folder
 // In production, the images are compressed
 function images() {
   return gulp.src('src/assets/img/**/*')
-    .pipe($.if(PRODUCTION, $.imagemin({
+    .pipe($.imagemin({
       progressive: true
-    })))
+    }))
     .pipe(gulp.dest(PATHS.dist + '/assets/img'));
 }
 
@@ -169,70 +223,129 @@ function reload(done) {
 function watch() {
   gulp.watch(PATHS.assets, copy);
   gulp.watch('src/assets/scss/**/*.scss').on('all', sass);
-  gulp.watch('**/*.php').on('all', browser.reload);
-  gulp.watch('src/assets/js/**/*.js').on('all', gulp.series(javascript, browser.reload));
-  gulp.watch('src/assets/img/**/*').on('all', gulp.series(images, browser.reload));
+  //gulp.watch('**/*.php').on('all', browser.reload);
+  gulp.watch('src/assets/js/**/*.js').on('all', gulp.series('webpack:build', tinymce));
+  gulp.watch('src/assets/img/**/*').on('all', gulp.series(images));
 }
 
-var pkg			= JSON.parse( fs.readFileSync( './package.json' ) );
-var packageName	= pkg.name.toLowerCase().replace( /_/g, '-' ).replace( /\s/g, '-' ).trim();
+// Build the "dist" folder by running all of the below tasks
+gulp.task('build',
+ gulp.series(clean, sass, 'webpack:build', tinymce, images, copy));
+
+// Build the site, run the server, and watch for file changes
+gulp.task('default',
+  gulp.series('build', watch));
+
+function version() {
+	
+	var pkg = JSON.parse( fs.readFileSync( './package.json' ) );
+	
+    return gulp.src([
+      'admin/**/*',
+      '/src/assets/**/*.js',
+      'src/assets/**/*.scss',
+      'library/**/*',
+      '!includes/blocks/**/node_modules/**/*',
+      '!vendor/**/*',
+      'languages/**/*',
+      'page-templates/**/*',
+      'template-parts/**/*',
+      'style.css',
+      'readme.txt',
+      '*.php',
+    ], { base: './', allowEmpty: true } )
+		// Doc block versions, only update on non-Betas and 1.0.0+ releases
+        .pipe( $.if( ( pkg.version.indexOf( 'b' ) == -1 && compareVersions( pkg.version, '1.0.0' ) !== -1 ), $.replace( /\{\{VERSION}}/g, pkg.version ) ) )
+        // Plugin header
+        .pipe($.replace(/(\* Version: ).*/, "$1" + pkg.version))
+        // readme.txt
+		.pipe( $.replace( /(Stable tag: ).*/, function( match, captureGroup, offset, file ) {
+			return captureGroup + pkg.version; // This really shouldn't be necessary, but it wouldn't work otherwise
+		} ) )
+        .pipe(gulp.dest('./'));
+}
+
+gulp.task( 'version', version );
+
+function setProd( done ) {
+	
+	PRODUCTION = true;
+	
+	done();
+	
+}
+
+function removeProd( done ) {
+	
+	PRODUCTION = false;
+	
+	done();
+	
+}
+
+function generate_pot() {
+    return gulp.src('./**/*.php')
+        .pipe($.sort())
+        .pipe($.wpPot({
+            domain: 'pyis-optinmonster',
+            package: 'PyIS_OptinMonster',
+        }))
+        .pipe(gulp.dest('./languages/pyis-optinmonster.pot'));
+}
 
 require( 'gulp-grunt' )( gulp, {
 	prefix: 'release:grunt-',
 } ); // add all the gruntfile tasks to gulp
 
-gulp.task( 'release:localization', function( done ) {
-	
-	// Set as a Release build, important for Source Files
-	PRODUCTION = true;
+// Copy relevant files to another directory
+function releaseCopy() {
 
-	return gulp.src( './**/*.php' )
-		.pipe( $.sort() )
-		.pipe( $.wpPot( {
-			domain: packageName,
-			destFile: packageName + '.pot',
-			package: pkg.name,
-		} ) )
-		.pipe( gulp.dest( RELEASE.languagesDir + packageName + '.pot' ) );
+  return gulp.src([
+		'!.git/**/*',
+        'admin/**/*',
+        'dist/assets/**/*',
+        'core/**/*',
+        'core/library/**/*',
+		'!core/library/rbp-support/{build,build/**}',
+		'!core/library/rbp-support/{gulp,gulp/**}',
+		'!core/library/rbp-support/{node_modules,node_modules/**}',
+		'!core/library/rbp-support/**/*.zip',
+		'!core/library/rbm-field-helpers/{bin,bin/**}',
+		'!core/library/rbm-field-helpers/{node_modules,node_modules/**}',
+		'!core/library/rbm-field-helpers/**/*.zip',
+        'languages/**/*',
+        'templates/**/*',
+        'pyis-optinmonster.php',
+        'readme.txt',
+		'!./**/package.json',
+		'!./**/package-lock.json',
+		'!./**/config.yml',
+		'!./**/webpack.config.js',
+		'!./**/gulpfile.js',
+		'!./**/gulpfile.babel.js',
+		'!./**/gruntfile.js',
+		'!./**/README.md'
+    ], { base: './', allowEmpty: true } )
+    .pipe(gulp.dest( 'pyis-optinmonster' ));
+}
 
-} );
+function releaseCleanup() {
+	
+	return gulp.src( './pyis-optinmonster', { read: false } )
+		.pipe( $.clean() )
+	
+}
 
-gulp.task( 'release:copy', function( done ) {
+function rename( done ) {
 	
-	return gulp.src( RELEASE.files )
-		.pipe( gulp.dest( './' + packageName ) );
+	var pkg = JSON.parse( fs.readFileSync( './package.json' ) );
 	
-} );
+	fs.renameSync( './packaged/pyis-optinmonster.zip', './packaged/pyis-optinmonster-' + pkg.version + '.zip' );
+	
+	done();
+	
+}
 
-gulp.task( 'release:rename', function( done ) {
-	
-	// Grab Version from the appropriate file. This way it doesn't matter if I forget to update package.json
-	var sourceFile = '';
-	if ( RELEASE.type == 'plugin' ) {
-		sourceFile = './' + packageName + '.php';
-	}
-	else {
-		sourceFile = './style.css';
-	}
-	
-	var mainFile = fs.readFileSync( sourceFile, 'utf8' ),
-		versionLine = mainFile.match( /^\s\*\sversion:(?:\s)+(?:\S)+/im ),
-		version = versionLine[0].replace( /\s\*\sversion:(?:\s)+/i, '' );
-	
-	fs.renameSync( './' + packageName + '.zip', './' + packageName + '-' + version + '.zip' );
-	
-	// We need to recreate those files with Source Maps now
-	PRODUCTION = false;
-	
-	return done();
-	
-} );
-
-gulp.task( 'release:cleanup', function( done ) {
-	
-	return gulp.src( './' + packageName, { read: false } )
-		.pipe( $.clean() );
-	
-} );
-
-gulp.task( 'release', gulp.series( 'release:localization', 'build', 'release:copy', 'release:grunt-compress', 'release:rename', 'build', 'release:cleanup' ) );
+// Package task
+gulp.task('package',
+  gulp.series(setProd, version, 'build', generate_pot, releaseCopy, 'release:grunt-compress', rename, releaseCleanup, removeProd, 'build'));
