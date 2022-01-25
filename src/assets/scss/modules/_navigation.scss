@@ -70,16 +70,28 @@
     line-height: 1.8;
   }
 
-  .menu a {
+  .dropdown.menu:not( .submenu ) > li > a {
+
     color: #fff;
+
+  }
+
+  .menu a {
+
+    color: $body-font-color;
     padding-top: 0;
     padding-bottom: 0;
     font-weight: bold;
     font-size: 0.8rem;
     line-height: 1;
 
-    &:hover:not(.button) {
-      background-color: $secondary-color;
+    &:not(.button) {
+
+      &:focus, &:hover {
+        color: #e6e6e6; // Default color
+        background-color: $secondary-color;
+      }
+
     }
   }
 
