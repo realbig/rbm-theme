@@ -21,7 +21,7 @@
 
     .top-bar {
 
-      .menu li:not(.current-menu-item) a {
+      .menu li:not(.current-menu-item):not( .is-active ) a {
         
         color: $body-font-color;
         

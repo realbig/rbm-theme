@@ -1,0 +1,16 @@
+.dropdown.menu {
+
+    &:not( .submenu ) > li {
+
+        &.current-menu-item {
+
+            & > a {
+                background: $dropdown-menu-item-background-active;
+                color: $dropdown-menu-item-color-active;
+            }
+
+        }
+
+    }
+
+}
