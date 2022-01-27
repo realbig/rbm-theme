@@ -203,7 +203,7 @@ function rbm_defer_js( $tag, $handle, $src ) {
  * @param   string            $requested_redirect_to  The requested redirect destination URL passed as a parameter.
  * @param   WP_User|WP_Error  $user                   WP_User object if login was successful, WP_Error object otherwise.
  *
- * @since   {{VERSION}}
+ * @since   1.3.3
  * @return  string                                    The redirect destination URL.
  */
 add_filter( 'login_redirect', function( $redirect_to, $requested_redirect_to, $user ) {
@@ -225,7 +225,7 @@ add_filter( 'login_redirect', function( $redirect_to, $requested_redirect_to, $u
  *
  * @param   boolean  $bool  Hide/Show
  *
- * @since   {{VERSION}}
+ * @since   1.3.3
  * @return  boolean         Hide/Show
  */
 add_filter( 'show_admin_bar', function( $bool ) {
