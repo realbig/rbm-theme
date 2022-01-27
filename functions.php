@@ -195,3 +195,49 @@ function rbm_defer_js( $tag, $handle, $src ) {
 	$tag = str_replace( 'src', 'defer="defer" src', $tag );
     return $tag;
 }
+
+/**
+ * Redirect Subscriber-level users to the home page where applicable
+ *
+ * @param   string            $redirect_to            The redirect destination URL.
+ * @param   string            $requested_redirect_to  The requested redirect destination URL passed as a parameter.
+ * @param   WP_User|WP_Error  $user                   WP_User object if login was successful, WP_Error object otherwise.
+ *
+ * @since   {{VERSION}}
+ * @return  string                                    The redirect destination URL.
+ */
+add_filter( 'login_redirect', function( $redirect_to, $requested_redirect_to, $user ) {
+
+    if ( is_wp_error( $user ) ) return $redirect_to;
+
+    if ( is_super_admin( $user->ID ) ) return $redirect_to;
+
+    if ( ! empty( array_intersect( array( 'administrator', 'editor', 'author' ), $user->roles ) ) ) return $redirect_to;
+
+    if ( strpos( $redirect_to, admin_url() ) === false ) return $redirect_to;
+
+    return home_url();
+
+}, 10, 3 );
+
+/**
+ * Hide the Admin Bar for Subscriber-level users
+ *
+ * @param   boolean  $bool  Hide/Show
+ *
+ * @since   {{VERSION}}
+ * @return  boolean         Hide/Show
+ */
+add_filter( 'show_admin_bar', function( $bool ) {
+
+    if ( ! is_user_logged_in() ) return $bool;
+
+    $user = wp_get_current_user();
+
+    if ( is_super_admin( $user->ID ) ) return $bool;
+
+    if ( ! empty( array_intersect( array( 'administrator', 'editor', 'author' ), $user->roles ) ) ) return $bool;
+
+    return false;
+
+} );
