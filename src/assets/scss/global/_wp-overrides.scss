@@ -33,3 +33,29 @@ p.wp-caption-text{
 body.mce-content-body {
 	background: transparent;
 }
+
+.alignwide {
+
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  .row, .grid-x, .grid-y {
+
+    max-width: $grid-row-width;
+    margin: 0 auto;
+
+    &.expanded, &.expand {
+      max-width: $global-width;
+    }
+
+  }
+
+}
+
+.row:not( .expanded ) .alignwide .row {
+  max-width: $grid-row-width;
+}

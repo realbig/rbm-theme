@@ -39,6 +39,8 @@ function foundationpress_theme_support() {
     add_theme_support( 'wc-product-gallery-zoom' );
     add_theme_support( 'wc-product-gallery-lightbox' );
     add_theme_support( 'wc-product-gallery-slider' );
+	
+	add_theme_support( 'align-wide' );
 
 	// Add foundation.css as editor style https://codex.wordpress.org/Editor_Style
 	add_editor_style( 'dist/assets/css/app.css' );
