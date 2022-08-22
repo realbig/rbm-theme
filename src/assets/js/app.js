@@ -10,4 +10,10 @@ import Foundation from 'foundation-sites';
 
 $(document).foundation();
 
+$( document ).on( 'ready', function() {
+
+    $(document).foundation();
+
+} );
+
 import './lib/foundation-off-canvas';

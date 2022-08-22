@@ -1,3 +1,15 @@
+.site-title-bar .title-bar-left {
+
+  @include breakpoint( small only ) {
+
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+
+  }
+
+}
+
 // Navigation breakpoints
 .mobile-menu,
 .site-title-bar {
@@ -66,7 +78,6 @@
   .top-bar-title a {
     font-size: 1rem;
     color: #B9B9B9;
-    padding-left: 1rem;
     line-height: 1.8;
   }
 
@@ -136,26 +147,12 @@
 
     svg {
       width: 75%;
-      margin-top: 1rem;
       margin-left: 0.5rem;
-    }
-    
-    .menu-icon {
-      margin-top: 3.25rem;
-      margin-right: 0.5rem;
     }
 
   }
   
   .is-stuck.sticky-top-bar {
-    
-    .title-bar-title {
-      margin-top: 2.25rem;
-    }
-    
-    .menu-icon {
-      margin-top: 4.25rem;
-    }
     
     .rbm-logo-svg {
       
@@ -174,11 +171,6 @@
 @include breakpoint(medium) {
   
   .is-stuck.sticky-top-bar {
-    
-    .top-bar-title {
-      margin-top: -1rem;
-      margin-bottom: 0rem;
-    }
     
     .rbm-logo-svg {
       

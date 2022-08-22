@@ -1,6 +1,6 @@
 ( function( $ ) {
     
-    $( document ).ready( function() {
+    $( document ).on( 'ready', function() {
         
         $( '[data-off-canvas]' ).on( 'opened.zf.offcanvas', function() {
             
