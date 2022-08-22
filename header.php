@@ -16,10 +16,41 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<?php wp_head(); ?>
 	</head>
-	<body 
-		<?php body_class( array(
-		'offcanvas',
-	)); ?>>
+
+	<?php
+
+	$body_class = array( 'offcanvas' );
+
+	global $has_hero;
+	global $has_hero_image;
+
+	$has_hero = false;
+	$has_hero_image = false;
+
+	if ( ( is_single() || is_singular() ) && has_blocks() ) : 
+
+		$blocks = parse_blocks( get_the_content() );
+
+		if ( ! empty( $blocks ) && isset( $blocks[0] ) ) {
+
+			if ( $blocks[0]['blockName'] == 'core/cover' && $blocks[0]['attrs']['align'] == 'wide' ) {
+
+				$body_class[] = 'has-hero';
+
+				if ( isset( $blocks[0]['attrs']['url'] ) && $blocks[0]['attrs']['url'] ) {
+					$body_class[] = 'has-hero-image';
+					$has_hero_image = true;
+				}
+
+				$has_hero = true;
+
+			}
+
+		}
+
+	endif; ?>
+
+	<body <?php body_class( $body_class ); ?>>
 
 	<?php wp_body_open(); ?>
 
