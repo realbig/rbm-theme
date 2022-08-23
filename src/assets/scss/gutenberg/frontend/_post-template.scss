@@ -1,0 +1,62 @@
+.wp-block-post-template.wp-block-post-template, .wp-block-query-loop.wp-block-post-template {
+
+    // These are output as <ul>s which inherits some global styling we don't want here
+    margin-left: 0;
+    margin-bottom: 0;
+
+    .type-post {
+
+        .wp-block-post-title {
+
+            // This font-weight is only used for Post loops
+            font-weight: 600;
+
+        }
+
+    }
+
+    .wp-block-group {
+
+        width: 100%;
+
+    }
+
+    &[class*="columns-"]:not( .columns-1 ) {
+
+        & > li {
+
+            display: flex;
+
+            & > .wp-block-post-content {
+
+                &, .wp-block-dgy-review {
+
+                    display: flex;
+                    flex: 1 1 auto;
+
+                }
+
+                .wp-block-dgy-review {
+
+                    blockquote {
+
+                        margin-bottom: auto;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}
+
+.wp-block-query + .wp-block-query {
+
+    // Replicate column gap if block queries are stacked
+    margin-top: 2em * .5 !important;
+
+}

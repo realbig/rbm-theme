@@ -72,6 +72,22 @@ $light-color: #fff;
 @import "global/colors";
 @import "global/wp-admin";
 @import "global/wp-overrides";
+@import "global/gutenberg";
+
+// Gutenberg
+@import "gutenberg/frontend/cover";
+@import "gutenberg/frontend/button";
+@import "gutenberg/frontend/buttons";
+@import "gutenberg/frontend/_columns.scss";
+@import "gutenberg/frontend/colors";
+@import "gutenberg/frontend/typography";
+@import "gutenberg/frontend/post-template";
+@import "gutenberg/frontend/post-author";
+@import "gutenberg/frontend/post-date";
+@import "gutenberg/frontend/embed";
+@import "gutenberg/frontend/image";
+@import "gutenberg/frontend/social-links";
+@import "gutenberg/frontend/query";
 
 // Modules
 @import "modules/navigation";

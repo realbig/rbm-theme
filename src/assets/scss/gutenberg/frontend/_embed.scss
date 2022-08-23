@@ -1,0 +1,13 @@
+.wp-block-embed {
+
+    margin-bottom: 0 !important;
+    min-width: 0 !important;
+    width: 100%;
+
+    &, .wp-block-embed__wrapper {
+
+        max-width: 100%;
+
+    }
+
+}

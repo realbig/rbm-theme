@@ -1,0 +1,104 @@
+.wp-block-button {
+
+    .button-icon {
+
+        margin-right: 0;
+        margin-left: .5em;
+
+    }
+
+    // add general foundation button styling
+    &:not( .is-style-outline ) {
+    
+        .wp-block-button__link {
+
+            @include button( false, get-color( 'primary' ), 'auto', 'auto' );
+            display: flex;
+
+            @each $color, $code in $foundation-palette {
+                
+                &.has-#{ "" + $color }-background-color {
+                    
+                    @include button( false, $code, 'auto', 'auto' );
+                    outline: $code;
+
+                }
+
+                &:focus {
+
+                    &.has-#{ "" + $color }-background-color {
+                    
+                        @include button( false, lighten( desaturate( adjust-hue( $code, -2 ), 3.19 ), 28.04 ), 'auto', 'auto' );
+                        border: $button-hollow-border-width solid $body-font-color;
+                        display: flex;
+    
+                    }
+
+                }
+                
+                &.has-#{ "" + $color}-color {
+                    color: $code !important;
+                }
+
+            }
+
+        }
+
+    }
+
+    // Support hollow buttons
+    &.is-style-outline {
+
+        .wp-block-button__link {
+
+            @include button( false, get-color( 'primary' ), 'auto', 'auto', 'hollow' );
+
+            @each $color, $code in $foundation-palette {
+                
+                &.has-#{ "" + $color }-background-color {
+                    
+                    @include button( false, $code, 'auto', 'auto', 'hollow' );
+                    display: flex;
+
+                }
+                
+                &.has-#{ "" + $color}-color {
+                    color: $code !important;
+                }
+
+            }
+
+        }
+
+    }
+
+    &, &:not( .is-style-outline ), &.is-style-outline {
+
+        .wp-block-button__link {
+
+            // Extra light
+            font-weight: 200;
+
+        }
+
+        @each $name, $size in $button-sizes {
+
+            &.has-#{ "" + $name }-font-size {
+
+                &, &.has-custom-font-size {
+
+                    .wp-block-button__link {
+
+                        font-size: $size;
+                    
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

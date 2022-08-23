@@ -1,0 +1,119 @@
+.wp-block-columns {
+
+    &, & > * {
+
+        &:last-child {
+
+            margin-bottom: 0;
+        
+        }
+
+    }
+
+    &.no-gap {
+        gap: 0;
+    }
+
+    .wp-block-column {
+
+        & > .post-navigation-link-next, & > .post-navigation-link-previous, & > .wp-block-post-navigation-link {
+            width: 100%;
+        }
+
+        .wp-block-columns {
+
+            .wp-block-column {
+
+                // Nested align centers don't seem supported normally
+                &.is-vertically-aligned-center {
+
+                    display: flex;
+                    align-items: center;
+
+                }
+
+                &:not( .is-vertically-aligned-center ):not( .is-vertically-aligned-top ):not( .is-vertically-aligned-bottom ) {
+
+                    flex-direction: column;
+                    display: flex;
+
+                    & > .wp-block-buttons:last-child {
+
+                        margin-top: auto;
+                        // Fixes vertical alignment when wanting to force to the bottom
+                        flex-grow: 0;
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        .has-background {
+
+            $gutters: $grid-margin-gutters;
+
+            $gutter-position: top right bottom left;
+            $gutter-type: padding;
+            $operator: '';
+            
+            // Copy of @mixin xy-gutters
+            // Needed a way to include !important
+            @if ( type-of( $gutters ) == 'map' ) {
+                
+                @include -zf-breakpoint-value( auto, $gutters ) {
+                    
+                    $gutter: rem-calc( $-zf-bp-value ) * 0.5;
+                    
+                    // Loop through each gutter position
+                    @each $value in $gutter-position {
+                        
+                        #{$gutter-type}-#{$value}: unquote( "#{$operator}#{$gutter}" );
+                        
+                    }
+                    
+                }
+                
+            }
+            @else if ( type-of( $gutters ) == 'number' ) {
+                
+                $gutter: rem-calc( $gutters ) * 0.5;
+                
+                // Loop through each gutter position
+                @each $value in $gutter-position {
+                    
+                    #{$gutter-type}-#{$value}: unquote( "#{$operator}#{$gutter}" );
+                    
+                }
+                
+            }
+
+        }
+
+    }
+
+    &.mobile-scroll {
+
+        @include breakpoint( small only ) {
+
+            overflow-y: hidden;
+            overflow-x: auto;
+
+            // To help bump any scrollbar off the content
+            padding-bottom: rem-calc( 16 );
+
+            flex-wrap: nowrap !important;
+
+        }
+
+        & > .wp-block-column {
+
+            flex-shrink: 0;
+
+        }
+
+    }
+
+}

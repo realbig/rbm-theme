@@ -1,0 +1,29 @@
+.wp-block-post-author {
+
+    margin-top: $paragraph-margin-bottom;
+    align-items: center;
+
+    .wp-block-post-author__avatar {
+
+        img {
+
+            border-radius: 50%;
+            object-fit: fill;
+
+        }
+
+    }
+
+    .wp-block-post-author__content {
+
+        font-family: $header-font-family;
+
+        .wp-block-post-author__name {
+
+            line-height: rem-calc( 22 );
+
+        }
+
+    }
+
+}

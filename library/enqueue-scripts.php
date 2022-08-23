@@ -99,3 +99,62 @@ if ( ! function_exists( 'foundationpress_scripts' ) ) :
 
 	add_action( 'wp_enqueue_scripts', 'foundationpress_scripts' );
 endif;
+
+// Load each Gutenberg Block as its own CSS file
+add_filter( 'should_load_separate_core_block_assets', '__return_true' );
+
+add_action( 'wp_enqueue_scripts', 'rbm_use_custom_core_block_styles' );
+
+/**
+ * For the defined WP Core Blocks, look for a matching CSS file and then load it instead of the one included by WP Core
+ * 
+ * Base on 
+ * https://github.com/WordPress/gutenberg/issues/35848#issuecomment-1030448637
+ * and
+ * https://kraftner.com/en/blog/building-your-own-wordpress-core-block-css/
+ *
+ * @since	{{VERSION}}
+ * @return  void
+ */
+function rbm_use_custom_core_block_styles() {
+
+  $blocks = apply_filters( 'rbm_core_blocks_with_custom_styles', array(
+    'columns',
+  ) );
+
+  foreach ( $blocks as $block ) {
+
+    $file_path = locate_template( "dist/assets/css/{$block}.css", false, false );
+
+    // File doesn't exist in parent or child theme, bail
+    if ( ! $file_path ) continue;
+
+    // Generate a relative path to use as a URI
+    $relative_path = '/' . ltrim( wp_normalize_path( str_replace( ABSPATH, '', $file_path ) ), '/' );
+
+    wp_deregister_style( "wp-block-{$block}" );
+
+    wp_register_style( 
+        "wp-block-{$block}",
+        $relative_path,
+        array(),
+        ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG == true ) ? time() : THEME_VER, 
+        'all'
+    );
+
+  }
+
+}
+
+add_action( 'enqueue_block_editor_assets', 'extend_block_example_enqueue_block_editor_assets' );
+
+function extend_block_example_enqueue_block_editor_assets() {
+    // Enqueue our script
+    wp_enqueue_script(
+        'rbm-extend-blocks',
+        THEME_URL . '/dist/assets/js/gutenberg-extend.js',
+        array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor' ),
+        ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG == true ) ? time() : THEME_VER, 
+        true
+    );
+}

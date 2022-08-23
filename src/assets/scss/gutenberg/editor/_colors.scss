@@ -1,0 +1,19 @@
+@each $name, $color in $foundation-palette {
+
+    .has-#{$name}-color-before {
+
+        &:before {
+            color: $color;
+        }
+
+    }
+
+    .has-#{$name}-color-after {
+
+        &:after {
+            color: $color;
+        }
+
+    }
+
+}

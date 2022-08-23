@@ -1,0 +1,20 @@
+/*
+Frontend styles for gutenberg blocks
+*/
+
+/** === Base Color Palatte === */
+@each $color, $code in $foundation-palette {
+
+  .has-#{ "" + $color }-background-color {
+      background-color: $code;
+  }
+
+  .has-#{ "" + $color }-color {
+      color: $code;
+  }
+}
+
+/** === File === */
+.wp-block-file .wp-block-file__button{
+  @include button( false, get-color( 'primary' ), 'auto', 'auto' );
+}

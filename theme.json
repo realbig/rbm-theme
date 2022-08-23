@@ -1,0 +1,361 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/theme.json",
+    "version": 2,
+    "settings": {
+        "layout": {
+            "contentSize": "1200px",
+            "wideSize": "100vw"
+        },
+        "border": {
+            "radius": false,
+            "color": false,
+            "style": false,
+            "width": false
+        },
+        "spacing": {
+            "padding": true,
+            "margin": true,
+            "units": [
+                "rem"
+            ]
+        },
+        "color": {
+            "custom": false,
+            "customGradient": false,
+            "customDuotone": false,
+            "link": false,
+            "defaultPalette": false,
+            "defaultDuotone": false,
+            "defaultGradients": false,
+            "background": false,
+            "palette": [
+                {
+                    "slug": "primary",
+                    "color": "#29367A",
+                    "name": "Primary Color"
+                },
+                {
+                    "slug": "secondary",
+                    "color": "#AECA48",
+                    "name": "Secondary Color"
+                },
+                {
+                    "slug": "body-copy",
+                    "color": "#0a0a0a",
+                    "name" : "Body Copy Text Color"
+                },
+                {
+                    "slug": "white",
+                    "color": "#fefefe",
+                    "name" : "White"
+                }
+            ]
+        },
+        "appearanceTools": false,
+        "typography": {
+            "customFontSize": false,
+            "lineHeight": false,
+            "dropCap": false,
+            "letterSpacing": false,
+            "fontSizes": [
+            ]
+        },
+        "blocks": {
+            "core/heading": {
+                "typography": {
+                    "fontSizes": [
+
+                    ],
+                    "textTransform": false,
+                    "fontWeight": false,
+                    "fontStyle": false,
+                    "letterSpacing": true
+                },
+                "spacing": {
+                    "units": [
+                        "px",
+                        "rem"
+                    ]
+                },
+                "color": {
+                    "background": false,
+                    "palette": [
+                        {
+                            "slug": "body-copy",
+                            "color": "#0a0a0a",
+                            "name" : "Body Copy Text Color"
+                        },
+                        {
+                            "slug": "white",
+                            "color": "#fefefe",
+                            "name" : "White"
+                        },
+                        {
+                            "slug": "primary",
+                            "color": "#29367A",
+                            "name": "Primary Color"
+                        },
+                        {
+                            "slug": "secondary",
+                            "color": "#AECA48",
+                            "name": "Secondary Color"
+                        }
+                    ]
+                }
+            },
+            "core/post-title": {
+                "typography": {
+                    "fontSizes": [
+
+                    ],
+                    "textTransform": false,
+                    "fontWeight": false,
+                    "fontStyle": false,
+                    "letterSpacing": true
+                },
+                "spacing": {
+                    "units": [
+                        "px",
+                        "rem"
+                    ]
+                },
+                "color": {
+                    "background": false,
+                    "palette": [
+                        {
+                            "slug": "body-copy",
+                            "color": "#0a0a0a",
+                            "name" : "Body Copy Text Color"
+                        },
+                        {
+                            "slug": "white",
+                            "color": "#fefefe",
+                            "name" : "White"
+                        },
+                        {
+                            "slug": "primary",
+                            "color": "#29367A",
+                            "name": "Primary Color"
+                        },
+                        {
+                            "slug": "secondary",
+                            "color": "#AECA48",
+                            "name": "Secondary Color"
+                        }
+                    ]
+                }
+            },
+            "core/paragraph": {
+                "typography": {
+                    "textTransform": false,
+                    "fontWeight": false,
+                    "fontStyle": false,
+                    "letterSpacing": true
+                },
+                "color": {
+                    "background": false,
+                    "palette": [
+                        {
+                            "slug": "body-copy",
+                            "color": "#0a0a0a",
+                            "name" : "Body Copy Text Color"
+                        },
+                        {
+                            "slug": "white",
+                            "color": "#fefefe",
+                            "name" : "White"
+                        },
+                        {
+                            "slug": "primary",
+                            "color": "#29367A",
+                            "name": "Primary Color"
+                        },
+                        {
+                            "slug": "secondary",
+                            "color": "#AECA48",
+                            "name": "Secondary Color"
+                        }
+                    ]
+                }
+            },
+            "core/button": {
+                "border": {
+                    "radius": false
+                },
+                "color": {
+                    "palette": [
+                        {
+                            "slug": "primary",
+                            "color": "#b4d0dc",
+                            "name": "Primary Color"
+                        },
+                        {
+                            "slug": "secondary",
+                            "color": "#AECA48",
+                            "name": "Secondary Color"
+                        },
+                        {
+                            "slug": "success",
+                            "color": "#43AC6A",
+                            "name": "Success Color"
+                        },
+                        {
+                            "slug": "warning",
+                            "color": "#f08a24",
+                            "name": "Warning Color"
+                        },
+                        {
+                            "slug": "alert",
+                            "color": "#f04124",
+                            "name" : "Alert Color"
+                        }
+                    ],
+                    "text": false,
+                    "background": true
+                },
+                "spacing": {
+                    "padding": false,
+                    "margin": false
+                },
+                "typography": {
+                    "fontSizes": [
+                        {
+                            "slug": "tiny",
+                            "size": "9.6px",
+                            "name": "Tiny"
+                        },
+                        {
+                            "slug": "small",
+                            "size": "12px",
+                            "name": "Small"
+                        },
+                        {
+                            "slug": "default",
+                            "size": "14.4px",
+                            "name": "Default"
+                        },
+                        {
+                            "slug": "large",
+                            "size": "20px",
+                            "name": "Large"
+                        }
+                    ]
+                }
+            },
+            "core/cover": {
+                "spacing": {
+                    "units": [
+                        "px"
+                    ],
+                    "padding": false
+                },
+                "typography": {
+                    "fontSizes": [
+                        
+                    ]
+                },
+                "color": {
+                    "palette": [
+                        {
+                            "slug": "primary",
+                            "color": "#29367A",
+                            "name": "Primary Color"
+                        },
+                        {
+                            "slug": "secondary",
+                            "color": "#AECA48",
+                            "name": "Secondary Color"
+                        },
+                        {
+                            "slug": "body-copy",
+                            "color": "#0a0a0a",
+                            "name" : "Body Copy Text Color"
+                        },
+                        {
+                            "slug": "white",
+                            "color": "#fefefe",
+                            "name" : "White"
+                        }
+                    ]
+                }
+            },
+            "core/columns": {
+                "color": {
+                    "background": false
+                }
+            },
+            "core/column": {
+                "spacing": {
+                    "units": [
+                        "rem",
+                        "%"
+                    ]
+                },
+                "color": {
+                    "background": true,
+                    "text": false,
+                    "palette": [
+                        {
+                            "slug": "primary",
+                            "color": "#29367A",
+                            "name": "Primary Color"
+                        },
+                        {
+                            "slug": "secondary",
+                            "color": "#AECA48",
+                            "name": "Secondary Color"
+                        },
+                        {
+                            "slug": "body-copy",
+                            "color": "#0a0a0a",
+                            "name" : "Body Copy Text Color"
+                        },
+                        {
+                            "slug": "white",
+                            "color": "#fefefe",
+                            "name" : "White"
+                        }
+                    ]
+                }
+            },
+            "core/group": {
+                "spacing": {
+                    "padding": false
+                }
+            },
+            "core/post-date": {
+                "color": {
+                    "palette": [
+                        {
+                            "slug": "primary",
+                            "color": "#29367A",
+                            "name": "Primary Color"
+                        },
+                        {
+                            "slug": "secondary",
+                            "color": "#AECA48",
+                            "name": "Secondary Color"
+                        },
+                        {
+                            "slug": "body-copy",
+                            "color": "#0a0a0a",
+                            "name" : "Body Copy Text Color"
+                        },
+                        {
+                            "slug": "white",
+                            "color": "#fefefe",
+                            "name" : "White"
+                        }
+                    ]
+                }
+            },
+            "core/quote": {
+                "typography": {
+                    "fontWeight": false,
+                    "fontStyle": false,
+                    "textTransform": false
+                }
+            }
+        }
+    }
+}

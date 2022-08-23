@@ -1,0 +1,17 @@
+.wp-block-image {
+    
+    &.is-style-rounded, .is-style-rounded {
+
+        img {
+
+            object-fit: cover;
+        
+        }
+
+    }
+
+    figcaption {
+        display: block;
+    }
+
+}

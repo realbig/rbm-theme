@@ -1,0 +1,17 @@
+@import '../frontend/button';
+
+.wp-block-button {
+
+    // Support hollow buttons
+    &.is-style-outline {
+
+        .wp-block-button__link {
+
+            // "Outline" buttons are part of WP Core. How is this not supported better...
+            background-color: transparent !important;
+
+        }
+
+    }
+
+}

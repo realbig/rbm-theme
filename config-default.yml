@@ -25,8 +25,11 @@ PATHS:
   entries:
     scss: 
       - "src/assets/scss/app.scss"
+      - "src/assets/scss/editor.scss"
+      - "src/assets/scss/gutenberg/frontend/columns.scss"
     js: 
       - "src/assets/js/app.js"
+      - "src/assets/js/gutenberg-extend.js"
 
 # Set to true if you want static asset revisioning, helpful for cache busting
 REVISIONING: false    

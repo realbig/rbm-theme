@@ -59,6 +59,14 @@ require_once( 'library/shortcodes/form-overlay-shortcode.php' );
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
 
+/** Gutenberg editor support */
+require_once( 'core/gutenberg/frontend/cover.php' );
+require_once( 'core/gutenberg/frontend/columns.php' );
+require_once( 'core/gutenberg/frontend/heading.php' );
+require_once( 'core/gutenberg/frontend/button.php' );
+require_once( 'core/gutenberg/frontend/image.php' );
+require_once( 'core/gutenberg/frontend/post-title.php' );
+
 global $rbm_theme_field_helpers;
 $rbm_theme_field_helpers = false;
 
@@ -241,3 +249,94 @@ add_filter( 'show_admin_bar', function( $bool ) {
     return false;
 
 } );
+
+add_action( 'init', function() {
+
+    remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
+
+    add_action( 'wp_enqueue_scripts', 'rbm_adjust_global_styles' );
+
+} );
+
+/**
+ * More-or-less a copy of wp_enqueue_global_styles() but with extra code to rip out unwanted variables and definitions
+ *
+ * @since   {{VERSION}}
+ * @return  void
+ */
+function rbm_adjust_global_styles() {
+
+    $global_styles = wp_enqueue_global_styles();
+
+    $stylesheet = rbm_get_global_stylesheet();
+
+	wp_register_style( 'global-styles', false, array(), true, true );
+	wp_add_inline_style( 'global-styles', $stylesheet );
+	wp_enqueue_style( 'global-styles' );
+
+}
+
+/**
+ * Returns the Global Stylesheet but modifies the output
+ *
+ * @param   array $types   Types of styles to load. Optional. It accepts 'variables', 'styles', 'presets' as values. If empty, it'll load all for themes with theme.json support and only [ 'variables', 'presets' ] for themes without theme.json support.
+ *
+ * @since   {{VERSION}}
+ * @return  string         Stylesheet resulting of merging core, theme, and user data
+ */
+function rbm_get_global_stylesheet( $types = array() ) {
+
+    if ( ! function_exists( 'wp_get_global_stylesheet' ) ) return '';
+
+    $stylesheet = wp_get_global_stylesheet( $types );
+
+	if ( empty( $stylesheet ) ) {
+		return '';
+	}
+
+    /**
+     * A list of Button Sizes to remove from the Global Stylesheet
+     * Ensure to keep updated any time a button font size gets added to theme.json and /src/assets/scss/_settings-overrides.scss
+     *
+     * @var array
+     */
+    $button_sizes = apply_filters( 'rbm_button_size_names', array(
+        'tiny',
+        'small',
+        'default',
+        'large'
+    ) );
+
+    /**
+     * A list of Color Names to remove from the Global Stylesheet
+     * Ensure to keep updated any time a color gets added to theme.json and /src/assets/scss/_settings-overrides.scss
+     *
+     * @var array
+     */
+    $rbm_colors = apply_filters( 'rbm_color_names', array(
+        'primary',
+        'secondary',
+        'success',
+        'warning',
+        'alert',
+        'info',
+        'white',
+        'body-copy',
+    ) );
+
+    // Remove variables
+    $stylesheet = preg_replace( '/--wp--preset--font-size--h-[1-6]:[\s\S]*?;/sim', '', $stylesheet );
+    $stylesheet = preg_replace( '/--wp--preset--font-size--(?:' . implode( '|', $button_sizes ) . '):[\s\S]*?;/sim', '', $stylesheet );
+    $stylesheet = preg_replace( '/--wp--preset--color--(?:' . implode( '|', $rbm_colors ) . '):[\s\S]*?;/sim', '', $stylesheet );
+
+    // Remove definitions
+    $stylesheet = preg_replace( '/.has-h-[1-6]-font-size{[\s\S]*?}/', '', $stylesheet );
+    $stylesheet = preg_replace( '/.has-(?:' . implode( '|', $button_sizes ) . ')-font-size{[\s\S]*?}/', '', $stylesheet );
+    $stylesheet = preg_replace( '/.has-(?:' . implode( '|', $rbm_colors ) . ')-background-color{[\s\S]*?}/', '', $stylesheet );
+    $stylesheet = preg_replace( '/.has-(?:' . implode( '|', $rbm_colors ) . ')-color{[\s\S]*?}/', '', $stylesheet );
+
+    $stylesheet = apply_filters( 'rbm_get_global_stylesheet', $stylesheet, $types );
+
+    return $stylesheet;
+
+}

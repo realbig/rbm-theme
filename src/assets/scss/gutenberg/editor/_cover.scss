@@ -1,0 +1,104 @@
+.wp-block-cover-image,
+.wp-block-cover, .wp-block-cover-image {
+
+    $gutters: $grid-margin-gutters;
+
+    @each $size, $value in $gutters {
+        // Ends up being 1.5x the size once xy-gutters is applied
+        $gutters: map-merge( $gutters, ( $size: ( $value ) * 3 ) );
+    }
+
+    $gutter-position: top right bottom left;
+    $gutter-type: padding;
+    $operator: '';
+    
+    // Copy of @mixin xy-gutters
+    // Needed a way to include !important
+    @if ( type-of( $gutters ) == 'map' ) {
+        
+        @include -zf-breakpoint-value( auto, $gutters ) {
+            
+            $gutter: rem-calc( $-zf-bp-value ) * 0.5;
+            
+            // Loop through each gutter position
+            @each $value in $gutter-position {
+                
+                #{$gutter-type}-#{$value}: unquote( "#{$operator}#{$gutter}" ) !important;
+                
+            }
+            
+        }
+        
+    }
+    @else if ( type-of( $gutters ) == 'number' ) {
+        
+        $gutter: rem-calc( $gutters ) * 0.5;
+        
+        // Loop through each gutter position
+        @each $value in $gutter-position {
+            
+            #{$gutter-type}-#{$value}: unquote( "#{$operator}#{$gutter}" ) !important;
+            
+        }
+        
+    }
+
+    @for $i from 1 through 6 {
+
+        $tag: 'h' + $i;
+
+        #{$tag}:not( .has-text-color ) {
+
+            a {
+                color: inherit;
+            }
+
+        }
+
+    }
+
+    p:not( .has-text-color ) {
+
+        a {
+            color: inherit;
+        }
+
+    }
+
+    &.has-image-background {
+
+        @for $i from 1 through 6 {
+    
+            $tag: 'h' + $i;
+    
+            #{$tag} {
+    
+                text-shadow: 0 0 rem-calc( 8 ) $black;
+    
+            }
+    
+        }
+    
+        p {
+    
+            text-shadow: 0 0 rem-calc( 8 ) $black;
+    
+            *:not( strong ):not( em ) {
+                text-shadow: none;
+            }
+    
+        }
+    
+    }
+
+    .wp-block-embed {
+        min-height: 0 !important;
+    }
+
+    &.alignwide + &.alignwide {
+
+        margin-top: 0;
+        
+    }
+
+}

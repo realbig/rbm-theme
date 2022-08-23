@@ -1,0 +1,54 @@
+@for $i from 1 through 6 {
+
+    $tag: 'h' + $i;
+
+    .has-h-#{$i}-font-size {
+
+        @extend #{$tag};
+
+        margin-bottom: 0;
+
+    }
+
+    #{$tag}, .#{$tag} {
+
+        // Foundation tries to force this as a rem value, but we have it stored as em to scale between the font-sizes of each heading gracefully
+        margin-bottom: $header-margin-bottom;
+
+        a:not( .button ) {
+
+            &, &:hover, &:focus {
+
+                color: inherit;
+
+            }
+            
+        }
+
+    }
+
+}
+
+@each $size, $headers in $header-styles {
+
+    @include breakpoint( $size ) {
+
+        @each $header, $styles in $headers {
+
+            $margin-bottom: map-get( $styles, 'margin-bottom' );
+
+            @if ( $margin-bottom and unit( $margin-bottom ) != 'rem' ) {
+
+                #{$header}, .#{$header} {
+
+                    margin-bottom: $margin-bottom;
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

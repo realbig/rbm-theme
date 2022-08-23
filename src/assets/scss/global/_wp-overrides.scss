@@ -34,28 +34,28 @@ body.mce-content-body {
 	background: transparent;
 }
 
-.alignwide {
-
+.alignwide:not( .wp-block-media-text ) {
+    
   width: 100vw;
   position: relative;
   left: 50%;
   right: 50%;
   margin-left: -50vw;
   margin-right: -50vw;
-
+  
   .row, .grid-x, .grid-y {
-
-    max-width: $grid-row-width;
-    margin: 0 auto;
-
-    &.expanded, &.expand {
-      max-width: $global-width;
-    }
-
+      
+      max-width: $grid-row-width;
+      margin: 0 auto;
+      
+      &.expanded, &.expand {
+          max-width: $global-width;
+      }
+      
   }
-
+  
 }
 
-.row:not( .expanded ) .alignwide .row {
+.row:not( .expanded ) .alignwide:not( .wp-block-media-text ) .row {
   max-width: $grid-row-width;
 }

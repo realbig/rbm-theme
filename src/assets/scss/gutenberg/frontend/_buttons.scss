@@ -1,0 +1,23 @@
+.wp-block-buttons {
+
+    // Why this is only a thing on the frontend, I'll never know
+    @import './button';
+
+    // Fixes horizontal alignment
+    flex-grow: 1;
+
+    .wp-block-button {
+
+        &:last-of-type:first-of-type {
+
+            .wp-block-button__link {
+
+                margin-bottom: 0 !important;
+
+            }
+            
+        }
+
+    }
+
+}

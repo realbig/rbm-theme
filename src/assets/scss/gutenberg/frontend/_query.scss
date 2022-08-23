@@ -1,0 +1,74 @@
+.wp-block-query {
+
+    &.mobile-scroll {
+
+        .wp-block-post-template {
+
+            &.is-flex-container {
+
+                @include breakpoint( small only ) {
+
+                    overflow-y: hidden;
+                    overflow-x: auto;
+
+                    // To help bump any scrollbar off the content
+                    padding-bottom: rem-calc( 16 );
+
+                    flex-wrap: nowrap;
+
+                    // Based on https://github.com/WordPress/gutenberg/blob/2b99bd32401a069d1159b7e18451033f10480584/packages/block-library/src/post-template/style.scss#L24-L30
+                    @for $i from 1 through 6 {
+
+                        &.columns-#{ $i } > li {
+
+                            // Default value, copied into Mobile
+                            width: calc((100% / #{ $i }) - 1.25em + (1.25em / #{ $i }));
+
+                            // 80% of the width, so that the next item will show slightly to the right to encourage scrolling
+                            flex-basis: calc( ( ( 100% / #{ $i } ) - 1.25em + (1.25em / #{ $i } ) ) * .8 );
+
+                            // Ensure we get our set size
+                            flex-shrink: 0;
+
+                        }
+
+                        &.mobile-columns-#{ $i } > li {
+
+                            // Default value, copied into Mobile
+                            width: calc((100% / #{ $i }) - 1.25em + (1.25em / #{ $i }));
+
+                            // 80% of the width, so that the next item will show slightly to the right to encourage scrolling
+                            flex-basis: calc( ( ( 100% / #{ $i } ) - 1.25em + (1.25em / #{ $i } ) ) * .8 );
+
+                        }
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        // Mobile-specific widths set via the Editor
+        @for $i from 1 through 6 {
+
+            @include breakpoint( small only ) {
+
+                &.mobile-columns-#{ $i } .wp-block-post-template.is-flex-container > li {
+
+                    // Default value, copied into Mobile
+                    width: calc((100% / #{ $i }) - 1.25em + (1.25em / #{ $i }));
+
+                    // 80% of the width, so that the next item will show slightly to the right to encourage scrolling
+                    flex-basis: calc( ( ( 100% / #{ $i } ) - 1.25em + (1.25em / #{ $i } ) ) * .8 );
+
+                }
+
+            }
+
+        }
+
+    }
+
+}

@@ -1,0 +1,12 @@
+@import '../frontend/post-author';
+
+.wp-block-post-author {
+
+    .wp-block-post-author__avatar {
+
+        // This applies by default on the frontend, but not on the backend. Copying here to prevent confusion for the user
+        margin-right: 1em;
+
+    }
+
+}

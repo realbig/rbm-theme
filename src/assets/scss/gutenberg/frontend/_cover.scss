@@ -1,0 +1,46 @@
+@import '../editor/cover';
+
+.wp-block-cover-image,
+.wp-block-cover, .wp-block-cover-image {
+    
+    &.alignwide {
+        
+        width: 100vw;
+        
+        .wp-block-cover__inner-container {
+            
+            max-width: $grid-row-width;
+            margin: 0 auto;
+
+            $gutters: $grid-margin-gutters;
+            $operator: '';
+            
+            // Copy of @mixin xy-gutters, modified to subtract from $grid-row-width for a max-width
+            @if ( type-of( $gutters ) == 'map' ) {
+                
+                @include -zf-breakpoint-value( auto, $gutters ) {
+                    
+                    $gutter: rem-calc( $-zf-bp-value * 1.5 );
+                    
+                    max-width: calc( #{ $grid-row-width } - #{ unquote( "#{$operator}#{$gutter}" ) } );
+                    
+                }
+                
+            }
+            @else if ( type-of( $gutters ) == 'number' ) {
+                
+                $gutter: rem-calc( $gutters * 1.5 );
+                
+                max-width: calc( #{ $grid-row-width } - #{ unquote( "#{$operator}#{$gutter}" ) } );
+                
+            }
+            
+            &.expanded, &.expand {
+                max-width: $global-width;
+            }
+            
+        }
+        
+    }
+    
+}
