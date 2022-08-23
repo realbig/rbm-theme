@@ -74,13 +74,6 @@
 
     &, &:not( .is-style-outline ), &.is-style-outline {
 
-        .wp-block-button__link {
-
-            // Extra light
-            font-weight: 200;
-
-        }
-
         @each $name, $size in $button-sizes {
 
             &.has-#{ "" + $name }-font-size {
@@ -91,6 +84,57 @@
 
                         font-size: $size;
                     
+                    }
+
+                }
+
+            }
+
+        }
+
+    }
+
+    @each $name, $color in $foundation-palette {
+
+        &:not( .is-style-outline ) {
+    
+            .wp-block-button__link {
+
+                &.has-#{ "" + $name }-background-color {
+
+                    border-width: 0.25em;
+                    border-color: $color;
+
+                    &:hover, &:focus {
+    
+                        background: $white;
+                        @include light-or-dark-text( $white, $dark-color, $color );
+                        border-width: 0.25em;
+                
+                    }
+
+                }
+
+            }
+
+        }
+
+        &.is-style-outline {
+
+            .wp-block-button__link {
+
+                &.has-#{ "" + $name }-background-color {
+
+                    color: $color;
+                    border-width: 0.25em;
+                    font-weight: 600;
+                
+                    &:hover, &:focus {
+                
+                        background-color: $color;
+                        border-color: $color;
+                        @include light-or-dark-text( $color );
+                
                     }
 
                 }
