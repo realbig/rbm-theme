@@ -113,7 +113,7 @@ add_action( 'wp_enqueue_scripts', 'rbm_use_custom_core_block_styles' );
  * and
  * https://kraftner.com/en/blog/building-your-own-wordpress-core-block-css/
  *
- * @since	{{VERSION}}
+ * @since	1.6.0
  * @return  void
  */
 function rbm_use_custom_core_block_styles() {

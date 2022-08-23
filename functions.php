@@ -261,7 +261,7 @@ add_action( 'init', function() {
 /**
  * More-or-less a copy of wp_enqueue_global_styles() but with extra code to rip out unwanted variables and definitions
  *
- * @since   {{VERSION}}
+ * @since   1.6.0
  * @return  void
  */
 function rbm_adjust_global_styles() {
@@ -281,7 +281,7 @@ function rbm_adjust_global_styles() {
  *
  * @param   array $types   Types of styles to load. Optional. It accepts 'variables', 'styles', 'presets' as values. If empty, it'll load all for themes with theme.json support and only [ 'variables', 'presets' ] for themes without theme.json support.
  *
- * @since   {{VERSION}}
+ * @since   1.6.0
  * @return  string         Stylesheet resulting of merging core, theme, and user data
  */
 function rbm_get_global_stylesheet( $types = array() ) {
