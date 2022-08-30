@@ -38,7 +38,7 @@
     "grunt": "^1.0.3",
     "grunt-contrib-compress": "^1.4.3",
     "gulp": "^4.0.0",
-    "gulp-autoprefixer": "^3.1.0",
+    "gulp-autoprefixer": "^8.0.0",
     "gulp-babel": "^8.0.0",
     "gulp-clean": "^0.4.0",
     "gulp-clean-css": "^3.3.1",
